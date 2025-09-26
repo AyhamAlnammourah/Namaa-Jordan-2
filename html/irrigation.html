@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Irrigation Systems in Jordan - Advanced water management techniques essential for agriculture in one of the world's most water-scarce countries." />
+  <title>Irrigation Systems in Jordan | أنظمة الري في الأردن</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/rtl-support.css" />
+  <link rel="icon" href="../images/favicon.svg" />
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <header class="glass nav">
+    <div class="brand">
+      <span class="logo">🌿</span>
+      <span data-i18n="brand">Food Security in Jordan</span>
+    </div>
+    <nav class="nav-menu">
+      <a href="../index.html" data-i18n="nav_home">Home</a>
+      <a href="statistics.html" data-i18n="nav_stats">Statistics</a>
+      <a href="irrigation.html" class="active" data-i18n="nav_irrigation">Irrigation</a>
+
+      <a href="diseases.html" data-i18n="nav_diseases">Diseases</a>
+      <a href="quiz.html" data-i18n="nav_quiz">Quiz</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search..." data-i18n-placeholder="search_placeholder">
+      <button id="searchBtn">🔍</button>
+    </div>
+    <div class="lang-switch">
+      <button id="lang-en" class="chip active">EN</button>
+      <button id="lang-ar" class="chip">العربية</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Irrigation systems -->
+    <section id="irrigation" class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="irr_title">Irrigation Systems in Jordan</h2>
+        <p class="section-desc" data-i18n="irr_desc">
+          Advanced water management techniques essential for agriculture in one of the world's most water-scarce countries.
+        </p>
+        
+        <!-- Irrigation Methods Grid -->
+        <div class="irrigation-methods">
+          <div class="method-card glass fade-up">
+            <div class="method-header">
+              <h3 data-i18n="irr_drip">Drip Irrigation</h3>
+              <span class="efficiency-badge" data-i18n="efficiency_high">95% Efficient</span>
+            </div>
+            <div class="diagram">
+              <svg viewBox="0 0 300 120" width="100%" height="120">
+                <defs>
+                  <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#8BC34A"/>
+                    <stop offset="100%" stop-color="#2ecc71"/>
+                  </linearGradient>
+                </defs>
+                <rect x="0" y="80" width="300" height="40" fill="#795548" opacity="0.25"/>
+                <rect x="10" y="60" width="280" height="6" rx="3" fill="url(#g)"/>
+                <circle cx="60" cy="63" r="3" fill="#1abc9c"/>
+                <circle cx="130" cy="63" r="3" fill="#1abc9c"/>
+                <circle cx="200" cy="63" r="3" fill="#1abc9c"/>
+                <path d="M60,63 C60,63 58,72 60,80" stroke="#1abc9c" stroke-width="2" fill="none"/>
+                <path d="M130,63 C130,63 128,72 130,80" stroke="#1abc9c" stroke-width="2" fill="none"/>
+                <path d="M200,63 C200,63 198,72 200,80" stroke="#1abc9c" stroke-width="2" fill="none"/>
+              </svg>
+            </div>
+            <div class="method-details">
+              <p data-i18n="irr_drip_desc">Most efficient system used extensively in Jordan Valley. Water is delivered directly to plant roots through emitters.</p>
+              <ul class="method-benefits">
+                <li data-i18n="drip_benefit_1">90-95% water efficiency</li>
+                <li data-i18n="drip_benefit_2">Reduced evaporation losses</li>
+                <li data-i18n="drip_benefit_3">Precise nutrient delivery</li>
+                <li data-i18n="drip_benefit_4">Suitable for all terrains</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="method-card glass fade-up">
+            <div class="method-header">
+              <h3 data-i18n="irr_sprink">Sprinkler Irrigation</h3>
+              <span class="efficiency-badge moderate" data-i18n="efficiency_moderate">75% Efficient</span>
+            </div>
+            <div class="diagram">
+              <svg viewBox="0 0 300 120" width="100%" height="120">
+                <rect x="0" y="90" width="300" height="30" fill="#795548" opacity="0.25"/>
+                <rect x="140" y="60" width="20" height="30" rx="4" fill="#4CAF50"/>
+                <path d="M150,60 Q120,40 100,30" stroke="#00BCD4" stroke-width="2"/>
+                <path d="M150,60 Q180,40 200,30" stroke="#00BCD4" stroke-width="2"/>
+                <path d="M150,60 Q130,35 110,25" stroke="#00BCD4" stroke-width="2"/>
+                <path d="M150,60 Q170,35 190,25" stroke="#00BCD4" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="method-details">
+              <p data-i18n="irr_sprink_desc">Used for field crops and larger agricultural areas, simulating natural rainfall patterns.</p>
+              <ul class="method-benefits">
+                <li data-i18n="sprink_benefit_1">Good for large areas</li>
+                <li data-i18n="sprink_benefit_2">Uniform water distribution</li>
+                <li data-i18n="sprink_benefit_3">Can apply fertilizers</li>
+                <li data-i18n="sprink_benefit_4">Moderate investment cost</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="method-card glass fade-up">
+            <div class="method-header">
+              <h3 data-i18n="irr_surface">Surface Irrigation</h3>
+              <span class="efficiency-badge low" data-i18n="efficiency_low">60% Efficient</span>
+            </div>
+            <div class="diagram">
+              <svg viewBox="0 0 300 120" width="100%" height="120">
+                <rect x="0" y="90" width="300" height="30" fill="#795548" opacity="0.25"/>
+                <path d="M0,88 C80,88 220,88 300,88" stroke="#3498db" stroke-width="10" fill="none"/>
+                <path d="M50,88 C50,85 50,82 50,80" stroke="#3498db" stroke-width="3" fill="none"/>
+                <path d="M150,88 C150,85 150,82 150,80" stroke="#3498db" stroke-width="3" fill="none"/>
+                <path d="M250,88 C250,85 250,82 250,80" stroke="#3498db" stroke-width="3" fill="none"/>
+              </svg>
+            </div>
+            <div class="method-details">
+              <p data-i18n="irr_surface_desc">Traditional method still used in some areas, particularly for flood-tolerant crops.</p>
+              <ul class="method-benefits">
+                <li data-i18n="surface_benefit_1">Low initial investment</li>
+                <li data-i18n="surface_benefit_2">Simple operation</li>
+                <li data-i18n="surface_benefit_3">Good for rice cultivation</li>
+                <li data-i18n="surface_benefit_4">Traditional knowledge</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jordan Valley Irrigation Network -->
+        <div class="jordan-valley-section glass fade-up">
+          <h3 data-i18n="jordan_valley_title">Jordan Valley Irrigation Network</h3>
+          <div class="valley-content">
+            <div class="valley-map">
+              <div class="map-placeholder">
+                <div class="region north" data-tooltip="Northern Jordan Valley - Intensive vegetable production">
+                  <span class="region-label" data-i18n="north_valley">North Valley</span>
+                </div>
+                <div class="region middle" data-tooltip="Middle Jordan Valley - Mixed farming systems">
+                  <span class="region-label" data-i18n="middle_valley">Middle Valley</span>
+                </div>
+                <div class="region south" data-tooltip="Southern Jordan Valley - Date palm cultivation">
+                  <span class="region-label" data-i18n="south_valley">South Valley</span>
+                </div>
+              </div>
+            </div>
+            <div class="valley-stats">
+              <div class="valley-stat">
+                <span class="stat-value">105</span>
+                <span class="stat-unit" data-i18n="km_length">km length</span>
+              </div>
+              <div class="valley-stat">
+                <span class="stat-value">27,000</span>
+                <span class="stat-unit" data-i18n="hectares">hectares irrigated</span>
+              </div>
+              <div class="valley-stat">
+                <span class="stat-value">200</span>
+                <span class="stat-unit" data-i18n="mcm_water">MCM water annually</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Water Conservation Techniques -->
+        <div class="conservation-techniques">
+          <h3 data-i18n="conservation_title">Water Conservation Innovations</h3>
+          <div class="techniques-grid">
+            <div class="technique-card glass fade-up">
+              <div class="technique-icon">♻️</div>
+              <h4 data-i18n="greywater_title">Greywater Reuse</h4>
+              <p data-i18n="greywater_desc">Treated wastewater used for irrigation, reducing freshwater demand by up to 30%.</p>
+            </div>
+            <div class="technique-card glass fade-up">
+              <div class="technique-icon">🌡️</div>
+              <h4 data-i18n="mulching_title">Mulching Systems</h4>
+              <p data-i18n="mulching_desc">Plastic and organic mulches reduce evaporation and maintain soil moisture.</p>
+            </div>
+            <div class="technique-card glass fade-up">
+              <div class="technique-icon">📱</div>
+              <h4 data-i18n="smart_irrigation_title">Smart Irrigation</h4>
+              <p data-i18n="smart_irrigation_desc">IoT sensors and automated systems optimize water application timing and quantity.</p>
+            </div>
+            <div class="technique-card glass fade-up">
+              <div class="technique-icon">🏠</div>
+              <h4 data-i18n="greenhouse_title">Protected Agriculture</h4>
+              <p data-i18n="greenhouse_desc">Greenhouses and tunnels reduce water needs while extending growing seasons.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Advanced Irrigation Technologies -->
+        <div class="advanced-technologies glass fade-up">
+          <h3 data-i18n="advanced_tech_title">Advanced Irrigation Technologies</h3>
+          <div class="tech-grid">
+            <div class="tech-item">
+              <div class="tech-icon">🛰️</div>
+              <h4 data-i18n="satellite_monitoring">Satellite Monitoring</h4>
+              <p data-i18n="satellite_desc">Remote sensing technology monitors crop water stress and optimizes irrigation scheduling.</p>
+              <div class="tech-benefits">
+                <span class="benefit-tag" data-i18n="real_time_data">Real-time Data</span>
+                <span class="benefit-tag" data-i18n="precision_mapping">Precision Mapping</span>
+                <span class="benefit-tag" data-i18n="cost_effective">Cost Effective</span>
+              </div>
+            </div>
+
+            <div class="tech-item">
+              <div class="tech-icon">🤖</div>
+              <h4 data-i18n="automated_systems">Automated Irrigation Systems</h4>
+              <p data-i18n="automated_desc">AI-powered systems automatically adjust water delivery based on weather, soil, and plant conditions.</p>
+              <div class="tech-benefits">
+                <span class="benefit-tag" data-i18n="ai_control">AI Control</span>
+                <span class="benefit-tag" data-i18n="weather_integration">Weather Integration</span>
+                <span class="benefit-tag" data-i18n="energy_efficient">Energy Efficient</span>
+              </div>
+            </div>
+
+            <div class="tech-item">
+              <div class="tech-icon">💧</div>
+              <h4 data-i18n="precision_irrigation">Precision Irrigation</h4>
+              <p data-i18n="precision_desc">Variable rate irrigation technology delivers exact water amounts to different field zones.</p>
+              <div class="tech-benefits">
+                <span class="benefit-tag" data-i18n="zone_specific">Zone Specific</span>
+                <span class="benefit-tag" data-i18n="water_savings">Water Savings</span>
+                <span class="benefit-tag" data-i18n="yield_optimization">Yield Optimization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Water Sources and Management -->
+        <div class="water-sources glass fade-up">
+          <h3 data-i18n="water_sources_title">Water Sources and Management</h3>
+          <div class="sources-grid">
+            <div class="source-card">
+              <div class="source-icon">🏔️</div>
+              <h4 data-i18n="surface_water">Surface Water</h4>
+              <div class="source-stats">
+                <div class="stat">
+                  <span class="stat-value">280</span>
+                  <span class="stat-label" data-i18n="mcm_annually">MCM annually</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">35%</span>
+                  <span class="stat-label" data-i18n="total_supply">of total supply</span>
+                </div>
+              </div>
+              <p data-i18n="surface_water_desc">Rivers, springs, and seasonal streams provide renewable water resources.</p>
+            </div>
+
+            <div class="source-card">
+              <div class="source-icon">🕳️</div>
+              <h4 data-i18n="groundwater">Groundwater</h4>
+              <div class="source-stats">
+                <div class="stat">
+                  <span class="stat-value">450</span>
+                  <span class="stat-label" data-i18n="mcm_annually">MCM annually</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">55%</span>
+                  <span class="stat-label" data-i18n="total_supply">of total supply</span>
+                </div>
+              </div>
+              <p data-i18n="groundwater_desc">Aquifers provide the majority of Jordan's water, but many are being overexploited.</p>
+            </div>
+
+            <div class="source-card">
+              <div class="source-icon">♻️</div>
+              <h4 data-i18n="treated_wastewater">Treated Wastewater</h4>
+              <div class="source-stats">
+                <div class="stat">
+                  <span class="stat-value">80</span>
+                  <span class="stat-label" data-i18n="mcm_annually">MCM annually</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">10%</span>
+                  <span class="stat-label" data-i18n="total_supply">of total supply</span>
+                </div>
+              </div>
+              <p data-i18n="treated_wastewater_desc">Reclaimed water increasingly used for agricultural irrigation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer glass">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4 data-i18n="about_site">About This Site</h4>
+        <p data-i18n="footer_description">Comprehensive resource for Jordan's food security, agriculture, and sustainable farming practices.</p>
+      </div>
+      <div class="footer-section">
+        <h4 data-i18n="quick_links">Quick Links</h4>
+        <div class="footer-links">
+          <a href="statistics.html" data-i18n="nav_stats">Statistics</a>
+          <a href="irrigation.html" data-i18n="nav_irrigation">Irrigation</a>
+          <a href="index.html#crops" data-i18n="nav_crops">Crops</a>
+          <a href="diseases.html" data-i18n="nav_diseases">Diseases</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4 data-i18n="resources">Resources</h4>
+        <div class="footer-links">
+          <a href="quiz.html" data-i18n="nav_quiz">Knowledge Quiz</a>
+          <a href="contact.html" data-i18n="nav_contact">Contact</a>
+          <a href="#" data-i18n="print_version">Print Version</a>
+          <a href="#" data-i18n="download_pdf">Download PDF</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        <span data-i18n="footer_txt">Namaa Jordan</span>
+        · <a href="#irrigation" class="top" data-i18n="back_top">Back to top</a>
+      </p>
+      <p class="footer-credits">
+        <span data-i18n="footer_year">2025</span>
+        · <span data-i18n="footer_version">Version 2.0</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="../js/data-manager.js"></script>
+  <script src="../js/chart-manager.js"></script>
+  <script src="../js/language-manager.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

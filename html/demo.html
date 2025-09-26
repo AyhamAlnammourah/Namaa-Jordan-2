@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Demo - Agricultural Data Management System with JSON Storage and Chart.js Visualization" />
+    <title>Demo | Agricultural Data Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/rtl-support.css" />
+    <link rel="icon" href="../images/favicon.svg" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .demo-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .demo-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-demo {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .demo-chart {
+            height: 300px;
+            margin: 1rem 0;
+        }
+        
+        .demo-controls {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        
+        .demo-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .demo-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+        
+        .demo-btn.secondary {
+            background: #6c757d;
+        }
+        
+        .demo-btn.secondary:hover {
+            background: #5a6268;
+        }
+        
+        .demo-output {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            max-height: 200px;
+            overflow-y: auto;
+            margin: 1rem 0;
+        }
+        
+        .demo-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-box {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #667eea;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        .code-example {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .highlight {
+            color: #68d391;
+        }
+        
+        .keyword {
+            color: #63b3ed;
+        }
+        
+        .string {
+            color: #fbb6ce;
+        }
+        
+        @media (max-width: 768px) {
+            .demo-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-controls {
+                flex-direction: column;
+            }
+            
+            .demo-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="glass nav">
+        <div class="brand">
+            <span class="logo">🚀</span>
+            <span>Data Management Demo</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="../index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="data-editor.html">Data Editor</a>
+            <a href="#demo" class="active">Demo</a>
+        </nav>
+    </header>
+
+    <!-- Demo Header -->
+    <section class="demo-header">
+        <div class="container">
+            <h1>🎯 Agricultural Data Management System Demo</h1>
+            <p>Experience the power of JSON-based data storage with interactive Chart.js visualizations</p>
+            
+            <!-- Quick Stats -->
+            <div class="demo-stats">
+                <div class="stat-box">
+                    <span class="stat-number" id="dataPointsCount">0</span>
+                    <span class="stat-label">Data Points</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" id="chartsCount">0</span>
+                    <span class="stat-label">Interactive Charts</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" id="datasetsCount">0</span>
+                    <span class="stat-label">Datasets</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Local Storage</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Feature Demonstrations -->
+        <div class="demo-features">
+            <!-- Data Loading Demo -->
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">JSON Data Loading</h3>
+                <p class="feature-description">
+                    Load and manage agricultural data from JSON files with automatic caching and error handling.
+                </p>
+                
+                <div class="feature-demo">
+                    <div class="demo-controls">
+                        <button class="demo-btn" onclick="demoDataLoading()">Load Agricultural Data</button>
+                        <button class="demo-btn secondary" onclick="showDataStructure()">Show Structure</button>
+                    </div>
+                    <div class="demo-output" id="dataLoadingOutput">Click "Load Agricultural Data" to see JSON data loading in action...</div>
+                </div>
+
+                <div class="code-example">
+<span class="keyword">const</span> data = <span class="keyword">await</span> <span class="highlight">dataManager</span>.<span class="highlight">loadData</span>(<span class="string">'agricultural'</span>);
+<span class="keyword">const</span> landUse = <span class="keyword">await</span> <span class="highlight">dataManager</span>.<span class="highlight">getDataset</span>(<span class="string">'agricultural'</span>, <span class="string">'landUse'</span>);
+                </div>
+            </div>
+
+            <!-- Chart Creation Demo -->
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3 class="feature-title">Interactive Charts</h3>
+                <p class="feature-description">
+                    Create beautiful, interactive charts using Chart.js with real agricultural data from Jordan.
+                </p>
+                
+                <div class="feature-demo">
+                    <div class="demo-controls">
+                        <button class="demo-btn" onclick="createDemoChart()">Create Land Use Chart</button>
+                        <button class="demo-btn secondary" onclick="exportDemoChart()">Export Chart</button>
+                    </div>
+                    <div class="demo-chart">
+                        <canvas id="demoChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="code-example">
+<span class="keyword">await</span> <span class="highlight">chartManager</span>.<span class="highlight">createLandUseChart</span>(<span class="string">'demoChart'</span>);
+<span class="highlight">chartManager</span>.<span class="highlight">exportChart</span>(<span class="string">'demoChart'</span>, <span class="string">'chart.png'</span>);
+                </div>
+            </div>
+
+            <!-- Data Editing Demo -->
+            <div class="feature-card">
+                <div class="feature-icon">✏️</div>
+                <h3 class="feature-title">Data Management</h3>
+                <p class="feature-description">
+                    Add, edit, and delete data entries with real-time validation and JSON preview.
+                </p>
+                
+                <div class="feature-demo">
+                    <div class="demo-controls">
+                        <button class="demo-btn" onclick="addSampleData()">Add Sample Entry</button>
+                        <button class="demo-btn secondary" onclick="showDataStats()">Show Statistics</button>
+                    </div>
+                    <div class="demo-output" id="dataManagementOutput">Ready to demonstrate data management features...</div>
+                </div>
+
+                <div class="code-example">
+<span class="highlight">dataManager</span>.<span class="highlight">addDataEntry</span>(<span class="string">'agricultural'</span>, <span class="string">'cropProduction'</span>, {
+  <span class="highlight">crop</span>: <span class="string">'Tomatoes'</span>,
+  <span class="highlight">production</span>: <span class="highlight">200</span>,
+  <span class="highlight">year</span>: <span class="highlight">2024</span>,
+  <span class="highlight">trend</span>: <span class="string">'increasing'</span>
+});
+                </div>
+            </div>
+
+            <!-- Export/Import Demo -->
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3 class="feature-title">Data Export/Import</h3>
+                <p class="feature-description">
+                    Export data as JSON files for backup or sharing, and import data from external sources.
+                </p>
+                
+                <div class="feature-demo">
+                    <div class="demo-controls">
+                        <button class="demo-btn" onclick="exportSampleData()">Export Sample Data</button>
+                        <button class="demo-btn secondary" onclick="showExportFormat()">Show Format</button>
+                    </div>
+                    <div class="demo-output" id="exportOutput">Click "Export Sample Data" to download a JSON file...</div>
+                </div>
+
+                <div class="code-example">
+<span class="keyword">await</span> <span class="highlight">dataManager</span>.<span class="highlight">exportData</span>(<span class="string">'agricultural'</span>, <span class="string">'my-data.json'</span>);
+<span class="keyword">await</span> <span class="highlight">dataManager</span>.<span class="highlight">importData</span>(file, <span class="string">'agricultural'</span>);
+                </div>
+            </div>
+
+            <!-- Performance Demo -->
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Performance Features</h3>
+                <p class="feature-description">
+                    Automatic caching, localStorage persistence, and optimized rendering for smooth user experience.
+                </p>
+                
+                <div class="feature-demo">
+                    <div class="demo-controls">
+                        <button class="demo-btn" onclick="testPerformance()">Test Load Speed</button>
+                        <button class="demo-btn secondary" onclick="showCacheInfo()">Cache Info</button>
+                    </div>
+                    <div class="demo-output" id="performanceOutput">Ready to test performance features...</div>
+                </div>
+
+                <div class="code-example">
+<span class="keyword">const</span> cacheInfo = <span class="highlight">dataManager</span>.<span class="highlight">getCacheInfo</span>();
+<span class="keyword">const</span> stats = <span class="keyword">await</span> <span class="highlight">dataManager</span>.<span class="highlight">getStatistics</span>(<span class="string">'agricultural'</span>, <span class="string">'landUse'</span>);
+                </div>
+            </div>
+
+            <!-- Real-time Updates Demo -->
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3 class="feature-title">Real-time Updates</h3>
+                <p class="feature-description">
+                    Event-driven architecture ensures charts and UI update automatically when data changes.
+                </p>
+                
+                <div class="feature-demo">
+                    <div class="demo-controls">
+                        <button class="demo-btn" onclick="simulateDataUpdate()">Simulate Update</button>
+                        <button class="demo-btn secondary" onclick="showEventLog()">Event Log</button>
+                    </div>
+                    <div class="demo-output" id="realtimeOutput">Waiting for data updates...</div>
+                </div>
+
+                <div class="code-example">
+<span class="highlight">dataManager</span>.<span class="highlight">addEventListener</span>(<span class="string">'agricultural'</span>, (event, data) => {
+  <span class="keyword">console</span>.<span class="highlight">log</span>(<span class="string">'Data updated:'</span>, event, data);
+  <span class="highlight">chartManager</span>.<span class="highlight">refreshChart</span>(<span class="string">'myChart'</span>);
+});
+                </div>
+            </div>
+        </div>
+
+        <!-- Getting Started Section -->
+        <section style="margin: 4rem 0; padding: 3rem; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px;">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #333;">🚀 Getting Started</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">📊</div>
+                    <h3>View Dashboard</h3>
+                    <p>Explore interactive charts and real-time data visualization</p>
+                    <a href="dashboard.html" class="btn primary">Open Dashboard</a>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">✏️</div>
+                    <h3>Edit Data</h3>
+                    <p>Add, modify, or delete agricultural data entries</p>
+                    <a href="data-editor.html" class="btn primary">Open Editor</a>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">📖</div>
+                    <h3>Read Documentation</h3>
+                    <p>Learn about the data management system architecture</p>
+                    <a href="DATA-MANAGEMENT-README.md" class="btn primary">View Docs</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer glass">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Demo Features</h4>
+                <p>This demo showcases the complete agricultural data management system with JSON storage and Chart.js visualizations.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Technologies</h4>
+                <div class="footer-links">
+                    <span>Chart.js</span>
+                    <span>JSON Storage</span>
+                    <span>LocalStorage API</span>
+                    <span>ES6+ JavaScript</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Built with modern web technologies for agricultural data visualization and management.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/data-manager.js"></script>
+    <script src="../js/chart-manager.js"></script>
+    <script src="../js/language-manager.js"></script>
+    <script>
+        // Demo functionality
+        let eventLog = [];
+        
+        async function demoDataLoading() {
+            const output = document.getElementById('dataLoadingOutput');
+            output.innerHTML = 'Loading agricultural data...';
+            
+            try {
+                const data = await dataManager.loadData('agricultural');
+                const landUse = await dataManager.getDataset('agricultural', 'landUse');
+                
+                output.innerHTML = `
+                    ✅ Successfully loaded agricultural data!<br>
+                    📊 Datasets found: ${Object.keys(data).length}<br>
+                    🌍 Land use categories: ${landUse.data.length}<br>
+                    📅 Last updated: ${landUse.lastUpdated}
+                `;
+                
+                updateStats();
+            } catch (error) {
+                output.innerHTML = `❌ Error loading data: ${error.message}`;
+            }
+        }
+        
+        function showDataStructure() {
+            const output = document.getElementById('dataLoadingOutput');
+            output.innerHTML = `
+                📋 Data Structure:<br>
+                {<br>
+                &nbsp;&nbsp;"landUse": { "title": "...", "data": [...] },<br>
+                &nbsp;&nbsp;"cropProduction": { "title": "...", "data": [...] },<br>
+                &nbsp;&nbsp;"waterUsage": { "title": "...", "data": [...] }<br>
+                }
+            `;
+        }
+        
+        async function createDemoChart() {
+            try {
+                await chartManager.createLandUseChart('demoChart');
+                updateStats();
+            } catch (error) {
+                console.error('Error creating chart:', error);
+            }
+        }
+        
+        function exportDemoChart() {
+            chartManager.exportChart('demoChart', 'demo-land-use-chart.png');
+        }
+        
+        async function addSampleData() {
+            const output = document.getElementById('dataManagementOutput');
+            
+            const sampleEntry = {
+                crop: 'Demo Crop',
+                production: Math.floor(Math.random() * 100) + 50,
+                year: 2024,
+                trend: 'increasing'
+            };
+            
+            try {
+                dataManager.addDataEntry('agricultural', 'cropProduction', sampleEntry);
+                output.innerHTML = `
+                    ✅ Added sample entry:<br>
+                    🌾 ${sampleEntry.crop}<br>
+                    📊 Production: ${sampleEntry.production}k tons<br>
+                    📈 Trend: ${sampleEntry.trend}
+                `;
+                updateStats();
+            } catch (error) {
+                output.innerHTML = `❌ Error adding entry: ${error.message}`;
+            }
+        }
+        
+        async function showDataStats() {
+            const output = document.getElementById('dataManagementOutput');
+            
+            try {
+                const stats = await dataManager.getStatistics('agricultural', 'cropProduction');
+                output.innerHTML = `
+                    📊 Dataset Statistics:<br>
+                    📈 Total entries: ${stats.count}<br>
+                    🔢 Numeric fields: ${Object.keys(stats.numericFields).length}<br>
+                    📅 Last updated: ${stats.lastUpdated}
+                `;
+            } catch (error) {
+                output.innerHTML = `❌ Error getting statistics: ${error.message}`;
+            }
+        }
+        
+        async function exportSampleData() {
+            const output = document.getElementById('exportOutput');
+            
+            try {
+                await dataManager.exportData('agricultural', 'demo-agricultural-data.json');
+                output.innerHTML = '✅ Sample data exported successfully! Check your downloads folder.';
+            } catch (error) {
+                output.innerHTML = `❌ Export failed: ${error.message}`;
+            }
+        }
+        
+        function showExportFormat() {
+            const output = document.getElementById('exportOutput');
+            output.innerHTML = `
+                📋 Export Format (JSON):<br>
+                {<br>
+                &nbsp;&nbsp;"landUse": {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"title": "Land Use Distribution",<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"data": [...],<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;"lastUpdated": "2024-12-01"<br>
+                &nbsp;&nbsp;}<br>
+                }
+            `;
+        }
+        
+        async function testPerformance() {
+            const output = document.getElementById('performanceOutput');
+            const startTime = performance.now();
+            
+            try {
+                await dataManager.loadData('agricultural');
+                await dataManager.loadData('diseases');
+                await dataManager.loadData('vertical');
+                
+                const endTime = performance.now();
+                const loadTime = (endTime - startTime).toFixed(2);
+                
+                output.innerHTML = `
+                    ⚡ Performance Test Results:<br>
+                    🚀 Load time: ${loadTime}ms<br>
+                    💾 Cache hits: ${dataManager.cache.size}<br>
+                    📊 Memory usage: ~${JSON.stringify(Array.from(dataManager.cache.values())).length} bytes
+                `;
+            } catch (error) {
+                output.innerHTML = `❌ Performance test failed: ${error.message}`;
+            }
+        }
+        
+        function showCacheInfo() {
+            const output = document.getElementById('performanceOutput');
+            const cacheInfo = dataManager.getCacheInfo();
+            
+            output.innerHTML = `
+                💾 Cache Information:<br>
+                📊 Cached datasets: ${cacheInfo.size}<br>
+                🔑 Cache keys: ${cacheInfo.keys.join(', ')}<br>
+                📈 Memory usage: ${cacheInfo.memoryUsage} bytes
+            `;
+        }
+        
+        function simulateDataUpdate() {
+            const output = document.getElementById('realtimeOutput');
+            
+            // Simulate a data update
+            const updateEvent = {
+                type: 'data_updated',
+                timestamp: new Date().toISOString(),
+                dataset: 'cropProduction'
+            };
+            
+            eventLog.push(updateEvent);
+            
+            output.innerHTML = `
+                🔄 Simulated data update:<br>
+                📅 Time: ${new Date().toLocaleTimeString()}<br>
+                📊 Dataset: ${updateEvent.dataset}<br>
+                ✅ Event logged successfully
+            `;
+        }
+        
+        function showEventLog() {
+            const output = document.getElementById('realtimeOutput');
+            
+            if (eventLog.length === 0) {
+                output.innerHTML = '📋 Event log is empty. Simulate an update first!';
+                return;
+            }
+            
+            const recentEvents = eventLog.slice(-3);
+            output.innerHTML = `
+                📋 Recent Events (${eventLog.length} total):<br>
+                ${recentEvents.map(event => 
+                    `🔸 ${event.type} - ${new Date(event.timestamp).toLocaleTimeString()}`
+                ).join('<br>')}
+            `;
+        }
+        
+        async function updateStats() {
+            try {
+                const agricultural = await dataManager.loadData('agricultural');
+                const diseases = await dataManager.loadData('diseases');
+                const vertical = await dataManager.loadData('vertical');
+                
+                let totalDataPoints = 0;
+                [agricultural, diseases, vertical].forEach(data => {
+                    Object.values(data).forEach(dataset => {
+                        if (dataset.data && Array.isArray(dataset.data)) {
+                            totalDataPoints += dataset.data.length;
+                        }
+                    });
+                });
+                
+                document.getElementById('dataPointsCount').textContent = totalDataPoints;
+                document.getElementById('chartsCount').textContent = chartManager.charts.size;
+                document.getElementById('datasetsCount').textContent = 
+                    Object.keys(agricultural).length + 
+                    Object.keys(diseases).length + 
+                    Object.keys(vertical).length;
+            } catch (error) {
+                console.error('Error updating stats:', error);
+            }
+        }
+        
+        // Initialize demo
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Wait for managers to be ready
+            while (!window.dataManager || !window.chartManager) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            
+            // Update initial stats
+            updateStats();
+            
+            // Set up event listeners for real-time demo
+            dataManager.addEventListener('agricultural', (event, data) => {
+                eventLog.push({
+                    type: event,
+                    timestamp: new Date().toISOString(),
+                    dataset: 'agricultural'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

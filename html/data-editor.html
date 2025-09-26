@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Agricultural Data Editor - Add, Edit, and Manage Jordan Food Security Data" />
+    <title>Data Editor | Jordan Agricultural Statistics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/rtl-support.css" />
+    <link rel="icon" href="../images/favicon.svg" />
+    <style>
+        .editor-header {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .editor-nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .nav-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn.active {
+            background: white;
+            color: #28a745;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .editor-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .data-selector {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+        
+        .data-editor {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #28a745;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c82333;
+        }
+        
+        .data-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        
+        .data-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            border-bottom: 1px solid #f8f9fa;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .data-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .data-item.selected {
+            background-color: #e3f2fd;
+            border-left: 4px solid #28a745;
+        }
+        
+        .data-item-info {
+            flex: 1;
+        }
+        
+        .data-item-title {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .data-item-meta {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .data-item-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .action-btn {
+            padding: 0.25rem 0.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .action-btn.edit {
+            background: #ffc107;
+            color: #212529;
+        }
+        
+        .action-btn.delete {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .preview-section {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .preview-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .preview-content {
+            background: white;
+            padding: 1rem;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .validation-message {
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+        
+        .validation-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .validation-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .validation-message.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .modal-close:hover {
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .editor-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .editor-nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="glass nav">
+        <div class="brand">
+            <span class="logo">✏️</span>
+            <span>Agricultural Data Editor</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="../index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="statistics.html">Statistics</a>
+            <a href="#editor" class="active">Data Editor</a>
+        </nav>
+    </header>
+
+    <!-- Editor Header -->
+    <section class="editor-header">
+        <div class="container">
+            <h1>Agricultural Data Editor</h1>
+            <p>Add, edit, and manage agricultural statistics and research data</p>
+            
+            <!-- Editor Navigation -->
+            <div class="editor-nav">
+                <button class="nav-btn active" data-type="agricultural">🌾 Agricultural Data</button>
+                <button class="nav-btn" data-type="diseases">🦠 Disease Data</button>
+                <button class="nav-btn" data-type="vertical">🏢 Vertical Farming</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Validation Messages -->
+        <div id="validationMessage" class="validation-message" style="display: none;"></div>
+
+        <!-- Editor Container -->
+        <div class="editor-container">
+            <!-- Data Selector -->
+            <div class="data-selector">
+                <h3>📂 Select Dataset</h3>
+                <div class="form-group">
+                    <label for="datasetSelect">Dataset:</label>
+                    <select id="datasetSelect">
+                        <!-- Options populated dynamically -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-primary" id="addNewBtn">➕ Add New Entry</button>
+                    <button class="btn btn-secondary" id="refreshDataBtn">🔄 Refresh</button>
+                </div>
+
+                <!-- Data List -->
+                <div class="data-list" id="dataList">
+                    <!-- Data items populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Data Editor -->
+            <div class="data-editor">
+                <h3 id="editorTitle">📝 Data Entry Form</h3>
+                
+                <form id="dataForm">
+                    <!-- Form fields populated dynamically based on data type -->
+                    <div id="formFields">
+                        <!-- Dynamic form fields -->
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">💾 Save Entry</button>
+                        <button type="button" class="btn btn-secondary" id="cancelBtn">❌ Cancel</button>
+                        <button type="button" class="btn btn-danger" id="deleteBtn" style="display: none;">🗑️ Delete Entry</button>
+                    </div>
+                </form>
+
+                <!-- Preview Section -->
+                <div class="preview-section">
+                    <div class="preview-title">📋 JSON Preview</div>
+                    <div class="preview-content" id="jsonPreview">
+                        Select or create an entry to see JSON preview
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h3 id="modalTitle">Confirm Action</h3>
+            <p id="modalMessage">Are you sure you want to perform this action?</p>
+            <div style="text-align: right; margin-top: 2rem;">
+                <button class="btn btn-secondary" id="modalCancel">Cancel</button>
+                <button class="btn btn-danger" id="modalConfirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/data-manager.js"></script>
+    <script src="../js/chart-manager.js"></script>
+    <script src="../js/language-manager.js"></script>
+    <script>
+        class DataEditor {
+            constructor() {
+                this.currentDataType = 'agricultural';
+                this.currentDataset = null;
+                this.currentEntry = null;
+                this.isEditing = false;
+                this.formTemplates = {
+                    agricultural: {
+                        landUse: [
+                            { name: 'category', type: 'text', label: 'Category', required: true },
+                            { name: 'percentage', type: 'number', label: 'Percentage', required: true },
+                            { name: 'area_km2', type: 'number', label: 'Area (km²)', required: true },
+                            { name: 'color', type: 'color', label: 'Chart Color', required: true }
+                        ],
+                        cropProduction: [
+                            { name: 'crop', type: 'text', label: 'Crop Name', required: true },
+                            { name: 'production', type: 'number', label: 'Production (1000 tons)', required: true },
+                            { name: 'year', type: 'number', label: 'Year', required: true },
+                            { name: 'trend', type: 'select', label: 'Trend', options: ['increasing', 'stable', 'decreasing'], required: true }
+                        ],
+                        waterUsage: [
+                            { name: 'source', type: 'text', label: 'Water Source', required: true },
+                            { name: 'volume_mcm', type: 'number', label: 'Volume (MCM)', required: true },
+                            { name: 'percentage', type: 'number', label: 'Percentage', required: true },
+                            { name: 'color', type: 'color', label: 'Chart Color', required: true }
+                        ],
+                        climateData: [
+                            { name: 'year', type: 'number', label: 'Year', required: true },
+                            { name: 'rainfall_mm', type: 'number', label: 'Rainfall (mm)', required: true },
+                            { name: 'temperature_avg', type: 'number', label: 'Average Temperature (°C)', step: '0.1', required: true },
+                            { name: 'drought_index', type: 'number', label: 'Drought Index', step: '0.1', required: true }
+                        ]
+                    },
+                    diseases: {
+                        diseaseIncidence: [
+                            { name: 'crop', type: 'text', label: 'Crop', required: true },
+                            { name: 'disease', type: 'text', label: 'Disease Name', required: true },
+                            { name: 'incidence', type: 'number', label: 'Incidence (%)', required: true },
+                            { name: 'severity', type: 'select', label: 'Severity', options: ['low', 'medium', 'high'], required: true },
+                            { name: 'losses', type: 'number', label: 'Losses (%)', required: true }
+                        ],
+                        managementCosts: [
+                            { name: 'method', type: 'text', label: 'Management Method', required: true },
+                            { name: 'cost', type: 'number', label: 'Cost (USD/hectare)', required: true },
+                            { name: 'effectiveness', type: 'number', label: 'Effectiveness (%)', required: true },
+                            { name: 'sustainability', type: 'number', label: 'Sustainability (%)', required: true }
+                        ]
+                    },
+                    vertical: {
+                        projectData: [
+                            { name: 'project', type: 'text', label: 'Project Name', required: true },
+                            { name: 'area_sqm', type: 'number', label: 'Area (m²)', required: true },
+                            { name: 'investment_usd', type: 'number', label: 'Investment (USD)', required: true },
+                            { name: 'plants_monthly', type: 'number', label: 'Plants per Month', required: true },
+                            { name: 'status', type: 'select', label: 'Status', options: ['planning', 'construction', 'operational', 'research'], required: true }
+                        ],
+                        cropYields: [
+                            { name: 'crop', type: 'text', label: 'Crop', required: true },
+                            { name: 'yield', type: 'number', label: 'Yield (kg/m²/year)', required: true },
+                            { name: 'cycles_per_year', type: 'number', label: 'Cycles per Year', required: true },
+                            { name: 'price_per_kg', type: 'number', label: 'Price per kg', step: '0.1', required: true }
+                        ]
+                    }
+                };
+                this.init();
+            }
+
+            async init() {
+                await this.waitForDataManager();
+                this.setupEventListeners();
+                await this.loadDatasets();
+                this.generateForm();
+            }
+
+            async waitForDataManager() {
+                while (!window.dataManager) {
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                }
+            }
+
+            setupEventListeners() {
+                // Navigation buttons
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        this.switchDataType(e.target.dataset.type);
+                    });
+                });
+
+                // Dataset selector
+                document.getElementById('datasetSelect').addEventListener('change', (e) => {
+                    this.currentDataset = e.target.value;
+                    this.loadDataList();
+                    this.generateForm();
+                });
+
+                // Action buttons
+                document.getElementById('addNewBtn').addEventListener('click', () => {
+                    this.addNewEntry();
+                });
+
+                document.getElementById('refreshDataBtn').addEventListener('click', () => {
+                    this.refreshData();
+                });
+
+                document.getElementById('cancelBtn').addEventListener('click', () => {
+                    this.cancelEdit();
+                });
+
+                document.getElementById('deleteBtn').addEventListener('click', () => {
+                    this.deleteEntry();
+                });
+
+                // Form submission
+                document.getElementById('dataForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.saveEntry();
+                });
+
+                // Modal events
+                document.getElementById('modalClose').addEventListener('click', () => {
+                    this.hideModal();
+                });
+
+                document.getElementById('modalCancel').addEventListener('click', () => {
+                    this.hideModal();
+                });
+
+                // Form input changes for preview
+                document.addEventListener('input', (e) => {
+                    if (e.target.closest('#dataForm')) {
+                        this.updatePreview();
+                    }
+                });
+            }
+
+            async switchDataType(dataType) {
+                this.currentDataType = dataType;
+                
+                // Update navigation
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.type === dataType);
+                });
+
+                await this.loadDatasets();
+                this.generateForm();
+            }
+
+            async loadDatasets() {
+                const data = await dataManager.loadData(this.currentDataType);
+                const select = document.getElementById('datasetSelect');
+                
+                select.innerHTML = '';
+                Object.keys(data).forEach(key => {
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = data[key].title || key;
+                    select.appendChild(option);
+                });
+
+                if (select.options.length > 0) {
+                    this.currentDataset = select.value;
+                    await this.loadDataList();
+                }
+            }
+
+            async loadDataList() {
+                if (!this.currentDataset) return;
+
+                const dataset = await dataManager.getDataset(this.currentDataType, this.currentDataset);
+                const listContainer = document.getElementById('dataList');
+                
+                listContainer.innerHTML = '';
+
+                if (dataset && dataset.data && Array.isArray(dataset.data)) {
+                    dataset.data.forEach((item, index) => {
+                        const itemElement = document.createElement('div');
+                        itemElement.className = 'data-item';
+                        itemElement.dataset.index = index;
+                        
+                        const title = item.name || item.crop || item.category || item.project || `Entry ${index + 1}`;
+                        const meta = `Index: ${index} | Updated: ${dataset.lastUpdated}`;
+                        
+                        itemElement.innerHTML = `
+                            <div class="data-item-info">
+                                <div class="data-item-title">${title}</div>
+                                <div class="data-item-meta">${meta}</div>
+                            </div>
+                            <div class="data-item-actions">
+                                <button class="action-btn edit" onclick="dataEditor.editEntry(${index})">✏️</button>
+                                <button class="action-btn delete" onclick="dataEditor.confirmDelete(${index})">🗑️</button>
+                            </div>
+                        `;
+                        
+                        listContainer.appendChild(itemElement);
+                    });
+                }
+            }
+
+            generateForm() {
+                if (!this.currentDataset || !this.formTemplates[this.currentDataType]) return;
+
+                const template = this.formTemplates[this.currentDataType][this.currentDataset];
+                if (!template) return;
+
+                const formFields = document.getElementById('formFields');
+                formFields.innerHTML = '';
+
+                template.forEach(field => {
+                    const fieldGroup = document.createElement('div');
+                    fieldGroup.className = 'form-group';
+
+                    let inputHtml = '';
+                    switch (field.type) {
+                        case 'select':
+                            inputHtml = `
+                                <select id="${field.name}" name="${field.name}" ${field.required ? 'required' : ''}>
+                                    <option value="">Select ${field.label}</option>
+                                    ${field.options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+                                </select>
+                            `;
+                            break;
+                        case 'textarea':
+                            inputHtml = `<textarea id="${field.name}" name="${field.name}" rows="3" ${field.required ? 'required' : ''}></textarea>`;
+                            break;
+                        default:
+                            inputHtml = `<input type="${field.type}" id="${field.name}" name="${field.name}" ${field.step ? `step="${field.step}"` : ''} ${field.required ? 'required' : ''}>`;
+                    }
+
+                    fieldGroup.innerHTML = `
+                        <label for="${field.name}">${field.label} ${field.required ? '*' : ''}</label>
+                        ${inputHtml}
+                    `;
+
+                    formFields.appendChild(fieldGroup);
+                });
+
+                this.updatePreview();
+            }
+
+            addNewEntry() {
+                this.currentEntry = null;
+                this.isEditing = false;
+                document.getElementById('editorTitle').textContent = '➕ Add New Entry';
+                document.getElementById('deleteBtn').style.display = 'none';
+                document.getElementById('dataForm').reset();
+                this.clearSelection();
+                this.updatePreview();
+            }
+
+            async editEntry(index) {
+                const dataset = await dataManager.getDataset(this.currentDataType, this.currentDataset);
+                if (!dataset || !dataset.data || !dataset.data[index]) return;
+
+                this.currentEntry = { ...dataset.data[index] };
+                this.isEditing = true;
+                document.getElementById('editorTitle').textContent = '✏️ Edit Entry';
+                document.getElementById('deleteBtn').style.display = 'inline-block';
+
+                // Populate form
+                Object.keys(this.currentEntry).forEach(key => {
+                    const input = document.getElementById(key);
+                    if (input) {
+                        input.value = this.currentEntry[key];
+                    }
+                });
+
+                // Update selection
+                this.clearSelection();
+                const itemElement = document.querySelector(`[data-index="${index}"]`);
+                if (itemElement) {
+                    itemElement.classList.add('selected');
+                }
+
+                this.updatePreview();
+            }
+
+            async saveEntry() {
+                const formData = new FormData(document.getElementById('dataForm'));
+                const entry = {};
+
+                // Convert form data to object
+                for (let [key, value] of formData.entries()) {
+                    // Convert numeric fields
+                    const input = document.getElementById(key);
+                    if (input && input.type === 'number') {
+                        entry[key] = parseFloat(value) || 0;
+                    } else {
+                        entry[key] = value;
+                    }
+                }
+
+                try {
+                    if (this.isEditing && this.currentEntry) {
+                        // Update existing entry
+                        const dataset = await dataManager.getDataset(this.currentDataType, this.currentDataset);
+                        const index = dataset.data.findIndex(item => 
+                            JSON.stringify(item) === JSON.stringify(this.currentEntry)
+                        );
+                        
+                        if (index !== -1) {
+                            dataset.data[index] = entry;
+                            dataManager.updateData(this.currentDataType, this.currentDataset, dataset, true);
+                        }
+                    } else {
+                        // Add new entry
+                        dataManager.addDataEntry(this.currentDataType, this.currentDataset, entry);
+                    }
+
+                    this.showMessage('Entry saved successfully!', 'success');
+                    await this.loadDataList();
+                    this.addNewEntry();
+                } catch (error) {
+                    this.showMessage('Error saving entry: ' + error.message, 'error');
+                }
+            }
+
+            confirmDelete(index) {
+                this.pendingDeleteIndex = index;
+                document.getElementById('modalTitle').textContent = 'Delete Entry';
+                document.getElementById('modalMessage').textContent = 'Are you sure you want to delete this entry? This action cannot be undone.';
+                
+                document.getElementById('modalConfirm').onclick = () => {
+                    this.performDelete();
+                };
+                
+                this.showModal();
+            }
+
+            async performDelete() {
+                if (this.pendingDeleteIndex === undefined) return;
+
+                try {
+                    const dataset = await dataManager.getDataset(this.currentDataType, this.currentDataset);
+                    const entryToDelete = dataset.data[this.pendingDeleteIndex];
+                    
+                    dataManager.removeDataEntry(this.currentDataType, this.currentDataset, 
+                        item => JSON.stringify(item) === JSON.stringify(entryToDelete)
+                    );
+
+                    this.showMessage('Entry deleted successfully!', 'success');
+                    await this.loadDataList();
+                    this.addNewEntry();
+                } catch (error) {
+                    this.showMessage('Error deleting entry: ' + error.message, 'error');
+                }
+
+                this.hideModal();
+                this.pendingDeleteIndex = undefined;
+            }
+
+            deleteEntry() {
+                if (this.currentEntry) {
+                    const dataset = dataManager.getDataset(this.currentDataType, this.currentDataset);
+                    dataset.then(data => {
+                        const index = data.data.findIndex(item => 
+                            JSON.stringify(item) === JSON.stringify(this.currentEntry)
+                        );
+                        if (index !== -1) {
+                            this.confirmDelete(index);
+                        }
+                    });
+                }
+            }
+
+            cancelEdit() {
+                this.addNewEntry();
+            }
+
+            async refreshData() {
+                dataManager.clearCache();
+                await this.loadDatasets();
+                this.showMessage('Data refreshed successfully!', 'success');
+            }
+
+            updatePreview() {
+                const formData = new FormData(document.getElementById('dataForm'));
+                const entry = {};
+
+                for (let [key, value] of formData.entries()) {
+                    const input = document.getElementById(key);
+                    if (input && input.type === 'number') {
+                        entry[key] = parseFloat(value) || 0;
+                    } else {
+                        entry[key] = value;
+                    }
+                }
+
+                document.getElementById('jsonPreview').textContent = JSON.stringify(entry, null, 2);
+            }
+
+            clearSelection() {
+                document.querySelectorAll('.data-item').forEach(item => {
+                    item.classList.remove('selected');
+                });
+            }
+
+            showMessage(message, type) {
+                const messageDiv = document.getElementById('validationMessage');
+                messageDiv.className = `validation-message ${type}`;
+                messageDiv.textContent = message;
+                messageDiv.style.display = 'block';
+
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+
+            showModal() {
+                document.getElementById('confirmModal').style.display = 'block';
+            }
+
+            hideModal() {
+                document.getElementById('confirmModal').style.display = 'none';
+            }
+        }
+
+        // Initialize editor when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            window.dataEditor = new DataEditor();
+        });
+    </script>
+</body>
+</html>

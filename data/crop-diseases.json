@@ -1,0 +1,43 @@
+{
+  "diseaseIncidence": {
+    "title": "Plant Disease Incidence by Crop",
+    "data": [
+      { "crop": "Olives", "disease": "Olive Fruit Fly", "incidence": 35, "severity": "high", "losses": 25 },
+      { "crop": "Olives", "disease": "Peacock Spot", "incidence": 20, "severity": "medium", "losses": 10 },
+      { "crop": "Tomatoes", "disease": "TYLCV", "incidence": 45, "severity": "high", "losses": 40 },
+      { "crop": "Tomatoes", "disease": "Late Blight", "incidence": 15, "severity": "medium", "losses": 20 },
+      { "crop": "Wheat", "disease": "Stripe Rust", "incidence": 25, "severity": "high", "losses": 30 },
+      { "crop": "Barley", "disease": "Net Blotch", "incidence": 18, "severity": "medium", "losses": 15 },
+      { "crop": "Cucumbers", "disease": "Downy Mildew", "incidence": 30, "severity": "medium", "losses": 18 }
+    ],
+    "lastUpdated": "2024-12-01"
+  },
+  "managementCosts": {
+    "title": "Disease Management Costs (USD per hectare)",
+    "data": [
+      { "method": "Chemical Control", "cost": 180, "effectiveness": 85, "sustainability": 40 },
+      { "method": "Biological Control", "cost": 120, "effectiveness": 70, "sustainability": 90 },
+      { "method": "Cultural Control", "cost": 60, "effectiveness": 60, "sustainability": 95 },
+      { "method": "Integrated Management", "cost": 140, "effectiveness": 90, "sustainability": 85 }
+    ],
+    "lastUpdated": "2024-12-01"
+  },
+  "seasonalTrends": {
+    "title": "Seasonal Disease Pressure",
+    "data": [
+      { "month": "Jan", "pressure": 20, "temperature": 12, "humidity": 65 },
+      { "month": "Feb", "pressure": 25, "temperature": 14, "humidity": 70 },
+      { "month": "Mar", "pressure": 40, "temperature": 18, "humidity": 75 },
+      { "month": "Apr", "pressure": 65, "temperature": 22, "humidity": 68 },
+      { "month": "May", "pressure": 80, "temperature": 26, "humidity": 55 },
+      { "month": "Jun", "pressure": 70, "temperature": 30, "humidity": 45 },
+      { "month": "Jul", "pressure": 60, "temperature": 32, "humidity": 40 },
+      { "month": "Aug", "pressure": 55, "temperature": 31, "humidity": 42 },
+      { "month": "Sep", "pressure": 45, "temperature": 28, "humidity": 50 },
+      { "month": "Oct", "pressure": 35, "temperature": 24, "humidity": 58 },
+      { "month": "Nov", "pressure": 30, "temperature": 18, "humidity": 62 },
+      { "month": "Dec", "pressure": 22, "temperature": 14, "humidity": 68 }
+    ],
+    "lastUpdated": "2024-12-01"
+  }
+}

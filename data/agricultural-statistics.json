@@ -1,0 +1,67 @@
+{
+  "landUse": {
+    "title": "Land Use Distribution in Jordan",
+    "data": [
+      { "category": "Desert", "percentage": 70, "area_km2": 62000, "color": "#D4A574" },
+      { "category": "Arable Land", "percentage": 3, "area_km2": 2700, "color": "#8BC34A" },
+      { "category": "Pasture", "percentage": 9, "area_km2": 8000, "color": "#4CAF50" },
+      { "category": "Forest", "percentage": 1, "area_km2": 900, "color": "#2E7D32" },
+      { "category": "Urban/Other", "percentage": 17, "area_km2": 15400, "color": "#757575" }
+    ],
+    "lastUpdated": "2024-12-01"
+  },
+  "cropProduction": {
+    "title": "Major Crop Production (1000 tons)",
+    "data": [
+      { "crop": "Olives", "production": 240, "year": 2023, "trend": "increasing" },
+      { "crop": "Tomatoes", "production": 180, "year": 2023, "trend": "stable" },
+      { "crop": "Citrus", "production": 150, "year": 2023, "trend": "increasing" },
+      { "crop": "Wheat", "production": 25, "year": 2023, "trend": "decreasing" },
+      { "crop": "Barley", "production": 15, "year": 2023, "trend": "stable" },
+      { "crop": "Vegetables", "production": 320, "year": 2023, "trend": "increasing" }
+    ],
+    "lastUpdated": "2024-12-01"
+  },
+  "waterUsage": {
+    "title": "Agricultural Water Usage by Source",
+    "data": [
+      { "source": "Surface Water", "volume_mcm": 180, "percentage": 45, "color": "#2196F3" },
+      { "source": "Groundwater", "volume_mcm": 140, "percentage": 35, "color": "#03A9F4" },
+      { "source": "Treated Wastewater", "volume_mcm": 60, "percentage": 15, "color": "#00BCD4" },
+      { "source": "Desalinated Water", "volume_mcm": 20, "percentage": 5, "color": "#009688" }
+    ],
+    "totalUsage": 400,
+    "lastUpdated": "2024-12-01"
+  },
+  "irrigationMethods": {
+    "title": "Irrigation Methods Distribution",
+    "data": [
+      { "method": "Drip Irrigation", "area_hectares": 18000, "efficiency": 95, "color": "#4CAF50" },
+      { "method": "Sprinkler", "area_hectares": 6000, "efficiency": 75, "color": "#FF9800" },
+      { "method": "Surface Irrigation", "area_hectares": 3000, "efficiency": 60, "color": "#F44336" }
+    ],
+    "totalIrrigatedArea": 27000,
+    "lastUpdated": "2024-12-01"
+  },
+  "economicData": {
+    "title": "Agricultural Economic Indicators",
+    "data": [
+      { "indicator": "GDP Contribution", "value": 3, "unit": "percentage", "trend": "stable" },
+      { "indicator": "Employment", "value": 240000, "unit": "people", "trend": "decreasing" },
+      { "indicator": "Export Value", "value": 850, "unit": "million_usd", "trend": "increasing" },
+      { "indicator": "Food Import Bill", "value": 2400, "unit": "million_usd", "trend": "increasing" }
+    ],
+    "lastUpdated": "2024-12-01"
+  },
+  "climateData": {
+    "title": "Climate Impact on Agriculture",
+    "data": [
+      { "year": 2019, "rainfall_mm": 180, "temperature_avg": 18.5, "drought_index": 2.1 },
+      { "year": 2020, "rainfall_mm": 220, "temperature_avg": 18.8, "drought_index": 1.8 },
+      { "year": 2021, "rainfall_mm": 160, "temperature_avg": 19.2, "drought_index": 2.4 },
+      { "year": 2022, "rainfall_mm": 140, "temperature_avg": 19.6, "drought_index": 2.8 },
+      { "year": 2023, "rainfall_mm": 195, "temperature_avg": 19.1, "drought_index": 2.0 }
+    ],
+    "lastUpdated": "2024-12-01"
+  }
+}

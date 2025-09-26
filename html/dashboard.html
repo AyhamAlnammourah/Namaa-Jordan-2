@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Interactive Agricultural Data Dashboard - Jordan Food Security Analytics with Real-time Charts and Statistics" />
+    <title>Agricultural Data Dashboard | Jordan Food Security Analytics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/rtl-support.css" />
+    <link rel="icon" href="../images/favicon.svg" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <style>
+        .dashboard-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .dashboard-controls {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .control-group label {
+            font-weight: 600;
+            color: white;
+        }
+        
+        .control-group select,
+        .control-group button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            background: white;
+            color: #333;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .control-group button:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+        
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .chart-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .chart-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .chart-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .chart-action-btn {
+            padding: 0.25rem 0.5rem;
+            border: none;
+            border-radius: 4px;
+            background: #f8f9fa;
+            color: #666;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .chart-action-btn:hover {
+            background: #e9ecef;
+            color: #333;
+        }
+        
+        .chart-canvas {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+        
+        .data-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #667eea;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        .data-management {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .data-management h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .management-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .management-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .management-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+        
+        .management-btn.secondary {
+            background: #6c757d;
+        }
+        
+        .management-btn.secondary:hover {
+            background: #5a6268;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .loading-indicator {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+        
+        .loading-indicator.active {
+            display: block;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: none;
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .control-group {
+                justify-content: space-between;
+            }
+            
+            .management-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="glass nav">
+        <div class="brand">
+            <span class="logo">📊</span>
+            <span>Agricultural Data Dashboard</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="../index.html">Home</a>
+            <a href="statistics.html">Statistics</a>
+            <a href="irrigation.html">Irrigation</a>
+            <a href="diseases.html">Diseases</a>
+            <a href="#dashboard" class="active">Dashboard</a>
+        </nav>
+        <div class="lang-switch">
+            <button id="lang-en" class="chip active">EN</button>
+            <button id="lang-ar" class="chip">العربية</button>
+        </div>
+    </header>
+
+    <!-- Dashboard Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <h1>Interactive Agricultural Data Dashboard</h1>
+            <p>Real-time visualization and analysis of Jordan's agricultural statistics</p>
+            
+            <!-- Dashboard Controls -->
+            <div class="dashboard-controls">
+                <div class="control-group">
+                    <label for="dataType">Data Type:</label>
+                    <select id="dataType">
+                        <option value="agricultural">Agricultural Statistics</option>
+                        <option value="diseases">Crop Diseases</option>
+                        <option value="vertical">Vertical Farming</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <button id="refreshData">🔄 Refresh Data</button>
+                    <button id="exportAllCharts">📊 Export Charts</button>
+                    <button id="fullscreen">🖥️ Fullscreen</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Loading Indicator -->
+        <div class="loading-indicator" id="loadingIndicator">
+            <div class="loading-spinner"></div>
+            <p>Loading dashboard data...</p>
+        </div>
+
+        <!-- Error/Success Messages -->
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <!-- Data Statistics Overview -->
+        <section class="data-stats" id="dataStats">
+            <!-- Stats will be populated dynamically -->
+        </section>
+
+        <!-- Charts Grid -->
+        <section class="charts-grid" id="chartsGrid">
+            <!-- Agricultural Charts -->
+            <div class="chart-container" data-type="agricultural">
+                <div class="chart-header">
+                    <h3 class="chart-title">Land Use Distribution</h3>
+                    <div class="chart-actions">
+                        <button class="chart-action-btn" onclick="chartManager.exportChart('chartLandUse', 'land-use-chart.png')">📷 Export</button>
+                        <button class="chart-action-btn" onclick="chartManager.refreshChart('chartLandUse')">🔄 Refresh</button>
+                    </div>
+                </div>
+                <div class="chart-canvas">
+                    <canvas id="chartLandUse"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container" data-type="agricultural">
+                <div class="chart-header">
+                    <h3 class="chart-title">Crop Production</h3>
+                    <div class="chart-actions">
+                        <button class="chart-action-btn" onclick="chartManager.exportChart('chartCropProduction', 'crop-production-chart.png')">📷 Export</button>
+                        <button class="chart-action-btn" onclick="chartManager.refreshChart('chartCropProduction')">🔄 Refresh</button>
+                    </div>
+                </div>
+                <div class="chart-canvas">
+                    <canvas id="chartCropProduction"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container" data-type="agricultural">
+                <div class="chart-header">
+                    <h3 class="chart-title">Water Usage by Source</h3>
+                    <div class="chart-actions">
+                        <button class="chart-action-btn" onclick="chartManager.exportChart('chartWaterUsage', 'water-usage-chart.png')">📷 Export</button>
+                        <button class="chart-action-btn" onclick="chartManager.refreshChart('chartWaterUsage')">🔄 Refresh</button>
+                    </div>
+                </div>
+                <div class="chart-canvas">
+                    <canvas id="chartWaterUsage"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container" data-type="agricultural">
+                <div class="chart-header">
+                    <h3 class="chart-title">Climate Trends</h3>
+                    <div class="chart-actions">
+                        <button class="chart-action-btn" onclick="chartManager.exportChart('chartClimate', 'climate-trends-chart.png')">📷 Export</button>
+                        <button class="chart-action-btn" onclick="chartManager.refreshChart('chartClimate')">🔄 Refresh</button>
+                    </div>
+                </div>
+                <div class="chart-canvas">
+                    <canvas id="chartClimate"></canvas>
+                </div>
+            </div>
+
+            <!-- Disease Charts -->
+            <div class="chart-container" data-type="diseases" style="display: none;">
+                <div class="chart-header">
+                    <h3 class="chart-title">Disease Incidence by Crop</h3>
+                    <div class="chart-actions">
+                        <button class="chart-action-btn" onclick="chartManager.exportChart('chartDiseases', 'disease-incidence-chart.png')">📷 Export</button>
+                        <button class="chart-action-btn" onclick="chartManager.refreshChart('chartDiseases')">🔄 Refresh</button>
+                    </div>
+                </div>
+                <div class="chart-canvas">
+                    <canvas id="chartDiseases"></canvas>
+                </div>
+            </div>
+
+            <!-- Vertical Farming Charts -->
+            <div class="chart-container" data-type="vertical" style="display: none;">
+                <div class="chart-header">
+                    <h3 class="chart-title">Farming Efficiency Comparison</h3>
+                    <div class="chart-actions">
+                        <button class="chart-action-btn" onclick="chartManager.exportChart('chartVerticalEfficiency', 'efficiency-comparison-chart.png')">📷 Export</button>
+                        <button class="chart-action-btn" onclick="chartManager.refreshChart('chartVerticalEfficiency')">🔄 Refresh</button>
+                    </div>
+                </div>
+                <div class="chart-canvas">
+                    <canvas id="chartVerticalEfficiency"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container" data-type="vertical" style="display: none;">
+                <div class="chart-header">
+                    <h3 class="chart-title">Investment Trends</h3>
+                    <div class="chart-actions">
+                        <button class="chart-action-btn" onclick="chartManager.exportChart('chartInvestment', 'investment-trends-chart.png')">📷 Export</button>
+                        <button class="chart-action-btn" onclick="chartManager.refreshChart('chartInvestment')">🔄 Refresh</button>
+                    </div>
+                </div>
+                <div class="chart-canvas">
+                    <canvas id="chartInvestment"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Management Section -->
+        <section class="data-management">
+            <h3>📁 Data Management</h3>
+            <p>Import, export, and manage your agricultural data files</p>
+            
+            <div class="management-actions">
+                <button class="management-btn" id="exportData">📤 Export Current Data</button>
+                <button class="management-btn secondary" id="importDataBtn">📥 Import Data</button>
+                <button class="management-btn secondary" id="clearCache">🗑️ Clear Cache</button>
+                <button class="management-btn secondary" id="downloadSample">📋 Download Sample Data</button>
+            </div>
+            
+            <input type="file" id="importFile" class="file-input" accept=".json" />
+        </section>
+
+        <!-- Data Statistics Table -->
+        <section class="data-management">
+            <h3>📈 Data Statistics</h3>
+            <div id="statisticsTable">
+                <!-- Statistics will be populated dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer glass">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Agricultural Data Dashboard</h4>
+                <p>Interactive visualization platform for Jordan's agricultural statistics and food security data.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Features</h4>
+                <div class="footer-links">
+                    <span>Real-time Charts</span>
+                    <span>Data Export/Import</span>
+                    <span>Interactive Analytics</span>
+                    <span>Mobile Responsive</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Built with Chart.js and modern web technologies for agricultural data visualization.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/data-manager.js"></script>
+    <script src="../js/chart-manager.js"></script>
+    <script src="../js/language-manager.js"></script>
+    <script>
+        // Dashboard functionality
+        class Dashboard {
+            constructor() {
+                this.currentDataType = 'agricultural';
+                this.init();
+            }
+
+            async init() {
+                this.showLoading(true);
+                
+                // Wait for managers to be ready
+                await this.waitForManagers();
+                
+                // Initialize charts
+                await this.initializeCharts();
+                
+                // Setup event listeners
+                this.setupEventListeners();
+                
+                // Load initial statistics
+                await this.updateStatistics();
+                
+                this.showLoading(false);
+                this.showSuccess('Dashboard loaded successfully!');
+            }
+
+            async waitForManagers() {
+                while (!window.dataManager || !window.chartManager) {
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                }
+            }
+
+            async initializeCharts() {
+                try {
+                    // Load all chart types
+                    await Promise.all([
+                        chartManager.createLandUseChart('chartLandUse'),
+                        chartManager.createCropProductionChart('chartCropProduction'),
+                        chartManager.createWaterUsageChart('chartWaterUsage'),
+                        chartManager.createClimateChart('chartClimate'),
+                        chartManager.createDiseaseChart('chartDiseases'),
+                        chartManager.createVerticalFarmingChart('chartVerticalEfficiency'),
+                        chartManager.createInvestmentChart('chartInvestment')
+                    ]);
+                } catch (error) {
+                    console.error('Error initializing charts:', error);
+                    this.showError('Failed to load some charts. Please refresh the page.');
+                }
+            }
+
+            setupEventListeners() {
+                // Data type selector
+                document.getElementById('dataType').addEventListener('change', (e) => {
+                    this.switchDataType(e.target.value);
+                });
+
+                // Control buttons
+                document.getElementById('refreshData').addEventListener('click', () => {
+                    this.refreshAllData();
+                });
+
+                document.getElementById('exportAllCharts').addEventListener('click', () => {
+                    this.exportAllCharts();
+                });
+
+                document.getElementById('fullscreen').addEventListener('click', () => {
+                    this.toggleFullscreen();
+                });
+
+                // Data management
+                document.getElementById('exportData').addEventListener('click', () => {
+                    this.exportCurrentData();
+                });
+
+                document.getElementById('importDataBtn').addEventListener('click', () => {
+                    document.getElementById('importFile').click();
+                });
+
+                document.getElementById('importFile').addEventListener('change', (e) => {
+                    this.importData(e.target.files[0]);
+                });
+
+                document.getElementById('clearCache').addEventListener('click', () => {
+                    this.clearCache();
+                });
+
+                document.getElementById('downloadSample').addEventListener('click', () => {
+                    this.downloadSampleData();
+                });
+            }
+
+            switchDataType(dataType) {
+                this.currentDataType = dataType;
+                
+                // Hide all chart containers
+                document.querySelectorAll('.chart-container').forEach(container => {
+                    container.style.display = 'none';
+                });
+                
+                // Show containers for selected data type
+                document.querySelectorAll(`[data-type="${dataType}"]`).forEach(container => {
+                    container.style.display = 'block';
+                });
+                
+                // Update statistics
+                this.updateStatistics();
+            }
+
+            async updateStatistics() {
+                const statsContainer = document.getElementById('dataStats');
+                const stats = await dataManager.getStatistics(this.currentDataType, Object.keys(await dataManager.loadData(this.currentDataType))[0]);
+                
+                if (stats) {
+                    statsContainer.innerHTML = `
+                        <div class="stat-card">
+                            <span class="stat-number">${stats.count}</span>
+                            <span class="stat-label">Data Points</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">${stats.lastUpdated}</span>
+                            <span class="stat-label">Last Updated</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">${Object.keys(stats.numericFields).length}</span>
+                            <span class="stat-label">Numeric Fields</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">${dataManager.getCacheInfo().size}</span>
+                            <span class="stat-label">Cached Datasets</span>
+                        </div>
+                    `;
+                }
+            }
+
+            async refreshAllData() {
+                this.showLoading(true);
+                dataManager.clearCache();
+                await this.initializeCharts();
+                await this.updateStatistics();
+                this.showLoading(false);
+                this.showSuccess('All data refreshed successfully!');
+            }
+
+            exportAllCharts() {
+                const charts = ['chartLandUse', 'chartCropProduction', 'chartWaterUsage', 'chartClimate', 'chartDiseases', 'chartVerticalEfficiency', 'chartInvestment'];
+                charts.forEach(chartId => {
+                    if (chartManager.getChart(chartId)) {
+                        chartManager.exportChart(chartId, `${chartId}-${Date.now()}.png`);
+                    }
+                });
+                this.showSuccess('Charts exported successfully!');
+            }
+
+            async exportCurrentData() {
+                await dataManager.exportData(this.currentDataType);
+                this.showSuccess('Data exported successfully!');
+            }
+
+            async importData(file) {
+                if (!file) return;
+                
+                this.showLoading(true);
+                const success = await dataManager.importData(file, this.currentDataType);
+                
+                if (success) {
+                    await this.initializeCharts();
+                    await this.updateStatistics();
+                    this.showSuccess('Data imported successfully!');
+                } else {
+                    this.showError('Failed to import data. Please check the file format.');
+                }
+                
+                this.showLoading(false);
+            }
+
+            clearCache() {
+                dataManager.clearCache();
+                localStorage.clear();
+                this.showSuccess('Cache cleared successfully!');
+            }
+
+            downloadSampleData() {
+                const sampleData = {
+                    sampleDataset: {
+                        title: "Sample Agricultural Data",
+                        data: [
+                            { category: "Sample Category 1", value: 100 },
+                            { category: "Sample Category 2", value: 200 }
+                        ],
+                        lastUpdated: new Date().toISOString().split('T')[0]
+                    }
+                };
+                
+                const jsonString = JSON.stringify(sampleData, null, 2);
+                const blob = new Blob([jsonString], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'sample-agricultural-data.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+
+            toggleFullscreen() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                } else {
+                    document.exitFullscreen();
+                }
+            }
+
+            showLoading(show) {
+                const indicator = document.getElementById('loadingIndicator');
+                indicator.classList.toggle('active', show);
+            }
+
+            showError(message) {
+                const errorDiv = document.getElementById('errorMessage');
+                errorDiv.textContent = message;
+                errorDiv.style.display = 'block';
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                }, 5000);
+            }
+
+            showSuccess(message) {
+                const successDiv = document.getElementById('successMessage');
+                successDiv.textContent = message;
+                successDiv.style.display = 'block';
+                setTimeout(() => {
+                    successDiv.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        // Initialize dashboard when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            window.dashboard = new Dashboard();
+        });
+    </script>
+</body>
+</html>

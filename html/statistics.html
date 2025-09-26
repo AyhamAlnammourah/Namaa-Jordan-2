@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jordan Agriculture Statistics - Comprehensive data on Jordan's agricultural landscape, production, and economic impact." />
+  <title>Jordan Agriculture Statistics | الإحصائيات الزراعية الأردنية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/rtl-support.css" />
+  <link rel="icon" href="../images/favicon.svg" />
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <header class="glass nav">
+    <div class="brand">
+      <span class="logo">🌿</span>
+      <span data-i18n="brand">Food Security in Jordan</span>
+    </div>
+    <nav class="nav-menu">
+      <a href="../index.html" data-i18n="nav_home">Home</a>
+      <a href="statistics.html" class="active" data-i18n="nav_stats">Statistics</a>
+      <a href="irrigation.html" data-i18n="nav_irrigation">Irrigation</a>
+      <a href="diseases.html" data-i18n="nav_diseases">Diseases</a>
+      <a href="quiz.html" data-i18n="nav_quiz">Quiz</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search..." data-i18n-placeholder="search_placeholder">
+      <button id="searchBtn">🔍</button>
+    </div>
+    <div class="lang-switch">
+      <button id="lang-en" class="chip active">EN</button>
+      <button id="lang-ar" class="chip">العربية</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Statistics -->
+    <section id="statistics" class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="stats_title">Jordan Agriculture Statistics</h2>
+        <p class="section-desc" data-i18n="stats_desc">
+          Comprehensive data on Jordan's agricultural landscape, production, and economic impact.
+        </p>
+        
+        <!-- Key Statistics Cards -->
+        <div class="stats-overview">
+          <div class="stat-card glass fade-up">
+            <div class="stat-icon">🏜️</div>
+            <div class="stat-number" data-count="70">0</div>
+            <div class="stat-label" data-i18n="stat_desert">% Desert Land</div>
+          </div>
+          <div class="stat-card glass fade-up">
+            <div class="stat-icon">🌾</div>
+            <div class="stat-number" data-count="3">0</div>
+            <div class="stat-label" data-i18n="stat_arable">% Arable Land</div>
+          </div>
+          <div class="stat-card glass fade-up">
+            <div class="stat-icon">👨‍🌾</div>
+            <div class="stat-number" data-count="240000">0</div>
+            <div class="stat-label" data-i18n="stat_farmers">Farmers</div>
+          </div>
+          <div class="stat-card glass fade-up">
+            <div class="stat-icon">📊</div>
+            <div class="stat-number" data-count="3">0</div>
+            <div class="stat-label" data-i18n="stat_gdp">% of GDP</div>
+          </div>
+        </div>
+
+        <!-- Water Stress Information -->
+        <div class="water-stress-info glass fade-up">
+          <h3 data-i18n="water_stress_title">Water Scarcity Challenge</h3>
+          <div class="water-stress-content">
+            <div class="water-stress-stat">
+              <span class="stress-number">97%</span>
+              <span class="stress-label" data-i18n="water_stressed">Water-Stressed Country</span>
+            </div>
+            <div class="water-stress-details">
+              <p data-i18n="water_stress_desc">Jordan is among the world's most water-scarce countries, making efficient irrigation and water management critical for food security.</p>
+              <ul class="water-challenges">
+                <li data-i18n="challenge_1">Limited renewable water resources</li>
+                <li data-i18n="challenge_2">Growing population pressure</li>
+                <li data-i18n="challenge_3">Climate change impacts</li>
+                <li data-i18n="challenge_4">Regional water conflicts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Statistics -->
+        <div class="additional-stats">
+          <h3 data-i18n="detailed_statistics">Detailed Agricultural Statistics</h3>
+          
+          <div class="stats-categories">
+            <div class="stats-category glass fade-up">
+              <h4 data-i18n="production_stats">Production Statistics</h4>
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <span class="stat-value">240,000</span>
+                  <span class="stat-desc" data-i18n="olive_production">tons of olives annually</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">180,000</span>
+                  <span class="stat-desc" data-i18n="vegetable_production">tons of vegetables annually</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">25,000</span>
+                  <span class="stat-desc" data-i18n="wheat_production">tons of wheat annually</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">15,000</span>
+                  <span class="stat-desc" data-i18n="barley_production">tons of barley annually</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="stats-category glass fade-up">
+              <h4 data-i18n="land_use_stats">Land Use Statistics</h4>
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <span class="stat-value">89,342</span>
+                  <span class="stat-desc" data-i18n="total_area">km² total area</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">2,680</span>
+                  <span class="stat-desc" data-i18n="arable_area">km² arable land</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">1,000</span>
+                  <span class="stat-desc" data-i18n="irrigated_area">km² irrigated land</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">83</span>
+                  <span class="stat-desc" data-i18n="forest_area">km² forest area</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="stats-category glass fade-up">
+              <h4 data-i18n="economic_stats">Economic Impact</h4>
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <span class="stat-value">3%</span>
+                  <span class="stat-desc" data-i18n="gdp_contribution">of GDP from agriculture</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">14%</span>
+                  <span class="stat-desc" data-i18n="employment_rate">of workforce in agriculture</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">$1.2B</span>
+                  <span class="stat-desc" data-i18n="export_value">agricultural exports value</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-value">240,000</span>
+                  <span class="stat-desc" data-i18n="farmers_count">registered farmers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regional Breakdown -->
+        <div class="regional-stats glass fade-up">
+          <h3 data-i18n="regional_breakdown">Agricultural Production by Region</h3>
+          <div class="regions-grid">
+            <div class="region-card">
+              <h4 data-i18n="jordan_valley">Jordan Valley</h4>
+              <div class="region-stats">
+                <div class="region-stat">
+                  <span class="stat-label" data-i18n="main_crops">Main Crops:</span>
+                  <span class="stat-value" data-i18n="valley_crops">Vegetables, Citrus, Bananas</span>
+                </div>
+                <div class="region-stat">
+                  <span class="stat-label" data-i18n="irrigation_type">Irrigation:</span>
+                  <span class="stat-value" data-i18n="drip_irrigation">Drip Irrigation</span>
+                </div>
+                <div class="region-stat">
+                  <span class="stat-label" data-i18n="area_cultivated">Area:</span>
+                  <span class="stat-value">27,000 hectares</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="region-card">
+              <h4 data-i18n="northern_highlands">Northern Highlands</h4>
+              <div class="region-stats">
+                <div class="region-stat">
+                  <span class="stat-label" data-i18n="main_crops">Main Crops:</span>
+                  <span class="stat-value" data-i18n="highland_crops">Olives, Wheat, Barley</span>
+                </div>
+                <div class="region-stat">
+                  <span class="stat-label" data-i18n="irrigation_type">Irrigation:</span>
+                  <span class="stat-value" data-i18n="rainfed">Rainfed Agriculture</span>
+                </div>
+                <div class="region-stat">
+                  <span class="stat-label" data-i18n="area_cultivated">Area:</span>
+                  <span class="stat-value">150,000 hectares</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="region-card">
+              <h4 data-i18n="eastern_desert">Eastern Desert</h4>
+              <div class="region-stats">
+                <div class="region-stat">
+                  <span class="stat-label" data-i18n="main_crops">Main Crops:</span>
+                  <span class="stat-value" data-i18n="desert_crops">Barley, Rangeland</span>
+                </div>
+                <div class="region-stat">
+                  <span class="stat-label" data-i18n="irrigation_type">Irrigation:</span>
+                  <span class="stat-value" data-i18n="limited_irrigation">Limited Irrigation</span>
+                </div>
+                <div class="region-stat">
+                  <span class="stat-label" data-i18n="area_cultivated">Area:</span>
+                  <span class="stat-value">50,000 hectares</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer glass">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4 data-i18n="about_site">About This Site</h4>
+        <p data-i18n="footer_description">Comprehensive resource for Jordan's food security, agriculture, and sustainable farming practices.</p>
+      </div>
+      <div class="footer-section">
+        <h4 data-i18n="quick_links">Quick Links</h4>
+        <div class="footer-links">
+          <a href="statistics.html" data-i18n="nav_stats">Statistics</a>
+          <a href="irrigation.html" data-i18n="nav_irrigation">Irrigation</a>
+          <a href="index.html#crops" data-i18n="nav_crops">Crops</a>
+          <a href="diseases.html" data-i18n="nav_diseases">Diseases</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4 data-i18n="resources">Resources</h4>
+        <div class="footer-links">
+          <a href="quiz.html" data-i18n="nav_quiz">Knowledge Quiz</a>
+          <a href="contact.html" data-i18n="nav_contact">Contact</a>
+          <a href="#" data-i18n="print_version">Print Version</a>
+          <a href="#" data-i18n="download_pdf">Download PDF</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        <span data-i18n="footer_txt">Namaa Jordan</span>
+        · <a href="#statistics" class="top" data-i18n="back_top">Back to top</a>
+      </p>
+      <p class="footer-credits">
+        <span data-i18n="footer_year">2025</span>
+        · <span data-i18n="footer_version">Version 1.0</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="../js/data-manager.js"></script>
+  <script src="../js/chart-manager.js"></script>
+  <script src="../js/language-manager.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

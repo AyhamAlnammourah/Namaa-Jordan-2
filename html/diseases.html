@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Plant Diseases in Jordan - Comprehensive guide to major plant diseases, their economic impact, and integrated management strategies." />
+  <title>Plant Diseases in Jordan | أمراض النباتات في الأردن</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/rtl-support.css" />
+  <link rel="icon" href="../images/favicon.svg" />
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <header class="glass nav">
+    <div class="brand">
+      <span class="logo">🌿</span>
+      <span data-i18n="brand">Food Security in Jordan</span>
+    </div>
+    <nav class="nav-menu">
+      <a href="../index.html" data-i18n="nav_home">Home</a>
+      <a href="statistics.html" data-i18n="nav_stats">Statistics</a>
+      <a href="irrigation.html" data-i18n="nav_irrigation">Irrigation</a>
+      <a href="diseases.html" class="active" data-i18n="nav_diseases">Diseases</a>
+      <a href="quiz.html" data-i18n="nav_quiz">Quiz</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search..." data-i18n-placeholder="search_placeholder">
+      <button id="searchBtn">🔍</button>
+    </div>
+    <div class="lang-switch">
+      <button id="lang-en" class="chip active">EN</button>
+      <button id="lang-ar" class="chip">العربية</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Diseases -->
+    <section id="diseases" class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="dis_title">Plant Diseases in Jordan</h2>
+        <p class="section-desc" data-i18n="dis_desc">Comprehensive guide to major plant diseases, their economic impact, and integrated management strategies.</p>
+        
+        <!-- Disease Impact Overview -->
+        <div class="disease-impact glass fade-up">
+          <h3 data-i18n="economic_impact_title">Economic Impact of Plant Diseases</h3>
+          <div class="impact-stats">
+            <div class="impact-stat">
+              <span class="impact-number">15-25%</span>
+              <span class="impact-label" data-i18n="annual_crop_losses">Annual crop losses</span>
+            </div>
+            <div class="impact-stat">
+              <span class="impact-number">$50M</span>
+              <span class="impact-label" data-i18n="economic_losses">Economic losses annually</span>
+            </div>
+            <div class="impact-stat">
+              <span class="impact-number">Climate</span>
+              <span class="impact-label" data-i18n="climate_factor">Change intensifying risks</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Major Disease Categories -->
+        <div class="disease-categories">
+          <div class="category-tabs">
+            <button class="tab-btn active" data-category="olive-diseases" data-i18n="olive_diseases">Olive Diseases</button>
+            <button class="tab-btn" data-category="vegetable-diseases" data-i18n="vegetable_diseases">Vegetable Diseases</button>
+            <button class="tab-btn" data-category="cereal-diseases" data-i18n="cereal_diseases">Cereal Diseases</button>
+            <button class="tab-btn" data-category="management" data-i18n="disease_management">Management</button>
+          </div>
+        </div>
+
+        <!-- Olive Diseases -->
+        <div class="disease-content active" id="olive-diseases">
+          <div class="diseases-grid">
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="../images/olive-disease.jpg" alt="Olive disease" loading="lazy" />
+                <div class="severity-badge high" data-i18n="high_severity">High Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="olive_fruit_fly">Olive Fruit Fly</h4>
+                <p class="scientific-name">Bactrocera oleae</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="fruit_punctures">Small puncture holes in fruit</li>
+                      <li data-i18n="larval_tunnels">Larval tunnels in olive flesh</li>
+                      <li data-i18n="premature_drop">Premature fruit drop</li>
+                      <li data-i18n="oil_quality_reduction">Reduced oil quality</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="economic_impact">Economic Impact:</h5>
+                    <p data-i18n="olive_fly_impact">Can cause 30-80% yield losses in untreated orchards. Major threat to Jordan's olive industry.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag biological" data-i18n="biological_control">Biological Control</span>
+                      <span class="strategy-tag cultural" data-i18n="cultural_practices">Cultural Practices</span>
+                      <span class="strategy-tag chemical" data-i18n="targeted_spraying">Targeted Spraying</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="../images/olive-trees.jpg" alt="Olive peacock spot" loading="lazy" />
+                <div class="severity-badge medium" data-i18n="medium_severity">Medium Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="olive_peacock_spot">Olive Peacock Spot</h4>
+                <p class="scientific-name">Spilocaea oleagina</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="circular_spots">Circular brown spots on leaves</li>
+                      <li data-i18n="yellow_halos">Yellow halos around spots</li>
+                      <li data-i18n="defoliation">Premature defoliation</li>
+                      <li data-i18n="reduced_photosynthesis">Reduced photosynthesis</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="conditions">Favorable Conditions:</h5>
+                    <p data-i18n="peacock_conditions">High humidity, moderate temperatures (15-25°C), and prolonged leaf wetness.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag cultural" data-i18n="pruning">Pruning</span>
+                      <span class="strategy-tag chemical" data-i18n="copper_sprays">Copper Sprays</span>
+                      <span class="strategy-tag preventive" data-i18n="sanitation">Sanitation</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="../images/greenhouse-peppers.jpg" alt="Olive anthracnose" loading="lazy" />
+                <div class="severity-badge medium" data-i18n="medium_severity">Medium Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="olive_anthracnose">Olive Anthracnose</h4>
+                <p class="scientific-name">Colletotrichum spp.</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="fruit_rot">Dark, sunken lesions on fruit</li>
+                      <li data-i18n="mummified_fruit">Mummified fruit on trees</li>
+                      <li data-i18n="twig_dieback">Twig and branch dieback</li>
+                      <li data-i18n="cankers">Cankers on branches</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="spread">Disease Spread:</h5>
+                    <p data-i18n="anthracnose_spread">Spreads through rain splash and infected plant debris. More severe in wet seasons.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag cultural" data-i18n="debris_removal">Debris Removal</span>
+                      <span class="strategy-tag chemical" data-i18n="fungicide_application">Fungicides</span>
+                      <span class="strategy-tag resistant" data-i18n="resistant_varieties">Resistant Varieties</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vegetable Diseases -->
+        <div class="disease-content" id="vegetable-diseases">
+          <div class="diseases-grid">
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="../images/tomato-virus.jpg" alt="Tomato virus" loading="lazy" />
+                <div class="severity-badge high" data-i18n="high_severity">High Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="tomato_yellow_leaf_curl">Tomato Yellow Leaf Curl Virus</h4>
+                <p class="scientific-name">TYLCV</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="leaf_yellowing">Yellowing and curling of leaves</li>
+                      <li data-i18n="stunted_growth">Stunted plant growth</li>
+                      <li data-i18n="reduced_fruit_set">Reduced fruit set</li>
+                      <li data-i18n="small_fruits">Small, poor-quality fruits</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="transmission">Transmission:</h5>
+                    <p data-i18n="tylcv_transmission">Transmitted by whiteflies (Bemisia tabaci). No cure once infected.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag resistant" data-i18n="resistant_varieties">Resistant Varieties</span>
+                      <span class="strategy-tag physical" data-i18n="insect_nets">Insect Nets</span>
+                      <span class="strategy-tag biological" data-i18n="whitefly_control">Whitefly Control</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="../images/greenhouse-cucumbers.jpg" alt="Cucumber downy mildew" loading="lazy" />
+                <div class="severity-badge medium" data-i18n="medium_severity">Medium Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="cucumber_downy_mildew">Cucumber Downy Mildew</h4>
+                <p class="scientific-name">Pseudoperonospora cubensis</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="yellow_spots">Yellow spots on upper leaf surface</li>
+                      <li data-i18n="fuzzy_growth">Fuzzy gray growth on leaf undersides</li>
+                      <li data-i18n="leaf_death">Rapid leaf death and defoliation</li>
+                      <li data-i18n="yield_reduction">Significant yield reduction</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="conditions">Favorable Conditions:</h5>
+                    <p data-i18n="downy_mildew_conditions">Cool, humid conditions with temperatures 15-22°C and high relative humidity.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag cultural" data-i18n="air_circulation">Air Circulation</span>
+                      <span class="strategy-tag chemical" data-i18n="preventive_fungicides">Preventive Fungicides</span>
+                      <span class="strategy-tag resistant" data-i18n="resistant_cultivars">Resistant Cultivars</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="../images/bacterial-wilt.jpg" alt="Bacterial wilt" loading="lazy" />
+                <div class="severity-badge high" data-i18n="high_severity">High Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="bacterial_wilt">Bacterial Wilt</h4>
+                <p class="scientific-name">Ralstonia solanacearum</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="sudden_wilting">Sudden wilting of plants</li>
+                      <li data-i18n="vascular_browning">Brown discoloration of vascular tissue</li>
+                      <li data-i18n="bacterial_ooze">Bacterial ooze from cut stems</li>
+                      <li data-i18n="plant_death">Rapid plant death</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="host_range">Host Range:</h5>
+                    <p data-i18n="bacterial_wilt_hosts">Affects tomatoes, potatoes, eggplants, peppers, and other solanaceous crops.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag cultural" data-i18n="crop_rotation">Crop Rotation</span>
+                      <span class="strategy-tag resistant" data-i18n="resistant_rootstocks">Resistant Rootstocks</span>
+                      <span class="strategy-tag preventive" data-i18n="soil_solarization">Soil Solarization</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cereal Diseases -->
+        <div class="disease-content" id="cereal-diseases">
+          <div class="diseases-grid">
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="../images/wheat-rust.jpg" alt="Wheat rust" loading="lazy" />
+                <div class="severity-badge high" data-i18n="high_severity">High Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="wheat_stripe_rust">Wheat Stripe Rust</h4>
+                <p class="scientific-name">Puccinia striiformis</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="yellow_stripes">Yellow stripe patterns on leaves</li>
+                      <li data-i18n="pustules">Orange-yellow pustules</li>
+                      <li data-i18n="leaf_death">Premature leaf death</li>
+                      <li data-i18n="grain_shriveling">Shriveled grain</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="impact">Yield Impact:</h5>
+                    <p data-i18n="stripe_rust_impact">Can cause 10-70% yield losses depending on infection timing and severity.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag resistant" data-i18n="resistant_varieties">Resistant Varieties</span>
+                      <span class="strategy-tag chemical" data-i18n="fungicide_timing">Fungicide Timing</span>
+                      <span class="strategy-tag cultural" data-i18n="crop_monitoring">Crop Monitoring</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="../images/barley-net-blotch.jpg" alt="Barley net blotch" loading="lazy" />
+                <div class="severity-badge medium" data-i18n="medium_severity">Medium Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="barley_net_blotch">Barley Net Blotch</h4>
+                <p class="scientific-name">Pyrenophora teres</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="net_pattern">Net-like pattern on leaves</li>
+                      <li data-i18n="brown_lesions">Brown elongated lesions</li>
+                      <li data-i18n="reduced_tillering">Reduced tillering</li>
+                      <li data-i18n="grain_quality_loss">Poor grain quality</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="conditions">Disease Development:</h5>
+                    <p data-i18n="net_blotch_conditions">Favored by moderate temperatures (20-25°C) and high humidity.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag cultural" data-i18n="residue_management">Residue Management</span>
+                      <span class="strategy-tag chemical" data-i18n="seed_treatment">Seed Treatment</span>
+                      <span class="strategy-tag resistant" data-i18n="tolerant_varieties">Tolerant Varieties</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Disease Management -->
+        <div class="disease-content" id="management">
+          <div class="management-approaches">
+            <h3 data-i18n="integrated_management_title">Integrated Disease Management</h3>
+            
+            <div class="management-strategy-cards">
+              <div class="strategy-card glass fade-up">
+                <div class="strategy-icon">🌱</div>
+                <h4 data-i18n="cultural_control">Cultural Control</h4>
+                <div class="strategy-methods">
+                  <ul>
+                    <li data-i18n="crop_rotation_method">Crop rotation to break disease cycles</li>
+                    <li data-i18n="sanitation_practices">Field sanitation and debris removal</li>
+                    <li data-i18n="planting_dates">Optimal planting dates</li>
+                    <li data-i18n="irrigation_management">Proper irrigation management</li>
+                    <li data-i18n="plant_spacing">Adequate plant spacing for air circulation</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="strategy-card glass fade-up">
+                <div class="strategy-icon">🧬</div>
+                <h4 data-i18n="biological_control">Biological Control</h4>
+                <div class="strategy-methods">
+                  <ul>
+                    <li data-i18n="beneficial_microorganisms">Beneficial microorganisms</li>
+                    <li data-i18n="biocontrol_agents">Biocontrol agents</li>
+                    <li data-i18n="compost_application">Compost and organic matter</li>
+                    <li data-i18n="natural_predators">Natural predator conservation</li>
+                    <li data-i18n="microbial_antagonists">Microbial antagonists</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="strategy-card glass fade-up">
+                <div class="strategy-icon">🧪</div>
+                <h4 data-i18n="chemical_control">Chemical Control</h4>
+                <div class="strategy-methods">
+                  <ul>
+                    <li data-i18n="targeted_applications">Targeted fungicide applications</li>
+                    <li data-i18n="resistance_management">Resistance management strategies</li>
+                    <li data-i18n="application_timing">Optimal application timing</li>
+                    <li data-i18n="systemic_fungicides">Systemic and contact fungicides</li>
+                    <li data-i18n="spray_coverage">Proper spray coverage</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="strategy-card glass fade-up">
+                <div class="strategy-icon">🛡️</div>
+                <h4 data-i18n="genetic_resistance">Genetic Resistance</h4>
+                <div class="strategy-methods">
+                  <ul>
+                    <li data-i18n="resistant_cultivars">Disease-resistant cultivars</li>
+                    <li data-i18n="breeding_programs">Plant breeding programs</li>
+                    <li data-i18n="gene_pyramiding">Gene pyramiding strategies</li>
+                    <li data-i18n="marker_selection">Marker-assisted selection</li>
+                    <li data-i18n="variety_diversification">Variety diversification</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Climate Change Impact -->
+          <div class="climate-impact glass fade-up">
+            <h3 data-i18n="climate_change_impact_title">Climate Change and Disease Pressure</h3>
+            <div class="climate-content">
+              <div class="climate-trends">
+                <h4 data-i18n="observed_trends">Observed Trends:</h4>
+                <ul>
+                  <li data-i18n="temperature_increase">Rising temperatures altering disease cycles</li>
+                  <li data-i18n="rainfall_patterns">Changing rainfall patterns affecting disease pressure</li>
+                  <li data-i18n="extreme_weather">More frequent extreme weather events</li>
+                  <li data-i18n="pest_migration">Pest and pathogen range expansion</li>
+                </ul>
+              </div>
+              <div class="adaptation-strategies">
+                <h4 data-i18n="adaptation_strategies_title">Adaptation Strategies:</h4>
+                <ul>
+                  <li data-i18n="early_warning">Early warning systems</li>
+                  <li data-i18n="climate_resilient">Climate-resilient varieties</li>
+                  <li data-i18n="precision_agriculture">Precision agriculture technologies</li>
+                  <li data-i18n="integrated_monitoring">Integrated pest and disease monitoring</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer glass">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4 data-i18n="about_site">About This Site</h4>
+        <p data-i18n="footer_description">Comprehensive resource for Jordan's food security, agriculture, and sustainable farming practices.</p>
+      </div>
+      <div class="footer-section">
+        <h4 data-i18n="quick_links">Quick Links</h4>
+        <div class="footer-links">
+          <a href="statistics.html" data-i18n="nav_stats">Statistics</a>
+          <a href="irrigation.html" data-i18n="nav_irrigation">Irrigation</a>
+          <a href="index.html#crops" data-i18n="nav_crops">Crops</a>
+          <a href="diseases.html" data-i18n="nav_diseases">Diseases</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4 data-i18n="resources">Resources</h4>
+        <div class="footer-links">
+          <a href="quiz.html" data-i18n="nav_quiz">Knowledge Quiz</a>
+          <a href="contact.html" data-i18n="nav_contact">Contact</a>
+          <a href="#" data-i18n="print_version">Print Version</a>
+          <a href="#" data-i18n="download_pdf">Download PDF</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        <span data-i18n="footer_txt">Namma Jordan</span>
+        · <a href="#diseases" class="top" data-i18n="back_top">Back to top</a>
+      </p>
+      <p class="footer-credits">
+        <span data-i18n="footer_year">2025</span>
+        · <span data-i18n="footer_version">Version 1.0</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="../js/data-manager.js"></script>
+  <script src="../js/chart-manager.js"></script>
+  <script src="../js/language-manager.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

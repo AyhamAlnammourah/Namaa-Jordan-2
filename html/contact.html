@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact & Resources - Get in touch for agricultural inquiries or access additional resources about Jordan's food security." />
+  <title>Contact & Resources | اتصل بنا والموارد</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/rtl-support.css" />
+  <link rel="icon" href="../images/favicon.svg" />
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <header class="glass nav">
+    <div class="brand">
+      <span class="logo">🌿</span>
+      <span data-i18n="brand">Food Security in Jordan</span>
+    </div>
+    <nav class="nav-menu">
+      <a href="../index.html" data-i18n="nav_home">Home</a>
+      <a href="statistics.html" data-i18n="nav_stats">Statistics</a>
+      <a href="irrigation.html" data-i18n="nav_irrigation">Irrigation</a>
+      <a href="diseases.html" data-i18n="nav_diseases">Diseases</a>
+      <a href="quiz.html" data-i18n="nav_quiz">Quiz</a>
+      <a href="contact.html" class="active" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search..." data-i18n-placeholder="search_placeholder">
+      <button id="searchBtn">🔍</button>
+    </div>
+    <div class="lang-switch">
+      <button id="lang-en" class="chip active">EN</button>
+      <button id="lang-ar" class="chip">العربية</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="contact_title">Contact & Resources</h2>
+        <p class="section-desc" data-i18n="contact_desc">Get in touch for agricultural inquiries or access additional resources about Jordan's food security.</p>
+        
+        <div class="contact-content">
+          <div class="contact-form-container glass fade-up">
+            <h3 data-i18n="send_inquiry">Send an Inquiry</h3>
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label for="name" data-i18n="name_label">Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email" data-i18n="email_label">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="subject" data-i18n="subject_label">Subject</label>
+                <select id="subject" name="subject" required>
+                  <option value="" data-i18n="select_subject">Select a subject</option>
+                  <option value="irrigation" data-i18n="irrigation_inquiry">Irrigation Systems</option>
+                  <option value="crops" data-i18n="crops_inquiry">Crop Information</option>
+                  <option value="diseases" data-i18n="diseases_inquiry">Plant Diseases</option>
+                  <option value="vertical-farming" data-i18n="vertical_farming_inquiry">Vertical Farming</option>
+                  <option value="research" data-i18n="research_inquiry">Research Collaboration</option>
+                  <option value="other" data-i18n="other_inquiry">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message" data-i18n="message_label">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn primary" data-i18n="send_message">Send Message</button>
+            </form>
+          </div>
+          
+          <div class="contact-info">
+            <div class="info-card glass fade-up">
+              <h3 data-i18n="agricultural_resources">Agricultural Resources</h3>
+              <div class="resource-links">
+                <a href="#" class="resource-link" data-i18n="ministry_agriculture">Ministry of Agriculture</a>
+                <a href="#" class="resource-link" data-i18n="jordan_university">Jordan University of Science & Technology</a>
+                <a href="#" class="resource-link" data-i18n="icarda">ICARDA - International Center for Agricultural Research</a>
+                <a href="#" class="resource-link" data-i18n="royal_botanic_garden">Royal Botanic Garden</a>
+                <a href="#" class="resource-link" data-i18n="farmers_union">Jordan Farmers Union</a>
+              </div>
+            </div>
+            
+            <div class="info-card glass fade-up">
+              <h3 data-i18n="research_institutions">Research Institutions</h3>
+              <div class="institution-list">
+                <div class="institution">
+                  <h4 data-i18n="ncare">NCARE</h4>
+                  <p data-i18n="ncare_desc">National Center for Agricultural Research and Extension</p>
+                </div>
+                <div class="institution">
+                  <h4 data-i18n="just_agriculture">JUST Agriculture</h4>
+                  <p data-i18n="just_desc">Faculty of Agriculture, Jordan University of Science and Technology</p>
+                </div>
+                <div class="institution">
+                  <h4 data-i18n="uoj_agriculture">UoJ Agriculture</h4>
+                  <p data-i18n="uoj_desc">Faculty of Agriculture, University of Jordan</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="info-card glass fade-up">
+              <h3 data-i18n="emergency_contacts">Emergency Agricultural Support</h3>
+              <div class="emergency-contacts">
+                <div class="emergency-contact">
+                  <span class="contact-type" data-i18n="plant_disease_hotline">Plant Disease Hotline</span>
+                  <span class="contact-info">+962-6-XXX-XXXX</span>
+                </div>
+                <div class="emergency-contact">
+                  <span class="contact-type" data-i18n="irrigation_support">Irrigation Support</span>
+                  <span class="contact-info">+962-6-XXX-XXXX</span>
+                </div>
+                <div class="emergency-contact">
+                  <span class="contact-type" data-i18n="extension_services">Extension Services</span>
+                  <span class="contact-info">+962-6-XXX-XXXX</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Expert Network -->
+        <div class="expert-network glass fade-up">
+          <h3 data-i18n="expert_network_title">Expert Network</h3>
+          <p data-i18n="expert_network_desc">Connect with leading agricultural experts and researchers in Jordan.</p>
+          
+          <div class="experts-grid">
+            <div class="expert-card">
+              <div class="expert-avatar">👨‍🔬</div>
+              <div class="expert-info">
+                <h4 data-i18n="expert_irrigation">Dr. Ahmad Al-Rashid</h4>
+                <p class="expert-title" data-i18n="irrigation_specialist">Irrigation Systems Specialist</p>
+                <p class="expert-affiliation" data-i18n="just_affiliation">Jordan University of Science & Technology</p>
+                <div class="expert-expertise">
+                  <span class="expertise-tag" data-i18n="drip_irrigation">Drip Irrigation</span>
+                  <span class="expertise-tag" data-i18n="water_management">Water Management</span>
+                  <span class="expertise-tag" data-i18n="precision_agriculture">Precision Agriculture</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="expert-card">
+              <div class="expert-avatar">👩‍🌾</div>
+              <div class="expert-info">
+                <h4 data-i18n="expert_crops">Dr. Fatima Al-Zahra</h4>
+                <p class="expert-title" data-i18n="crop_scientist">Crop Production Scientist</p>
+                <p class="expert-affiliation" data-i18n="uoj_affiliation">University of Jordan</p>
+                <div class="expert-expertise">
+                  <span class="expertise-tag" data-i18n="olive_cultivation">Olive Cultivation</span>
+                  <span class="expertise-tag" data-i18n="sustainable_farming">Sustainable Farming</span>
+                  <span class="expertise-tag" data-i18n="organic_agriculture">Organic Agriculture</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="expert-card">
+              <div class="expert-avatar">👨‍💼</div>
+              <div class="expert-info">
+                <h4 data-i18n="expert_diseases">Dr. Omar Khalil</h4>
+                <p class="expert-title" data-i18n="plant_pathologist">Plant Pathologist</p>
+                <p class="expert-affiliation" data-i18n="ncare_affiliation">NCARE</p>
+                <div class="expert-expertise">
+                  <span class="expertise-tag" data-i18n="disease_management">Disease Management</span>
+                  <span class="expertise-tag" data-i18n="integrated_pest_management">IPM</span>
+                  <span class="expertise-tag" data-i18n="biological_control">Biological Control</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="expert-card">
+              <div class="expert-avatar">👩‍💻</div>
+              <div class="expert-info">
+                <h4 data-i18n="expert_technology">Dr. Layla Mansour</h4>
+                <p class="expert-title" data-i18n="agtech_researcher">AgTech Researcher</p>
+                <p class="expert-affiliation" data-i18n="icarda_affiliation">ICARDA</p>
+                <div class="expert-expertise">
+                  <span class="expertise-tag" data-i18n="vertical_farming">Vertical Farming</span>
+                  <span class="expertise-tag" data-i18n="smart_agriculture">Smart Agriculture</span>
+                  <span class="expertise-tag" data-i18n="climate_adaptation">Climate Adaptation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educational Programs -->
+        <div class="educational-programs glass fade-up">
+          <h3 data-i18n="educational_programs_title">Educational Programs & Training</h3>
+          
+          <div class="programs-grid">
+            <div class="program-card">
+              <div class="program-icon">🎓</div>
+              <h4 data-i18n="farmer_training">Farmer Training Programs</h4>
+              <p data-i18n="farmer_training_desc">Comprehensive training programs for modern agricultural techniques and sustainable farming practices.</p>
+              <div class="program-details">
+                <div class="program-detail">
+                  <span class="detail-label" data-i18n="duration">Duration:</span>
+                  <span class="detail-value" data-i18n="duration_weeks">2-4 weeks</span>
+                </div>
+                <div class="program-detail">
+                  <span class="detail-label" data-i18n="frequency">Frequency:</span>
+                  <span class="detail-value" data-i18n="frequency_monthly">Monthly</span>
+                </div>
+                <div class="program-detail">
+                  <span class="detail-label" data-i18n="location">Location:</span>
+                  <span class="detail-value" data-i18n="location_multiple">Multiple Centers</span>
+                </div>
+              </div>
+              <button class="btn ghost" data-i18n="learn_more">Learn More</button>
+            </div>
+
+            <div class="program-card">
+              <div class="program-icon">🔬</div>
+              <h4 data-i18n="research_workshops">Research Workshops</h4>
+              <p data-i18n="research_workshops_desc">Advanced workshops on agricultural research methodologies and latest scientific developments.</p>
+              <div class="program-details">
+                <div class="program-detail">
+                  <span class="detail-label" data-i18n="duration">Duration:</span>
+                  <span class="detail-value" data-i18n="duration_days">3-5 days</span>
+                </div>
+                <div class="program-detail">
+                  <span class="detail-label" data-i18n="frequency">Frequency:</span>
+                  <span class="detail-value" data-i18n="frequency_quarterly">Quarterly</span>
+                </div>
+                <div class="program-detail">
+                  <span class="detail-label" data-i18n="location">Location:</span>
+                  <span class="detail-value" data-i18n="location_universities">Universities</span>
+                </div>
+              </div>
+              <button class="btn ghost" data-i18n="learn_more">Learn More</button>
+            </div>
+
+            <div class="program-card">
+              <div class="program-icon">💻</div>
+              <h4 data-i18n="online_courses">Online Courses</h4>
+              <p data-i18n="online_courses_desc">Self-paced online learning modules covering various aspects of Jordan's agriculture and food security.</p>
+              <div class="program-details">
+                <div class="program-detail">
+                  <span class="detail-label" data-i18n="duration">Duration:</span>
+                  <span class="detail-value" data-i18n="duration_flexible">Flexible</span>
+                </div>
+                <div class="program-detail">
+                  <span class="detail-label" data-i18n="frequency">Frequency:</span>
+                  <span class="detail-value" data-i18n="frequency_anytime">Anytime</span>
+                </div>
+                <div class="program-detail">
+                  <span class="detail-label" data-i18n="location">Location:</span>
+                  <span class="detail-value" data-i18n="location_online">Online</span>
+                </div>
+              </div>
+              <button class="btn ghost" data-i18n="learn_more">Learn More</button>
+            </div>
+
+            <div class="program-card">
+              <div class="program-icon">🌱</div>
+              <h4 data-i18n="youth_programs">Youth Agriculture Programs</h4>
+              <p data-i18n="youth_programs_desc">Special programs designed to engage young people in agriculture and promote career development in the sector.</p>
+              <div class="program-details">
+                <div class="program-detail">
+                  <span class="detail-label" data-i18n="duration">Duration:</span>
+                  <span class="detail-value" data-i18n="duration_months">6 months</span>
+                </div>
+                <div class="program-detail">
+                  <span class="detail-label" data-i18n="frequency">Frequency:</span>
+                  <span class="detail-value" data-i18n="frequency_biannual">Bi-annual</span>
+                </div>
+                <div class="program-detail">
+                  <span class="detail-label" data-i18n="location">Location:</span>
+                  <span class="detail-value" data-i18n="location_field">Field Sites</span>
+                </div>
+              </div>
+              <button class="btn ghost" data-i18n="learn_more">Learn More</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Social Sharing -->
+        <div class="social-sharing glass fade-up">
+          <h3 data-i18n="share_knowledge">Share This Knowledge</h3>
+          <div class="social-buttons">
+            <button class="social-btn facebook" data-i18n="share_facebook">Share on Facebook</button>
+            <button class="social-btn twitter" data-i18n="share_twitter">Share on Twitter</button>
+            <button class="social-btn linkedin" data-i18n="share_linkedin">Share on LinkedIn</button>
+            <button class="social-btn whatsapp" data-i18n="share_whatsapp">Share on WhatsApp</button>
+          </div>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="newsletter-signup glass fade-up">
+          <h3 data-i18n="newsletter_title">Stay Updated</h3>
+          <p data-i18n="newsletter_desc">Subscribe to our newsletter for the latest updates on Jordan's agricultural developments and food security initiatives.</p>
+          
+          <form class="newsletter-form" id="newsletterForm">
+            <div class="newsletter-input-group">
+              <input type="email" id="newsletter-email" name="newsletter-email" placeholder="Enter your email address" data-i18n-placeholder="newsletter_placeholder" required>
+              <button type="submit" class="btn primary" data-i18n="subscribe">Subscribe</button>
+            </div>
+            <div class="newsletter-options">
+              <label class="checkbox-label">
+                <input type="checkbox" name="newsletter-topics" value="research">
+                <span class="checkmark"></span>
+                <span data-i18n="newsletter_research">Research Updates</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="newsletter-topics" value="events">
+                <span class="checkmark"></span>
+                <span data-i18n="newsletter_events">Events & Workshops</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="newsletter-topics" value="policy">
+                <span class="checkmark"></span>
+                <span data-i18n="newsletter_policy">Policy Updates</span>
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+    <p data-i18n="loading">Loading...</p>
+  </div>
+
+  <footer class="footer glass">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4 data-i18n="about_site">About This Site</h4>
+        <p data-i18n="footer_description">Comprehensive resource for Jordan's food security, agriculture, and sustainable farming practices.</p>
+      </div>
+      <div class="footer-section">
+        <h4 data-i18n="quick_links">Quick Links</h4>
+        <div class="footer-links">
+          <a href="statistics.html" data-i18n="nav_stats">Statistics</a>
+          <a href="irrigation.html" data-i18n="nav_irrigation">Irrigation</a>
+          <a href="index.html#crops" data-i18n="nav_crops">Crops</a>
+          <a href="diseases.html" data-i18n="nav_diseases">Diseases</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4 data-i18n="resources">Resources</h4>
+        <div class="footer-links">
+          <a href="quiz.html" data-i18n="nav_quiz">Knowledge Quiz</a>
+          <a href="contact.html" data-i18n="nav_contact">Contact</a>
+          <a href="#" data-i18n="print_version">Print Version</a>
+          <a href="#" data-i18n="download_pdf">Download PDF</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        <span data-i18n="footer_txt">Namaa Jordan</span>
+        · <a href="#contact" class="top" data-i18n="back_top">Back to top</a>
+      </p>
+      <p class="footer-credits">
+        <span data-i18n="footer_year">2025</span>
+        · <span data-i18n="footer_version">Version 1.0</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="../js/data-manager.js"></script>
+  <script src="../js/chart-manager.js"></script>
+  <script src="../js/language-manager.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

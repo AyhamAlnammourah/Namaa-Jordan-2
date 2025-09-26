@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .lang-switch { margin: 20px 0; }
+        .chip { padding: 10px 20px; margin: 5px; border: none; cursor: pointer; border-radius: 5px; }
+        .chip.active { background: #007bff; color: white; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ddd; border-radius: 5px; }
+        .error { color: red; font-weight: bold; }
+        .success { color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Translation System Test</h1>
+    
+    <div class="lang-switch">
+        <button id="lang-en" class="chip active">English</button>
+        <button id="lang-ar" class="chip">العربية</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Basic Translation Test</h2>
+        <p><span data-i18n="brand">Loading...</span></p>
+        <p><span data-i18n="nav_home">Loading...</span></p>
+        <p><span data-i18n="nav_stats">Loading...</span></p>
+        <p><span data-i18n="quiz_title">Loading...</span></p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Statistics Translation Test</h2>
+        <p><span data-i18n="stats_title">Loading...</span></p>
+        <p><span data-i18n="detailed_statistics">Loading...</span></p>
+        <p><span data-i18n="production_stats">Loading...</span></p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Quiz Translation Test</h2>
+        <p><span data-i18n="quiz_intro_title">Loading...</span></p>
+        <p><span data-i18n="feature_comprehensive">Loading...</span></p>
+        <p><span data-i18n="total_questions">Loading...</span></p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Debug Information</h2>
+        <div id="debug-info">
+            <p>Language Manager Status: <span id="lm-status" class="error">Not Loaded</span></p>
+            <p>Current Language: <span id="current-lang">Unknown</span></p>
+            <p>Available Languages: <span id="available-langs">Unknown</span></p>
+        </div>
+        
+        <button onclick="testTranslations()" style="margin: 10px 5px; padding: 10px;">Test Translations</button>
+        <button onclick="fixTranslations()" style="margin: 10px 5px; padding: 10px;">Fix Translations</button>
+        <button onclick="checkTranslationStatus()" style="margin: 10px 5px; padding: 10px;">Check Status</button>
+        <button onclick="addMissingTranslations()" style="margin: 10px 5px; padding: 10px;">Add Missing</button>
+        <button onclick="forceReload()" style="margin: 10px 5px; padding: 10px;">Force Reload</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Console Output</h2>
+        <div id="console-output" style="background: #f5f5f5; padding: 10px; height: 200px; overflow-y: auto; font-family: monospace; font-size: 12px;"></div>
+    </div>
+
+    <script src="js/data-manager.js"></script>
+    <script src="js/chart-manager.js"></script>
+    <script src="js/language-manager.js"></script>
+    <script>
+        // Override console.log to show output on page
+        const originalLog = console.log;
+        const originalError = console.error;
+        const consoleOutput = document.getElementById('console-output');
+        
+        function addToConsole(message, type = 'log') {
+            const timestamp = new Date().toLocaleTimeString();
+            const div = document.createElement('div');
+            div.style.color = type === 'error' ? 'red' : 'black';
+            div.textContent = `[${timestamp}] ${message}`;
+            consoleOutput.appendChild(div);
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addToConsole(args.join(' '), 'log');
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addToConsole(args.join(' '), 'error');
+        };
+        
+        function updateDebugInfo() {
+            const lmStatus = document.getElementById('lm-status');
+            const currentLang = document.getElementById('current-lang');
+            const availableLangs = document.getElementById('available-langs');
+            
+            if (window.languageManager) {
+                lmStatus.textContent = window.languageManager.isLoaded ? 'Loaded' : 'Loading...';
+                lmStatus.className = window.languageManager.isLoaded ? 'success' : 'error';
+                currentLang.textContent = window.languageManager.currentLanguage || 'Unknown';
+                availableLangs.textContent = Object.keys(window.languageManager.languages || {}).join(', ') || 'None';
+            } else {
+                lmStatus.textContent = 'Not Available';
+                lmStatus.className = 'error';
+            }
+        }
+        
+        function testTranslations() {
+            console.log('=== Testing Translations ===');
+            if (!window.languageManager) {
+                console.error('Language Manager not available');
+                return;
+            }
+            
+            if (!window.languageManager.isLoaded) {
+                console.error('Language Manager not loaded yet');
+                return;
+            }
+            
+            const testKeys = ['brand', 'nav_home', 'stats_title', 'quiz_title'];
+            const currentLang = window.languageManager.currentLanguage;
+            
+            console.log(`Testing in language: ${currentLang}`);
+            
+            testKeys.forEach(key => {
+                const translation = window.languageManager.getTranslation(key);
+                console.log(`${key}: ${translation}`);
+            });
+            
+            updateDebugInfo();
+        }
+        
+        function forceReload() {
+            console.log('=== Force Reloading Language Manager ===');
+            if (window.languageManager) {
+                window.languageManager.init().then(() => {
+                    console.log('Language Manager reloaded successfully');
+                    updateDebugInfo();
+                }).catch(error => {
+                    console.error('Failed to reload Language Manager:', error);
+                });
+            } else {
+                console.error('Language Manager not available');
+            }
+        }
+        
+        // Update debug info periodically
+        setInterval(updateDebugInfo, 1000);
+        
+        // Initial update
+        setTimeout(updateDebugInfo, 100);
+        
+        console.log('Translation test page loaded');
+    </script>
+</body>
+</html>

@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Food Security in Jordan | الأمن الغذائي في الأردن - Comprehensive overview of agriculture, irrigation, crops, vertical farming, and plant diseases in Jordan with interactive charts and detailed statistics." />
+  <title>Food Security in Jordan | الأمن الغذائي في الأردن</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/rtl-support.css" />
+  <link rel="icon" href="images/favicon.svg" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+  <header class="glass nav">
+    <div class="brand">
+      <span class="logo">🌿</span>
+      <span data-i18n="brand">Food Security in Jordan</span>
+    </div>
+    <nav class="nav-menu">
+      <a href="#hero" data-i18n="nav_home">Home</a>
+      <a href="html/statistics.html" data-i18n="nav_stats">Statistics</a>
+      <a href="html/dashboard.html" data-i18n="nav_dashboard">📊 Dashboard</a>
+      <a href="html/irrigation.html" data-i18n="nav_irrigation">Irrigation</a>
+      <a href="html/diseases.html" data-i18n="nav_diseases">Diseases</a>
+      <a href="html/quiz.html" data-i18n="nav_quiz">Quiz</a>
+      <a href="html/contact.html" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search..." data-i18n-placeholder="search_placeholder">
+      <button id="searchBtn">🔍</button>
+    </div>
+    <div class="lang-switch">
+      <button id="lang-en" class="chip active">EN</button>
+      <button id="lang-ar" class="chip">العربية</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="section hero">
+      <div class="hero-content glass fade-up">
+        <h1 class="title gradient-text" data-i18n="hero_title">Food Security in Jordan | الأمن الغذائي في الأردن</h1>
+        <p class="subtitle" data-i18n="hero_sub">
+          Ensuring sustainable agriculture, modern irrigation, and resilient food systems across Jordan.
+        </p>
+        <div class="cta">
+          <a href="dashboard.html" class="btn primary" data-i18n="cta_explore">📊 Interactive Dashboard</a>
+          <a href="data-editor.html" class="btn ghost" data-i18n="cta_manage">✏️ Manage Data</a>
+          <a href="#vertical" class="btn ghost" data-i18n="cta_innovate">See Innovations</a>
+        </div>
+      </div>
+      <div class="floating-stats">
+        <div class="bubble">🌾</div>
+        <div class="bubble">💧</div>
+        <div class="bubble">🥗</div>
+        <div class="bubble">🫒</div>
+      </div>
+    </section>
+
+    <!-- Statistics -->
+    <section id="statistics" class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="stats_title">Jordan Agriculture Statistics</h2>
+        <p class="section-desc" data-i18n="stats_desc">
+          Comprehensive data on Jordan's agricultural landscape, production, and economic impact.
+        </p>
+        
+        <!-- Key Statistics Cards -->
+        <div class="stats-overview">
+          <div class="stat-card glass fade-up">
+            <div class="stat-icon">🏜️</div>
+            <div class="stat-number" data-count="70">0</div>
+            <div class="stat-label" data-i18n="stat_desert">% Desert Land</div>
+          </div>
+          <div class="stat-card glass fade-up">
+            <div class="stat-icon">🌾</div>
+            <div class="stat-number" data-count="3">0</div>
+            <div class="stat-label" data-i18n="stat_arable">% Arable Land</div>
+          </div>
+          <div class="stat-card glass fade-up">
+            <div class="stat-icon">👨‍🌾</div>
+            <div class="stat-number" data-count="240000">0</div>
+            <div class="stat-label" data-i18n="stat_farmers">Farmers</div>
+          </div>
+          <div class="stat-card glass fade-up">
+            <div class="stat-icon">📊</div>
+            <div class="stat-number" data-count="3">0</div>
+            <div class="stat-label" data-i18n="stat_gdp">% of GDP</div>
+          </div>
+        </div>
+
+        <!-- Water Stress Information -->
+        <div class="water-stress-info glass fade-up">
+          <h3 data-i18n="water_stress_title">Water Scarcity Challenge</h3>
+          <div class="water-stress-content">
+            <div class="water-stress-stat">
+              <span class="stress-number">97%</span>
+              <span class="stress-label" data-i18n="water_stressed">Water-Stressed Country</span>
+            </div>
+            <div class="water-stress-details">
+              <p data-i18n="water_stress_desc">Jordan is among the world's most water-scarce countries, making efficient irrigation and water management critical for food security.</p>
+              <ul class="water-challenges">
+                <li data-i18n="challenge_1">Limited renewable water resources</li>
+                <li data-i18n="challenge_2">Growing population pressure</li>
+                <li data-i18n="challenge_3">Climate change impacts</li>
+                <li data-i18n="challenge_4">Regional water conflicts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Irrigation systems -->
+    <section id="irrigation" class="section alt">
+      <div class="container">
+        <h2 class="section-title" data-i18n="irr_title">Irrigation Systems in Jordan</h2>
+        <p class="section-desc" data-i18n="irr_desc">
+          Advanced water management techniques essential for agriculture in one of the world's most water-scarce countries.
+        </p>
+        
+        <!-- Irrigation Methods Grid -->
+        <div class="irrigation-methods">
+          <div class="method-card glass fade-up">
+            <div class="method-header">
+              <h3 data-i18n="irr_drip">Drip Irrigation</h3>
+              <span class="efficiency-badge" data-i18n="efficiency_high">95% Efficient</span>
+            </div>
+            <div class="diagram">
+              <svg viewBox="0 0 300 120" width="100%" height="120">
+                <defs>
+                  <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#8BC34A"/>
+                    <stop offset="100%" stop-color="#2ecc71"/>
+                  </linearGradient>
+                </defs>
+                <rect x="0" y="80" width="300" height="40" fill="#795548" opacity="0.25"/>
+                <rect x="10" y="60" width="280" height="6" rx="3" fill="url(#g)"/>
+                <circle cx="60" cy="63" r="3" fill="#1abc9c"/>
+                <circle cx="130" cy="63" r="3" fill="#1abc9c"/>
+                <circle cx="200" cy="63" r="3" fill="#1abc9c"/>
+                <path d="M60,63 C60,63 58,72 60,80" stroke="#1abc9c" stroke-width="2" fill="none"/>
+                <path d="M130,63 C130,63 128,72 130,80" stroke="#1abc9c" stroke-width="2" fill="none"/>
+                <path d="M200,63 C200,63 198,72 200,80" stroke="#1abc9c" stroke-width="2" fill="none"/>
+              </svg>
+            </div>
+            <div class="method-details">
+              <p data-i18n="irr_drip_desc">Most efficient system used extensively in Jordan Valley. Water is delivered directly to plant roots through emitters.</p>
+              <ul class="method-benefits">
+                <li data-i18n="drip_benefit_1">90-95% water efficiency</li>
+                <li data-i18n="drip_benefit_2">Reduced evaporation losses</li>
+                <li data-i18n="drip_benefit_3">Precise nutrient delivery</li>
+                <li data-i18n="drip_benefit_4">Suitable for all terrains</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="method-card glass fade-up">
+            <div class="method-header">
+              <h3 data-i18n="irr_sprink">Sprinkler Irrigation</h3>
+              <span class="efficiency-badge moderate" data-i18n="efficiency_moderate">75% Efficient</span>
+            </div>
+            <div class="diagram">
+              <svg viewBox="0 0 300 120" width="100%" height="120">
+                <rect x="0" y="90" width="300" height="30" fill="#795548" opacity="0.25"/>
+                <rect x="140" y="60" width="20" height="30" rx="4" fill="#4CAF50"/>
+                <path d="M150,60 Q120,40 100,30" stroke="#00BCD4" stroke-width="2"/>
+                <path d="M150,60 Q180,40 200,30" stroke="#00BCD4" stroke-width="2"/>
+                <path d="M150,60 Q130,35 110,25" stroke="#00BCD4" stroke-width="2"/>
+                <path d="M150,60 Q170,35 190,25" stroke="#00BCD4" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="method-details">
+              <p data-i18n="irr_sprink_desc">Used for field crops and larger agricultural areas, simulating natural rainfall patterns.</p>
+              <ul class="method-benefits">
+                <li data-i18n="sprink_benefit_1">Good for large areas</li>
+                <li data-i18n="sprink_benefit_2">Uniform water distribution</li>
+                <li data-i18n="sprink_benefit_3">Can apply fertilizers</li>
+                <li data-i18n="sprink_benefit_4">Moderate investment cost</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="method-card glass fade-up">
+            <div class="method-header">
+              <h3 data-i18n="irr_surface">Surface Irrigation</h3>
+              <span class="efficiency-badge low" data-i18n="efficiency_low">60% Efficient</span>
+            </div>
+            <div class="diagram">
+              <svg viewBox="0 0 300 120" width="100%" height="120">
+                <rect x="0" y="90" width="300" height="30" fill="#795548" opacity="0.25"/>
+                <path d="M0,88 C80,88 220,88 300,88" stroke="#3498db" stroke-width="10" fill="none"/>
+                <path d="M50,88 C50,85 50,82 50,80" stroke="#3498db" stroke-width="3" fill="none"/>
+                <path d="M150,88 C150,85 150,82 150,80" stroke="#3498db" stroke-width="3" fill="none"/>
+                <path d="M250,88 C250,85 250,82 250,80" stroke="#3498db" stroke-width="3" fill="none"/>
+              </svg>
+            </div>
+            <div class="method-details">
+              <p data-i18n="irr_surface_desc">Traditional method still used in some areas, particularly for flood-tolerant crops.</p>
+              <ul class="method-benefits">
+                <li data-i18n="surface_benefit_1">Low initial investment</li>
+                <li data-i18n="surface_benefit_2">Simple operation</li>
+                <li data-i18n="surface_benefit_3">Good for rice cultivation</li>
+                <li data-i18n="surface_benefit_4">Traditional knowledge</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jordan Valley Irrigation Network -->
+        <div class="jordan-valley-section glass fade-up">
+          <h3 data-i18n="jordan_valley_title">Jordan Valley Irrigation Network</h3>
+          <div class="valley-content">
+            <div class="valley-map">
+              <div class="map-placeholder">
+                <div class="region north" data-tooltip="Northern Jordan Valley - Intensive vegetable production">
+                  <span class="region-label" data-i18n="north_valley">North Valley</span>
+                </div>
+                <div class="region middle" data-tooltip="Middle Jordan Valley - Mixed farming systems">
+                  <span class="region-label" data-i18n="middle_valley">Middle Valley</span>
+                </div>
+                <div class="region south" data-tooltip="Southern Jordan Valley - Date palm cultivation">
+                  <span class="region-label" data-i18n="south_valley">South Valley</span>
+                </div>
+              </div>
+            </div>
+            <div class="valley-stats">
+              <div class="valley-stat">
+                <span class="stat-value">105</span>
+                <span class="stat-unit" data-i18n="km_length">km length</span>
+              </div>
+              <div class="valley-stat">
+                <span class="stat-value">27,000</span>
+                <span class="stat-unit" data-i18n="hectares">hectares irrigated</span>
+              </div>
+              <div class="valley-stat">
+                <span class="stat-value">200</span>
+                <span class="stat-unit" data-i18n="mcm_water">MCM water annually</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Water Conservation Techniques -->
+        <div class="conservation-techniques">
+          <h3 data-i18n="conservation_title">Water Conservation Innovations</h3>
+          <div class="techniques-grid">
+            <div class="technique-card glass fade-up">
+              <div class="technique-icon">♻️</div>
+              <h4 data-i18n="greywater_title">Greywater Reuse</h4>
+              <p data-i18n="greywater_desc">Treated wastewater used for irrigation, reducing freshwater demand by up to 30%.</p>
+            </div>
+            <div class="technique-card glass fade-up">
+              <div class="technique-icon">🌡️</div>
+              <h4 data-i18n="mulching_title">Mulching Systems</h4>
+              <p data-i18n="mulching_desc">Plastic and organic mulches reduce evaporation and maintain soil moisture.</p>
+            </div>
+            <div class="technique-card glass fade-up">
+              <div class="technique-icon">📱</div>
+              <h4 data-i18n="smart_irrigation_title">Smart Irrigation</h4>
+              <p data-i18n="smart_irrigation_desc">IoT sensors and automated systems optimize water application timing and quantity.</p>
+            </div>
+            <div class="technique-card glass fade-up">
+              <div class="technique-icon">🏠</div>
+              <h4 data-i18n="greenhouse_title">Protected Agriculture</h4>
+              <p data-i18n="greenhouse_desc">Greenhouses and tunnels reduce water needs while extending growing seasons.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crops -->
+    <section id="crops" class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="crops_title">Crops in Jordan</h2>
+        <p class="section-desc" data-i18n="crops_desc">From traditional staples to modern greenhouse production - Jordan's diverse agricultural output.</p>
+        
+        <!-- Crop Categories -->
+        <div class="crop-categories">
+          <div class="category-tabs">
+            <button class="tab-btn active" data-category="common" data-i18n="common_crops">Common Crops</button>
+            <button class="tab-btn" data-category="rare" data-i18n="rare_crops">Rare & Heritage</button>
+            <button class="tab-btn" data-category="greenhouse" data-i18n="greenhouse_crops">Greenhouse</button>
+          </div>
+        </div>
+
+        <!-- Common Crops -->
+        <div class="crop-content active" id="common">
+          <div class="crops-grid">
+            <div class="crop-card glass fade-up" data-crop="olives">
+              <div class="crop-image">
+                <img src="images/olive-trees.jpg" alt="Olive trees" loading="lazy" />
+                <div class="crop-overlay">
+                  <span class="crop-percentage">60%</span>
+                  <span class="crop-label" data-i18n="cultivated_area">of cultivated area</span>
+                </div>
+              </div>
+              <div class="crop-info">
+                <h3 data-i18n="crop_olives_title">Olives</h3>
+                <p class="crop-regions" data-i18n="olive_regions">Jordan Valley, Ajloun, Jerash, Irbid</p>
+                <div class="crop-stats">
+                  <div class="stat">
+                    <span class="stat-value">240,000</span>
+                    <span class="stat-label" data-i18n="tons_annually">tons annually</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-value">14M</span>
+                    <span class="stat-label" data-i18n="olive_trees">olive trees</span>
+                  </div>
+                </div>
+                <p class="crop-description" data-i18n="olive_desc">Jordan's most important crop, with varieties including Nabali, Rasii, and Improved Nabali. Main harvest season is October-December.</p>
+              </div>
+            </div>
+
+            <div class="crop-card glass fade-up" data-crop="wheat">
+              <div class="crop-image">
+                <img src="images/wheat-field.jpg" alt="Wheat field" loading="lazy" />
+                <div class="crop-overlay">
+                  <span class="crop-percentage">15%</span>
+                  <span class="crop-label" data-i18n="cultivated_area">of cultivated area</span>
+                </div>
+              </div>
+              <div class="crop-info">
+                <h3 data-i18n="crop_wheat_title">Wheat</h3>
+                <p class="crop-regions" data-i18n="wheat_regions">Mafraq, Karak, Northern Plains</p>
+                <div class="crop-stats">
+                  <div class="stat">
+                    <span class="stat-value">25,000</span>
+                    <span class="stat-label" data-i18n="tons_annually">tons annually</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-value">45,000</span>
+                    <span class="stat-label" data-i18n="hectares">hectares</span>
+                  </div>
+                </div>
+                <p class="crop-description" data-i18n="wheat_desc">Mainly rainfed cultivation with varieties adapted to semi-arid conditions. Jordan imports 95% of wheat consumption needs.</p>
+              </div>
+            </div>
+
+            <div class="crop-card glass fade-up" data-crop="barley">
+              <div class="crop-image">
+                <img src="images/barley-field.jpg" alt="Barley field" loading="lazy" />
+                <div class="crop-overlay">
+                  <span class="crop-percentage">8%</span>
+                  <span class="crop-label" data-i18n="cultivated_area">of cultivated area</span>
+                </div>
+              </div>
+              <div class="crop-info">
+                <h3 data-i18n="crop_barley_title">Barley</h3>
+                <p class="crop-regions" data-i18n="barley_regions">Eastern Desert, Steppe Regions</p>
+                <div class="crop-stats">
+                  <div class="stat">
+                    <span class="stat-value">15,000</span>
+                    <span class="stat-label" data-i18n="tons_annually">tons annually</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-value">35,000</span>
+                    <span class="stat-label" data-i18n="hectares">hectares</span>
+                  </div>
+                </div>
+                <p class="crop-description" data-i18n="barley_desc">Drought-tolerant crop used primarily for animal feed. Well-adapted to Jordan's arid conditions.</p>
+              </div>
+            </div>
+
+            <div class="crop-card glass fade-up" data-crop="citrus">
+              <div class="crop-image">
+                <img src="images/citrus-fruits.jpg" alt="Citrus fruits" loading="lazy" />
+                <div class="crop-overlay">
+                  <span class="crop-percentage">5%</span>
+                  <span class="crop-label" data-i18n="cultivated_area">of cultivated area</span>
+                </div>
+              </div>
+              <div class="crop-info">
+                <h3 data-i18n="crop_citrus_title">Citrus Fruits</h3>
+                <p class="crop-regions" data-i18n="citrus_regions">Jordan Valley, Ghor</p>
+                <div class="crop-stats">
+                  <div class="stat">
+                    <span class="stat-value">180,000</span>
+                    <span class="stat-label" data-i18n="tons_annually">tons annually</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-value">8,500</span>
+                    <span class="stat-label" data-i18n="hectares">hectares</span>
+                  </div>
+                </div>
+                <p class="crop-description" data-i18n="citrus_desc">Oranges, lemons, and grapefruits grown in the warm Jordan Valley climate with intensive irrigation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rare & Heritage Crops -->
+        <div class="crop-content" id="rare">
+          <div class="heritage-intro glass fade-up">
+            <h3 data-i18n="heritage_title">Heritage & Endangered Varieties</h3>
+            <p data-i18n="heritage_desc">Traditional crop varieties that have been cultivated in Jordan for centuries, now at risk of disappearing due to modern farming practices.</p>
+          </div>
+          
+          <div class="rare-crops-grid">
+            <div class="rare-crop-card glass fade-up">
+              <div class="rare-crop-header">
+                <h4 data-i18n="ancient_wheat">Ancient Wheat Varieties</h4>
+                <span class="status endangered" data-i18n="endangered">Endangered</span>
+              </div>
+              <div class="rare-crop-content">
+                <img src="images/ancient-wheat.jpg" alt="Ancient wheat" loading="lazy" />
+                <div class="rare-crop-info">
+                  <p data-i18n="ancient_wheat_desc">Traditional emmer and einkorn wheat varieties once common in northern Jordan. These hardy grains are drought-resistant and nutritionally superior.</p>
+                  <div class="conservation-status">
+                    <span data-i18n="conservation_efforts">Conservation efforts by ICARDA and local farmers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rare-crop-card glass fade-up">
+              <div class="rare-crop-header">
+                <h4 data-i18n="heirloom_vegetables">Heirloom Vegetables</h4>
+                <span class="status rare" data-i18n="rare">Rare</span>
+              </div>
+              <div class="rare-crop-content">
+                <img src="images/heirloom-vegetables.jpg" alt="Heirloom vegetables" loading="lazy" />
+                <div class="rare-crop-info">
+                  <p data-i18n="heirloom_vegetables_desc">Traditional varieties of eggplant, peppers, and squash with unique flavors and adaptation to local conditions.</p>
+                  <div class="conservation-status">
+                    <span data-i18n="seed_banks">Preserved in national seed banks</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rare-crop-card glass fade-up">
+              <div class="rare-crop-header">
+                <h4 data-i18n="wild_relatives">Wild Crop Relatives</h4>
+                <span class="status protected" data-i18n="protected">Protected</span>
+              </div>
+              <div class="rare-crop-content">
+                <img src="images/wild-plants.jpg" alt="Wild plants" loading="lazy" />
+                <div class="rare-crop-info">
+                  <p data-i18n="wild_relatives_desc">Wild ancestors of cultivated crops found in Jordan's nature reserves, crucial for genetic diversity and breeding programs.</p>
+                  <div class="conservation-status">
+                    <span data-i18n="nature_reserves">Protected in Dana and Ajloun reserves</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Greenhouse Crops -->
+        <div class="crop-content" id="greenhouse">
+          <div class="greenhouse-intro glass fade-up">
+            <h3 data-i18n="greenhouse_production_title">Protected Agriculture Production</h3>
+            <p data-i18n="greenhouse_production_desc">Modern greenhouse facilities enabling year-round production of high-value crops with efficient water and nutrient use.</p>
+          </div>
+          
+          <div class="greenhouse-stats">
+            <div class="greenhouse-stat glass fade-up">
+              <span class="stat-number">2,800</span>
+              <span class="stat-label" data-i18n="greenhouse_hectares">hectares under protection</span>
+            </div>
+            <div class="greenhouse-stat glass fade-up">
+              <span class="stat-number">85%</span>
+              <span class="stat-label" data-i18n="water_savings">water savings vs. open field</span>
+            </div>
+            <div class="greenhouse-stat glass fade-up">
+              <span class="stat-number">3-5x</span>
+              <span class="stat-label" data-i18n="yield_increase">higher yields</span>
+            </div>
+          </div>
+
+          <div class="greenhouse-crops-grid">
+            <div class="greenhouse-crop glass fade-up">
+              <img src="images/greenhouse-tomatoes.jpg" alt="Greenhouse tomatoes" loading="lazy" />
+              <div class="greenhouse-crop-info">
+                <h4 data-i18n="greenhouse_tomatoes">Tomatoes</h4>
+                <p data-i18n="greenhouse_tomatoes_desc">Year-round production with hydroponic systems, producing 450 tons/hectare annually.</p>
+              </div>
+            </div>
+            <div class="greenhouse-crop glass fade-up">
+              <img src="images/greenhouse-cucumbers.jpg" alt="Greenhouse cucumbers" loading="lazy" />
+              <div class="greenhouse-crop-info">
+                <h4 data-i18n="greenhouse_cucumbers">Cucumbers</h4>
+                <p data-i18n="greenhouse_cucumbers_desc">High-quality export varieties grown in climate-controlled environments.</p>
+              </div>
+            </div>
+            <div class="greenhouse-crop glass fade-up">
+              <img src="images/greenhouse-peppers.jpg" alt="Greenhouse peppers" loading="lazy" />
+              <div class="greenhouse-crop-info">
+                <h4 data-i18n="greenhouse_peppers">Sweet Peppers</h4>
+                <p data-i18n="greenhouse_peppers_desc">Colorful bell peppers for domestic and export markets, grown with precision agriculture.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plants -->
+    <section id="plants" class="section alt">
+      <div class="container">
+        <h2 class="section-title" data-i18n="plants_title">Native Plants of Jordan</h2>
+        <p class="section-desc" data-i18n="plants_desc">From the national flower to medicinal herbs - Jordan's rich botanical heritage and conservation efforts.</p>
+        
+        <!-- Plant Categories -->
+        <div class="plant-categories">
+          <div class="category-tabs">
+            <button class="tab-btn active" data-category="native" data-i18n="native_plants">Native Species</button>
+            <button class="tab-btn" data-category="medicinal" data-i18n="medicinal_plants">Medicinal Plants</button>
+            <button class="tab-btn" data-category="endangered" data-i18n="endangered_plants">Endangered</button>
+          </div>
+        </div>
+
+        <!-- Native Plants -->
+        <div class="plant-content active" id="native">
+          <div class="plants-showcase">
+            <div class="featured-plant glass fade-up">
+              <div class="plant-image-large">
+                <img src="images/black-iris.jpg" alt="Black Iris" loading="lazy" />
+                <div class="plant-badge national" data-i18n="national_flower">National Flower</div>
+              </div>
+              <div class="plant-details">
+                <h3 data-i18n="plant_blackiris">Black Iris</h3>
+                <p class="scientific-name">Iris nigricans</p>
+                <div class="plant-info-grid">
+                  <div class="info-item">
+                    <span class="info-label" data-i18n="bloom_time">Bloom Time:</span>
+                    <span class="info-value" data-i18n="march_may">March - May</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label" data-i18n="habitat">Habitat:</span>
+                    <span class="info-value" data-i18n="mountain_slopes">Mountain slopes, 600-1500m</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label" data-i18n="conservation_status">Status:</span>
+                    <span class="info-value protected" data-i18n="protected_species">Protected</span>
+                  </div>
+                </div>
+                <p class="plant-description" data-i18n="blackiris_detailed_desc">Jordan's national flower, the Black Iris blooms in spring across the country's highlands. This resilient flower symbolizes Jordan's natural beauty and has adapted to the country's arid climate. Found primarily in the northern and central highlands, it's protected by law and celebrated in Jordanian culture.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="native-plants-grid">
+            <div class="plant-card glass flip hover-raise fade-up">
+              <div class="plant-front">
+                <div class="plant-image">
+                  <img src="images/palestine-oak.jpg" alt="Palestine Oak" loading="lazy" />
+                </div>
+                <h4 data-i18n="palestine_oak">Palestine Oak</h4>
+                <span class="scientific-tag">Quercus calliprinos</span>
+              </div>
+              <div class="plant-back">
+                <div class="plant-back-content">
+                  <p data-i18n="palestine_oak_desc">Evergreen oak tree forming the backbone of Jordan's Mediterranean forests. Highly drought-resistant and culturally significant.</p>
+                  <div class="plant-uses">
+                    <span class="use-tag" data-i18n="timber">Timber</span>
+                    <span class="use-tag" data-i18n="wildlife_habitat">Wildlife</span>
+                    <span class="use-tag" data-i18n="erosion_control">Erosion Control</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="plant-card glass flip hover-raise fade-up">
+              <div class="plant-front">
+                <div class="plant-image">
+                  <img src="images/carob-tree.jpg" alt="Carob Tree" loading="lazy" />
+                </div>
+                <h4 data-i18n="carob_tree">Carob Tree</h4>
+                <span class="scientific-tag">Ceratonia siliqua</span>
+              </div>
+              <div class="plant-back">
+                <div class="plant-back-content">
+                  <p data-i18n="carob_desc">Ancient tree producing nutritious pods, historically used as currency. Extremely drought-tolerant and long-lived.</p>
+                  <div class="plant-uses">
+                    <span class="use-tag" data-i18n="food">Food</span>
+                    <span class="use-tag" data-i18n="animal_feed">Animal Feed</span>
+                    <span class="use-tag" data-i18n="shade">Shade</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="plant-card glass flip hover-raise fade-up">
+              <div class="plant-front">
+                <div class="plant-image">
+                  <img src="images/wild-sage.jpg" alt="Wild Sage" loading="lazy" />
+                </div>
+                <h4 data-i18n="wild_sage">Wild Sage</h4>
+                <span class="scientific-tag">Salvia fruticosa</span>
+              </div>
+              <div class="plant-back">
+                <div class="plant-back-content">
+                  <p data-i18n="wild_sage_desc">Aromatic shrub common in Jordan's hills and valleys. Essential oil used in traditional medicine and cuisine.</p>
+                  <div class="plant-uses">
+                    <span class="use-tag" data-i18n="medicine">Medicine</span>
+                    <span class="use-tag" data-i18n="tea">Tea</span>
+                    <span class="use-tag" data-i18n="essential_oils">Essential Oils</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="plant-card glass flip hover-raise fade-up">
+              <div class="plant-front">
+                <div class="plant-image">
+                  <img src="images/desert-broom.jpg" alt="Desert Broom" loading="lazy" />
+                </div>
+                <h4 data-i18n="desert_broom">Desert Broom</h4>
+                <span class="scientific-tag">Retama raetam</span>
+              </div>
+              <div class="plant-back">
+                <div class="plant-back-content">
+                  <p data-i18n="desert_broom_desc">Hardy desert shrub with white flowers. Excellent for soil stabilization and desert landscaping.</p>
+                  <div class="plant-uses">
+                    <span class="use-tag" data-i18n="landscaping">Landscaping</span>
+                    <span class="use-tag" data-i18n="soil_stabilization">Soil Stabilization</span>
+                    <span class="use-tag" data-i18n="honey_plant">Honey Plant</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Medicinal Plants -->
+        <div class="plant-content" id="medicinal">
+          <div class="medicinal-intro glass fade-up">
+            <h3 data-i18n="traditional_medicine_title">Traditional Medicinal Plants</h3>
+            <p data-i18n="traditional_medicine_desc">Jordan's rich tradition of herbal medicine relies on native plants that have been used for centuries to treat various ailments.</p>
+          </div>
+
+          <div class="medicinal-plants-grid">
+            <div class="medicinal-plant-card glass fade-up">
+              <div class="medicinal-plant-image">
+                <img src="images/zaatar.jpg" alt="Za'atar" loading="lazy" />
+              </div>
+              <div class="medicinal-plant-info">
+                <h4 data-i18n="zaatar">Za'atar</h4>
+                <p class="scientific-name">Origanum syriacum</p>
+                <div class="medicinal-properties">
+                  <h5 data-i18n="medicinal_uses">Medicinal Uses:</h5>
+                  <ul>
+                    <li data-i18n="respiratory_ailments">Respiratory ailments</li>
+                    <li data-i18n="digestive_problems">Digestive problems</li>
+                    <li data-i18n="antimicrobial">Antimicrobial properties</li>
+                    <li data-i18n="antioxidant">Antioxidant effects</li>
+                  </ul>
+                </div>
+                <p class="preparation" data-i18n="zaatar_preparation">Traditionally prepared as tea or mixed with olive oil. Rich in thymol and carvacrol compounds.</p>
+              </div>
+            </div>
+
+            <div class="medicinal-plant-card glass fade-up">
+              <div class="medicinal-plant-image">
+                <img src="images/chamomile.jpg" alt="Chamomile" loading="lazy" />
+              </div>
+              <div class="medicinal-plant-info">
+                <h4 data-i18n="chamomile">Chamomile</h4>
+                <p class="scientific-name">Matricaria chamomilla</p>
+                <div class="medicinal-properties">
+                  <h5 data-i18n="medicinal_uses">Medicinal Uses:</h5>
+                  <ul>
+                    <li data-i18n="calming_effect">Calming and sedative</li>
+                    <li data-i18n="anti_inflammatory">Anti-inflammatory</li>
+                    <li data-i18n="skin_conditions">Skin conditions</li>
+                    <li data-i18n="stomach_upset">Stomach upset</li>
+                  </ul>
+                </div>
+                <p class="preparation" data-i18n="chamomile_preparation">Flowers used to make soothing tea. Contains apigenin and other bioactive compounds.</p>
+              </div>
+            </div>
+
+            <div class="medicinal-plant-card glass fade-up">
+              <div class="medicinal-plant-image">
+                <img src="images/desert-yarrow.jpg" alt="Desert Yarrow" loading="lazy" />
+              </div>
+              <div class="medicinal-plant-info">
+                <h4 data-i18n="desert_yarrow">Desert Yarrow</h4>
+                <p class="scientific-name">Achillea fragrantissima</p>
+                <div class="medicinal-properties">
+                  <h5 data-i18n="medicinal_uses">Medicinal Uses:</h5>
+                  <ul>
+                    <li data-i18n="wound_healing">Wound healing</li>
+                    <li data-i18n="fever_reduction">Fever reduction</li>
+                    <li data-i18n="pain_relief">Pain relief</li>
+                    <li data-i18n="menstrual_disorders">Menstrual disorders</li>
+                  </ul>
+                </div>
+                <p class="preparation" data-i18n="yarrow_preparation">Leaves and flowers used in poultices and teas. Contains achilleine and essential oils.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Endangered Plants -->
+        <div class="plant-content" id="endangered">
+          <div class="conservation-alert glass fade-up">
+            <div class="alert-icon">⚠️</div>
+            <div class="alert-content">
+              <h3 data-i18n="conservation_alert_title">Plants at Risk</h3>
+              <p data-i18n="conservation_alert_desc">Several native plant species face extinction due to habitat loss, climate change, and human activities. Conservation efforts are crucial for preserving Jordan's botanical heritage.</p>
+            </div>
+          </div>
+
+          <div class="endangered-plants-grid">
+            <div class="endangered-plant-card glass fade-up">
+              <div class="threat-level critical">
+                <span data-i18n="critically_endangered">Critically Endangered</span>
+              </div>
+              <div class="endangered-plant-content">
+                <img src="images/dead-sea-endemic.jpg" alt="Dead Sea Endemic" loading="lazy" />
+                <div class="endangered-plant-info">
+                  <h4 data-i18n="dead_sea_plants">Dead Sea Endemic Species</h4>
+                  <p data-i18n="dead_sea_plants_desc">Unique halophytic plants adapted to extreme salinity levels. Threatened by water level changes and development.</p>
+                  <div class="conservation-actions">
+                    <h5 data-i18n="conservation_actions">Conservation Actions:</h5>
+                    <ul>
+                      <li data-i18n="seed_collection">Seed collection programs</li>
+                      <li data-i18n="habitat_protection">Habitat protection</li>
+                      <li data-i18n="research_programs">Research programs</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="endangered-plant-card glass fade-up">
+              <div class="threat-level endangered">
+                <span data-i18n="endangered">Endangered</span>
+              </div>
+              <div class="endangered-plant-content">
+                <img src="images/mountain-forest.jpg" alt="Mountain Forest" loading="lazy" />
+                <div class="endangered-plant-info">
+                  <h4 data-i18n="mountain_forest_species">Mountain Forest Remnants</h4>
+                  <p data-i18n="mountain_forest_desc">Relict forest species from cooler, wetter periods. Threatened by climate change and land use changes.</p>
+                  <div class="conservation-actions">
+                    <h5 data-i18n="conservation_actions">Conservation Actions:</h5>
+                    <ul>
+                      <li data-i18n="protected_areas">Protected area designation</li>
+                      <li data-i18n="reforestation">Reforestation efforts</li>
+                      <li data-i18n="community_involvement">Community involvement</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="endangered-plant-card glass fade-up">
+              <div class="threat-level vulnerable">
+                <span data-i18n="vulnerable">Vulnerable</span>
+              </div>
+              <div class="endangered-plant-content">
+                <img src="images/medicinal-plants.jpg" alt="Medicinal Plants" loading="lazy" />
+                <div class="endangered-plant-info">
+                  <h4 data-i18n="overharvested_medicinal">Overharvested Medicinal Plants</h4>
+                  <p data-i18n="overharvested_desc">Traditional medicinal plants facing pressure from commercial collection and habitat degradation.</p>
+                  <div class="conservation-actions">
+                    <h5 data-i18n="conservation_actions">Conservation Actions:</h5>
+                    <ul>
+                      <li data-i18n="sustainable_harvesting">Sustainable harvesting guidelines</li>
+                      <li data-i18n="cultivation_programs">Cultivation programs</li>
+                      <li data-i18n="education_campaigns">Education campaigns</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="conservation-efforts glass fade-up">
+            <h3 data-i18n="conservation_efforts_title">Conservation Initiatives</h3>
+            <div class="conservation-grid">
+              <div class="conservation-item">
+                <div class="conservation-icon">🏛️</div>
+                <h4 data-i18n="royal_botanic_garden">Royal Botanic Garden</h4>
+                <p data-i18n="rbg_desc">Leading conservation efforts with seed banks, research programs, and public education.</p>
+              </div>
+              <div class="conservation-item">
+                <div class="conservation-icon">🌲</div>
+                <h4 data-i18n="nature_reserves">Nature Reserves</h4>
+                <p data-i18n="reserves_desc">Dana, Ajloun, and other reserves protect critical habitats and endangered species.</p>
+              </div>
+              <div class="conservation-item">
+                <div class="conservation-icon">🔬</div>
+                <h4 data-i18n="research_institutions">Research Institutions</h4>
+                <p data-i18n="research_desc">Universities and ICARDA conducting vital research on plant conservation and breeding.</p>
+              </div>
+              <div class="conservation-item">
+                <div class="conservation-icon">🤝</div>
+                <h4 data-i18n="community_programs">Community Programs</h4>
+                <p data-i18n="community_desc">Local communities engaged in conservation through education and sustainable practices.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vertical Farming -->
+    <section id="vertical" class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="vert_title">Vertical Farming in Jordan</h2>
+        <p class="section-desc" data-i18n="vert_desc">Innovative agricultural technology addressing water scarcity and land limitations through controlled environment agriculture.</p>
+        
+        <!-- Vertical Farming Benefits -->
+        <div class="vertical-benefits">
+          <div class="benefit-card glass fade-up">
+            <div class="benefit-icon">💧</div>
+            <div class="benefit-content">
+              <h3 data-i18n="water_efficiency">95% Water Savings</h3>
+              <p data-i18n="water_efficiency_desc">Recirculating hydroponic systems use 95% less water than traditional farming methods.</p>
+            </div>
+          </div>
+          <div class="benefit-card glass fade-up">
+            <div class="benefit-icon">🏢</div>
+            <div class="benefit-content">
+              <h3 data-i18n="space_efficiency">Vertical Space Utilization</h3>
+              <p data-i18n="space_efficiency_desc">Produces 10-20 times more yield per square meter compared to conventional agriculture.</p>
+            </div>
+          </div>
+          <div class="benefit-card glass fade-up">
+            <div class="benefit-icon">🌡️</div>
+            <div class="benefit-content">
+              <h3 data-i18n="climate_control">Year-Round Production</h3>
+              <p data-i18n="climate_control_desc">Climate-controlled environments enable continuous harvests regardless of weather.</p>
+            </div>
+          </div>
+          <div class="benefit-card glass fade-up">
+            <div class="benefit-icon">🚫</div>
+            <div class="benefit-content">
+              <h3 data-i18n="pesticide_free">Pesticide-Free Growing</h3>
+              <p data-i18n="pesticide_free_desc">Controlled environments eliminate the need for harmful pesticides and herbicides.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technology Showcase -->
+        <div class="technology-showcase">
+          <div class="tech-demo glass fade-up">
+            <div class="demo-visual">
+              <div class="vertical-farm-animation">
+                <div class="farm-level level-1">
+                  <div class="plants">🌱🌱🌱🌱🌱</div>
+                  <div class="led-lights">💡💡💡💡💡</div>
+                </div>
+                <div class="farm-level level-2">
+                  <div class="plants">🥬🥬🥬🥬🥬</div>
+                  <div class="led-lights">💡💡💡💡💡</div>
+                </div>
+                <div class="farm-level level-3">
+                  <div class="plants">🌿🌿🌿🌿🌿</div>
+                  <div class="led-lights">💡💡💡💡💡</div>
+                </div>
+                <div class="farm-level level-4">
+                  <div class="plants">🥗🥗🥗🥗🥗</div>
+                  <div class="led-lights">💡💡💡💡💡</div>
+                </div>
+                <div class="water-system">
+                  <div class="water-flow">💧→💧→💧→💧</div>
+                </div>
+              </div>
+            </div>
+            <div class="tech-info">
+              <h3 data-i18n="vertical_system_title">Multi-Level Growing System</h3>
+              <div class="tech-specs">
+                <div class="spec">
+                  <span class="spec-label" data-i18n="led_lighting">LED Lighting:</span>
+                  <span class="spec-value" data-i18n="full_spectrum">Full spectrum, energy-efficient</span>
+                </div>
+                <div class="spec">
+                  <span class="spec-label" data-i18n="hydroponic_system">Hydroponic System:</span>
+                  <span class="spec-value" data-i18n="nft_dwc">NFT and DWC methods</span>
+                </div>
+                <div class="spec">
+                  <span class="spec-label" data-i18n="automation">Automation:</span>
+                  <span class="spec-value" data-i18n="iot_sensors">IoT sensors and AI control</span>
+                </div>
+                <div class="spec">
+                  <span class="spec-label" data-i18n="crop_cycles">Crop Cycles:</span>
+                  <span class="spec-value" data-i18n="continuous_harvest">Continuous harvesting</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jordan Case Studies -->
+        <div class="case-studies">
+          <h3 data-i18n="case_studies_title">Vertical Farming Projects in Jordan</h3>
+          
+          <div class="case-study-grid">
+            <div class="case-study-card glass fade-up">
+              <div class="case-study-header">
+                <img src="images/urban-farm.jpg" alt="Urban farm" loading="lazy" />
+                <div class="case-study-badge startup" data-i18n="startup">Startup</div>
+              </div>
+              <div class="case-study-content">
+                <h4 data-i18n="amman_vertical_farms">Amman Urban Vertical Farms</h4>
+                <div class="case-study-stats">
+                  <div class="stat">
+                    <span class="stat-number">500</span>
+                    <span class="stat-label" data-i18n="sqm_facility">m² facility</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">2,000</span>
+                    <span class="stat-label" data-i18n="plants_monthly">plants/month</span>
+                  </div>
+                </div>
+                <p data-i18n="amman_farms_desc">Several startups in Amman are pioneering vertical farming with leafy greens and herbs. These facilities supply local restaurants and supermarkets with fresh, pesticide-free produce.</p>
+                <div class="case-study-highlights">
+                  <span class="highlight" data-i18n="leafy_greens">Leafy Greens</span>
+                  <span class="highlight" data-i18n="herbs">Herbs</span>
+                  <span class="highlight" data-i18n="microgreens">Microgreens</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-study-card glass fade-up">
+              <div class="case-study-header">
+                <img src="images/university-research.jpg" alt="University research" loading="lazy" />
+                <div class="case-study-badge research" data-i18n="research">Research</div>
+              </div>
+              <div class="case-study-content">
+                <h4 data-i18n="university_projects">University Research Projects</h4>
+                <div class="case-study-stats">
+                  <div class="stat">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label" data-i18n="universities">Universities</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">15</span>
+                    <span class="stat-label" data-i18n="research_projects">Projects</span>
+                  </div>
+                </div>
+                <p data-i18n="university_desc">Jordan University of Science and Technology, University of Jordan, and other institutions are conducting research on optimizing vertical farming for Middle Eastern conditions.</p>
+                <div class="case-study-highlights">
+                  <span class="highlight" data-i18n="climate_adaptation">Climate Adaptation</span>
+                  <span class="highlight" data-i18n="energy_efficiency">Energy Efficiency</span>
+                  <span class="highlight" data-i18n="crop_optimization">Crop Optimization</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-study-card glass fade-up">
+              <div class="case-study-header">
+                <img src="images/commercial-greenhouse.jpg" alt="Commercial greenhouse" loading="lazy" />
+                <div class="case-study-badge commercial" data-i18n="commercial">Commercial</div>
+              </div>
+              <div class="case-study-content">
+                <h4 data-i18n="greenhouse_retrofits">Greenhouse Technology Upgrades</h4>
+                <div class="case-study-stats">
+                  <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label" data-i18n="upgraded_facilities">Upgraded facilities</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-number">40%</span>
+                    <span class="stat-label" data-i18n="yield_increase">Yield increase</span>
+                  </div>
+                </div>
+                <p data-i18n="greenhouse_retrofits_desc">Existing greenhouse operations in Jordan Valley are incorporating vertical growing systems, automated irrigation, and climate control to maximize productivity.</p>
+                <div class="case-study-highlights">
+                  <span class="highlight" data-i18n="automation">Automation</span>
+                  <span class="highlight" data-i18n="precision_agriculture">Precision Agriculture</span>
+                  <span class="highlight" data-i18n="export_quality">Export Quality</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Investment & Future -->
+        <div class="investment-future">
+          <div class="investment-stats glass fade-up">
+            <h3 data-i18n="investment_title">Investment & Growth</h3>
+            <div class="investment-grid">
+              <div class="investment-item">
+                <span class="investment-number">$12M</span>
+                <span class="investment-label" data-i18n="total_investment">Total investment (2020-2024)</span>
+              </div>
+              <div class="investment-item">
+                <span class="investment-number">25</span>
+                <span class="investment-label" data-i18n="active_projects">Active projects</span>
+              </div>
+              <div class="investment-item">
+                <span class="investment-number">300</span>
+                <span class="investment-label" data-i18n="jobs_created">Jobs created</span>
+              </div>
+              <div class="investment-item">
+                <span class="investment-number">2030</span>
+                <span class="investment-label" data-i18n="target_year">Scale-up target</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="future-potential glass fade-up">
+            <h3 data-i18n="future_potential_title">Future Potential</h3>
+            <div class="potential-areas">
+              <div class="potential-area">
+                <div class="potential-icon">🏙️</div>
+                <h4 data-i18n="urban_integration">Urban Integration</h4>
+                <p data-i18n="urban_integration_desc">Vertical farms integrated into residential and commercial buildings in Amman and other cities.</p>
+              </div>
+              <div class="potential-area">
+                <div class="potential-icon">🌞</div>
+                <h4 data-i18n="solar_powered">Solar-Powered Systems</h4>
+                <p data-i18n="solar_powered_desc">Combining vertical farming with Jordan's abundant solar energy for sustainable production.</p>
+              </div>
+              <div class="potential-area">
+                <div class="potential-icon">📱</div>
+                <h4 data-i18n="smart_farming">Smart Farming Networks</h4>
+                <p data-i18n="smart_farming_desc">Connected farms sharing data and optimizing production through AI and machine learning.</p>
+              </div>
+              <div class="potential-area">
+                <div class="potential-icon">🌍</div>
+                <h4 data-i18n="export_markets">Export Markets</h4>
+                <p data-i18n="export_markets_desc">High-quality produce for regional export, leveraging Jordan's strategic location.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison Chart -->
+        <div class="comparison-chart glass fade-up">
+          <h3 data-i18n="comparison_title">Traditional vs. Vertical Farming Comparison</h3>
+          <div class="comparison-table">
+            <div class="comparison-header">
+              <div class="comparison-metric" data-i18n="metric">Metric</div>
+              <div class="comparison-traditional" data-i18n="traditional_farming">Traditional</div>
+              <div class="comparison-vertical" data-i18n="vertical_farming">Vertical</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-metric" data-i18n="water_usage">Water Usage</div>
+              <div class="comparison-traditional">100%</div>
+              <div class="comparison-vertical better">5%</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-metric" data-i18n="land_usage">Land Usage</div>
+              <div class="comparison-traditional">100%</div>
+              <div class="comparison-vertical better">5-10%</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-metric" data-i18n="yield_per_sqm">Yield per m²</div>
+              <div class="comparison-traditional">1x</div>
+              <div class="comparison-vertical better">10-20x</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-metric" data-i18n="pesticide_use">Pesticide Use</div>
+              <div class="comparison-traditional">High</div>
+              <div class="comparison-vertical better">None</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-metric" data-i18n="weather_dependency">Weather Dependency</div>
+              <div class="comparison-traditional">High</div>
+              <div class="comparison-vertical better">None</div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-metric" data-i18n="initial_investment">Initial Investment</div>
+              <div class="comparison-traditional better">Low</div>
+              <div class="comparison-vertical">High</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diseases -->
+    <section id="diseases" class="section alt">
+      <div class="container">
+        <h2 class="section-title" data-i18n="dis_title">Plant Diseases in Jordan</h2>
+        <p class="section-desc" data-i18n="dis_desc">Comprehensive guide to major plant diseases, their economic impact, and integrated management strategies.</p>
+        
+        <!-- Disease Impact Overview -->
+        <div class="disease-impact glass fade-up">
+          <h3 data-i18n="economic_impact_title">Economic Impact of Plant Diseases</h3>
+          <div class="impact-stats">
+            <div class="impact-stat">
+              <span class="impact-number">15-25%</span>
+              <span class="impact-label" data-i18n="annual_crop_losses">Annual crop losses</span>
+            </div>
+            <div class="impact-stat">
+              <span class="impact-number">$50M</span>
+              <span class="impact-label" data-i18n="economic_losses">Economic losses annually</span>
+            </div>
+            <div class="impact-stat">
+              <span class="impact-number">Climate</span>
+              <span class="impact-label" data-i18n="climate_factor">Change intensifying risks</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Major Disease Categories -->
+        <div class="disease-categories">
+          <div class="category-tabs">
+            <button class="tab-btn active" data-category="olive-diseases" data-i18n="olive_diseases">Olive Diseases</button>
+            <button class="tab-btn" data-category="vegetable-diseases" data-i18n="vegetable_diseases">Vegetable Diseases</button>
+            <button class="tab-btn" data-category="cereal-diseases" data-i18n="cereal_diseases">Cereal Diseases</button>
+            <button class="tab-btn" data-category="management" data-i18n="disease_management">Management</button>
+          </div>
+        </div>
+
+        <!-- Olive Diseases -->
+        <div class="disease-content active" id="olive-diseases">
+          <div class="diseases-grid">
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="images/olive-disease.jpg" alt="Olive disease" loading="lazy" />
+                <div class="severity-badge high" data-i18n="high_severity">High Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="olive_fruit_fly">Olive Fruit Fly</h4>
+                <p class="scientific-name">Bactrocera oleae</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="fruit_punctures">Small puncture holes in fruit</li>
+                      <li data-i18n="larval_tunnels">Larval tunnels in olive flesh</li>
+                      <li data-i18n="premature_drop">Premature fruit drop</li>
+                      <li data-i18n="oil_quality_reduction">Reduced oil quality</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="economic_impact">Economic Impact:</h5>
+                    <p data-i18n="olive_fly_impact">Can cause 30-80% yield losses in untreated orchards. Major threat to Jordan's olive industry.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag biological" data-i18n="biological_control">Biological Control</span>
+                      <span class="strategy-tag cultural" data-i18n="cultural_practices">Cultural Practices</span>
+                      <span class="strategy-tag chemical" data-i18n="targeted_spraying">Targeted Spraying</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="images/olive-trees.jpg" alt="Olive peacock spot" loading="lazy" />
+                <div class="severity-badge medium" data-i18n="medium_severity">Medium Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="olive_peacock_spot">Olive Peacock Spot</h4>
+                <p class="scientific-name">Spilocaea oleagina</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="circular_spots">Circular brown spots on leaves</li>
+                      <li data-i18n="yellow_halos">Yellow halos around spots</li>
+                      <li data-i18n="defoliation">Premature defoliation</li>
+                      <li data-i18n="reduced_photosynthesis">Reduced photosynthesis</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="conditions">Favorable Conditions:</h5>
+                    <p data-i18n="peacock_conditions">High humidity, moderate temperatures (15-25°C), and prolonged leaf wetness.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag cultural" data-i18n="pruning">Pruning</span>
+                      <span class="strategy-tag chemical" data-i18n="copper_sprays">Copper Sprays</span>
+                      <span class="strategy-tag preventive" data-i18n="sanitation">Sanitation</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="images/greenhouse-peppers.jpg" alt="Olive anthracnose" loading="lazy" />
+                <div class="severity-badge medium" data-i18n="medium_severity">Medium Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="olive_anthracnose">Olive Anthracnose</h4>
+                <p class="scientific-name">Colletotrichum spp.</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="fruit_rot">Dark, sunken lesions on fruit</li>
+                      <li data-i18n="mummified_fruit">Mummified fruit on trees</li>
+                      <li data-i18n="twig_dieback">Twig and branch dieback</li>
+                      <li data-i18n="cankers">Cankers on branches</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="spread">Disease Spread:</h5>
+                    <p data-i18n="anthracnose_spread">Spreads through rain splash and infected plant debris. More severe in wet seasons.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag cultural" data-i18n="debris_removal">Debris Removal</span>
+                      <span class="strategy-tag chemical" data-i18n="fungicide_application">Fungicides</span>
+                      <span class="strategy-tag resistant" data-i18n="resistant_varieties">Resistant Varieties</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vegetable Diseases -->
+        <div class="disease-content" id="vegetable-diseases">
+          <div class="diseases-grid">
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="images/tomato-virus.jpg" alt="Tomato virus" loading="lazy" />
+                <div class="severity-badge high" data-i18n="high_severity">High Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="tomato_yellow_leaf_curl">Tomato Yellow Leaf Curl Virus</h4>
+                <p class="scientific-name">TYLCV</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="leaf_yellowing">Yellowing and curling of leaves</li>
+                      <li data-i18n="stunted_growth">Stunted plant growth</li>
+                      <li data-i18n="reduced_fruit_set">Reduced fruit set</li>
+                      <li data-i18n="small_fruits">Small, poor-quality fruits</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="transmission">Transmission:</h5>
+                    <p data-i18n="tylcv_transmission">Transmitted by whiteflies (Bemisia tabaci). No cure once infected.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag resistant" data-i18n="resistant_varieties">Resistant Varieties</span>
+                      <span class="strategy-tag physical" data-i18n="insect_nets">Insect Nets</span>
+                      <span class="strategy-tag biological" data-i18n="whitefly_control">Whitefly Control</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="images/greenhouse-cucumbers.jpg" alt="Cucumber downy mildew" loading="lazy" />
+                <div class="severity-badge medium" data-i18n="medium_severity">Medium Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="cucumber_downy_mildew">Cucumber Downy Mildew</h4>
+                <p class="scientific-name">Pseudoperonospora cubensis</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="yellow_spots">Yellow spots on upper leaf surface</li>
+                      <li data-i18n="fuzzy_growth">Fuzzy gray growth on leaf undersides</li>
+                      <li data-i18n="leaf_death">Rapid leaf death and defoliation</li>
+                      <li data-i18n="yield_reduction">Significant yield reduction</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="conditions">Favorable Conditions:</h5>
+                    <p data-i18n="downy_mildew_conditions">Cool, humid conditions with temperatures 15-22°C and high relative humidity.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag cultural" data-i18n="air_circulation">Air Circulation</span>
+                      <span class="strategy-tag chemical" data-i18n="preventive_fungicides">Preventive Fungicides</span>
+                      <span class="strategy-tag resistant" data-i18n="resistant_cultivars">Resistant Cultivars</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="images/bacterial-wilt.jpg" alt="Bacterial wilt" loading="lazy" />
+                <div class="severity-badge high" data-i18n="high_severity">High Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="bacterial_wilt">Bacterial Wilt</h4>
+                <p class="scientific-name">Ralstonia solanacearum</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="sudden_wilting">Sudden wilting of plants</li>
+                      <li data-i18n="vascular_browning">Brown discoloration of vascular tissue</li>
+                      <li data-i18n="bacterial_ooze">Bacterial ooze from cut stems</li>
+                      <li data-i18n="plant_death">Rapid plant death</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="host_range">Host Range:</h5>
+                    <p data-i18n="bacterial_wilt_hosts">Affects tomatoes, potatoes, eggplants, peppers, and other solanaceous crops.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag cultural" data-i18n="crop_rotation">Crop Rotation</span>
+                      <span class="strategy-tag resistant" data-i18n="resistant_rootstocks">Resistant Rootstocks</span>
+                      <span class="strategy-tag preventive" data-i18n="soil_solarization">Soil Solarization</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cereal Diseases -->
+        <div class="disease-content" id="cereal-diseases">
+          <div class="diseases-grid">
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="images/wheat-rust.jpg" alt="Wheat rust" loading="lazy" />
+                <div class="severity-badge high" data-i18n="high_severity">High Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="wheat_stripe_rust">Wheat Stripe Rust</h4>
+                <p class="scientific-name">Puccinia striiformis</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="yellow_stripes">Yellow stripe patterns on leaves</li>
+                      <li data-i18n="pustules">Orange-yellow pustules</li>
+                      <li data-i18n="leaf_death">Premature leaf death</li>
+                      <li data-i18n="grain_shriveling">Shriveled grain</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="impact">Yield Impact:</h5>
+                    <p data-i18n="stripe_rust_impact">Can cause 10-70% yield losses depending on infection timing and severity.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag resistant" data-i18n="resistant_varieties">Resistant Varieties</span>
+                      <span class="strategy-tag chemical" data-i18n="fungicide_timing">Fungicide Timing</span>
+                      <span class="strategy-tag cultural" data-i18n="crop_monitoring">Crop Monitoring</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="disease-card glass fade-up">
+              <div class="disease-header">
+                <img src="images/barley-net-blotch.jpg" alt="Barley net blotch" loading="lazy" />
+                <div class="severity-badge medium" data-i18n="medium_severity">Medium Severity</div>
+              </div>
+              <div class="disease-info">
+                <h4 data-i18n="barley_net_blotch">Barley Net Blotch</h4>
+                <p class="scientific-name">Pyrenophora teres</p>
+                <div class="disease-details">
+                  <div class="detail-section">
+                    <h5 data-i18n="symptoms">Symptoms:</h5>
+                    <ul>
+                      <li data-i18n="net_pattern">Net-like pattern on leaves</li>
+                      <li data-i18n="brown_lesions">Brown elongated lesions</li>
+                      <li data-i18n="reduced_tillering">Reduced tillering</li>
+                      <li data-i18n="grain_quality_loss">Poor grain quality</li>
+                    </ul>
+                  </div>
+                  <div class="detail-section">
+                    <h5 data-i18n="conditions">Disease Development:</h5>
+                    <p data-i18n="net_blotch_conditions">Favored by moderate temperatures (20-25°C) and high humidity.</p>
+                  </div>
+                  <div class="management-strategies">
+                    <h5 data-i18n="management_strategies">Management:</h5>
+                    <div class="strategy-tags">
+                      <span class="strategy-tag cultural" data-i18n="residue_management">Residue Management</span>
+                      <span class="strategy-tag chemical" data-i18n="seed_treatment">Seed Treatment</span>
+                      <span class="strategy-tag resistant" data-i18n="tolerant_varieties">Tolerant Varieties</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Disease Management -->
+        <div class="disease-content" id="management">
+          <div class="management-approaches">
+            <h3 data-i18n="integrated_management_title">Integrated Disease Management</h3>
+            
+            <div class="management-strategy-cards">
+              <div class="strategy-card glass fade-up">
+                <div class="strategy-icon">🌱</div>
+                <h4 data-i18n="cultural_control">Cultural Control</h4>
+                <div class="strategy-methods">
+                  <ul>
+                    <li data-i18n="crop_rotation_method">Crop rotation to break disease cycles</li>
+                    <li data-i18n="sanitation_practices">Field sanitation and debris removal</li>
+                    <li data-i18n="planting_dates">Optimal planting dates</li>
+                    <li data-i18n="irrigation_management">Proper irrigation management</li>
+                    <li data-i18n="plant_spacing">Adequate plant spacing for air circulation</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="strategy-card glass fade-up">
+                <div class="strategy-icon">🧬</div>
+                <h4 data-i18n="biological_control">Biological Control</h4>
+                <div class="strategy-methods">
+                  <ul>
+                    <li data-i18n="beneficial_microorganisms">Beneficial microorganisms</li>
+                    <li data-i18n="biocontrol_agents">Biocontrol agents</li>
+                    <li data-i18n="compost_application">Compost and organic matter</li>
+                    <li data-i18n="natural_predators">Natural predator conservation</li>
+                    <li data-i18n="microbial_antagonists">Microbial antagonists</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="strategy-card glass fade-up">
+                <div class="strategy-icon">🧪</div>
+                <h4 data-i18n="chemical_control">Chemical Control</h4>
+                <div class="strategy-methods">
+                  <ul>
+                    <li data-i18n="targeted_applications">Targeted fungicide applications</li>
+                    <li data-i18n="resistance_management">Resistance management strategies</li>
+                    <li data-i18n="application_timing">Optimal application timing</li>
+                    <li data-i18n="systemic_fungicides">Systemic and contact fungicides</li>
+                    <li data-i18n="spray_coverage">Proper spray coverage</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="strategy-card glass fade-up">
+                <div class="strategy-icon">🛡️</div>
+                <h4 data-i18n="genetic_resistance">Genetic Resistance</h4>
+                <div class="strategy-methods">
+                  <ul>
+                    <li data-i18n="resistant_cultivars">Disease-resistant cultivars</li>
+                    <li data-i18n="breeding_programs">Plant breeding programs</li>
+                    <li data-i18n="gene_pyramiding">Gene pyramiding strategies</li>
+                    <li data-i18n="marker_selection">Marker-assisted selection</li>
+                    <li data-i18n="variety_diversification">Variety diversification</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Climate Change Impact -->
+          <div class="climate-impact glass fade-up">
+            <h3 data-i18n="climate_change_impact_title">Climate Change and Disease Pressure</h3>
+            <div class="climate-content">
+              <div class="climate-trends">
+                <h4 data-i18n="observed_trends">Observed Trends:</h4>
+                <ul>
+                  <li data-i18n="temperature_increase">Rising temperatures altering disease cycles</li>
+                  <li data-i18n="rainfall_patterns">Changing rainfall patterns affecting disease pressure</li>
+                  <li data-i18n="extreme_weather">More frequent extreme weather events</li>
+                  <li data-i18n="pest_migration">Pest and pathogen range expansion</li>
+                </ul>
+              </div>
+              <div class="adaptation-strategies">
+                <h4 data-i18n="adaptation_strategies_title">Adaptation Strategies:</h4>
+                <ul>
+                  <li data-i18n="early_warning">Early warning systems</li>
+                  <li data-i18n="climate_resilient">Climate-resilient varieties</li>
+                  <li data-i18n="precision_agriculture">Precision agriculture technologies</li>
+                  <li data-i18n="integrated_monitoring">Integrated pest and disease monitoring</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <span class="lightbox-close" id="lightboxClose">&times;</span>
+      <img class="lightbox-image" id="lightboxImage" src="" alt="">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+    <p data-i18n="loading">Loading...</p>
+  </div>
+
+  <footer class="footer glass">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4 data-i18n="about_site">About This Site</h4>
+        <p data-i18n="footer_description">Comprehensive resource for Jordan's food security, agriculture, and sustainable farming practices.</p>
+      </div>
+      <div class="footer-section">
+        <h4 data-i18n="quick_links">Quick Links</h4>
+        <div class="footer-links">
+          <a href="statistics.html" data-i18n="nav_stats">Statistics</a>
+          <a href="irrigation.html" data-i18n="nav_irrigation">Irrigation</a>
+          <a href="#crops" data-i18n="nav_crops">Crops</a>
+          <a href="diseases.html" data-i18n="nav_diseases">Diseases</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4 data-i18n="resources">Resources</h4>
+        <div class="footer-links">
+          <a href="quiz.html" data-i18n="nav_quiz">Knowledge Quiz</a>
+          <a href="contact.html" data-i18n="nav_contact">Contact</a>
+          <a href="#" data-i18n="print_version">Print Version</a>
+          <a href="#" data-i18n="download_pdf">Download PDF</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        <span data-i18n="footer_txt">Namaa Jordan</span>
+        · <a href="#hero" class="top" data-i18n="back_top">Back to top</a>
+      </p>
+      <p class="footer-credits">
+        <span data-i18n="footer_year">2024</span>
+        · <span data-i18n="footer_version">Version 1.0</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/data-manager.js"></script>
+  <script src="js/chart-manager.js"></script>
+  <script src="js/language-manager.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

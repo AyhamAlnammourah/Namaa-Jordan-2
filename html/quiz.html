@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Food Security Knowledge Quiz - Test your knowledge about Jordan's agriculture, irrigation, and food security challenges." />
+  <title>Food Security Knowledge Quiz | اختبار الأمن الغذائي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/rtl-support.css" />
+  <link rel="icon" href="../images/favicon.svg" />
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <header class="glass nav">
+    <div class="brand">
+      <span class="logo">🌿</span>
+      <span data-i18n="brand">Food Security in Jordan</span>
+    </div>
+    <nav class="nav-menu">
+      <a href="../index.html" data-i18n="nav_home">Home</a>
+      <a href="statistics.html" data-i18n="nav_stats">Statistics</a>
+      <a href="irrigation.html" data-i18n="nav_irrigation">Irrigation</a>
+      <a href="diseases.html" data-i18n="nav_diseases">Diseases</a>
+      <a href="quiz.html" class="active" data-i18n="nav_quiz">Quiz</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search..." data-i18n-placeholder="search_placeholder">
+      <button id="searchBtn">🔍</button>
+    </div>
+    <div class="lang-switch">
+      <button id="lang-en" class="chip active">EN</button>
+      <button id="lang-ar" class="chip">العربية</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Quiz Section -->
+    <section id="quiz" class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="quiz_title">Food Security Knowledge Quiz</h2>
+        <p class="section-desc" data-i18n="quiz_desc">Test your knowledge about Jordan's agriculture, irrigation, and food security challenges.</p>
+        
+        <!-- Quiz Introduction -->
+        <div class="quiz-intro glass fade-up">
+          <div class="intro-content">
+            <h3 data-i18n="quiz_intro_title">Test Your Knowledge</h3>
+            <p data-i18n="quiz_intro_desc">This comprehensive quiz covers various aspects of Jordan's food security, including agriculture statistics, irrigation systems, crop production, plant diseases, and sustainable farming practices.</p>
+            
+            <div class="quiz-features">
+              <div class="feature">
+                <div class="feature-icon">📊</div>
+                <div class="feature-text">
+                  <h4 data-i18n="feature_comprehensive">Comprehensive Coverage</h4>
+                  <p data-i18n="feature_comprehensive_desc">Questions covering all aspects of Jordan's agriculture</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-text">
+                  <h4 data-i18n="feature_interactive">Interactive Learning</h4>
+                  <p data-i18n="feature_interactive_desc">Immediate feedback and detailed explanations</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-icon">📈</div>
+                <div class="feature-text">
+                  <h4 data-i18n="feature_progress">Progress Tracking</h4>
+                  <p data-i18n="feature_progress_desc">Monitor your learning progress and scores</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="quiz-stats">
+              <div class="stat">
+                <span class="stat-number">10</span>
+                <span class="stat-label" data-i18n="total_questions">Questions</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">15</span>
+                <span class="stat-label" data-i18n="estimated_time">Minutes</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">70%</span>
+                <span class="stat-label" data-i18n="passing_score">Passing Score</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="quiz-container glass fade-up">
+          <div class="quiz-header">
+            <div class="quiz-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+              <span class="progress-text" id="progressText">Question 1 of 10</span>
+            </div>
+            <div class="quiz-score" id="quizScore">Score: 0/0</div>
+          </div>
+          
+          <div class="quiz-content" id="quizContent">
+            <div class="question-container" id="questionContainer">
+              <h3 class="question-text" id="questionText">Loading question...</h3>
+              <div class="answers-container" id="answersContainer">
+                <!-- Questions will be dynamically loaded -->
+              </div>
+            </div>
+            
+            <div class="quiz-controls">
+              <button class="btn ghost" id="prevBtn" data-i18n="previous">Previous</button>
+              <button class="btn primary" id="nextBtn" data-i18n="next">Next</button>
+            </div>
+          </div>
+          
+          <div class="quiz-results hidden" id="quizResults">
+            <div class="results-content">
+              <h3 data-i18n="quiz_complete">Quiz Complete!</h3>
+              <div class="final-score" id="finalScore">8/10</div>
+              <div class="score-message" id="scoreMessage">Excellent knowledge!</div>
+              <div class="results-breakdown" id="resultsBreakdown">
+                <!-- Results breakdown will be shown here -->
+              </div>
+              <div class="results-actions">
+                <button class="btn primary" id="restartQuiz" data-i18n="restart_quiz">Take Quiz Again</button>
+                <button class="btn ghost" id="reviewAnswers" data-i18n="review_answers">Review Answers</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz Topics Overview -->
+        <div class="quiz-topics glass fade-up">
+          <h3 data-i18n="quiz_topics_title">Quiz Topics</h3>
+          <div class="topics-grid">
+            <div class="topic-card">
+              <div class="topic-icon">📊</div>
+              <h4 data-i18n="topic_statistics">Agricultural Statistics</h4>
+              <p data-i18n="topic_statistics_desc">Land use, production data, and economic indicators</p>
+            </div>
+            <div class="topic-card">
+              <div class="topic-icon">💧</div>
+              <h4 data-i18n="topic_irrigation">Irrigation Systems</h4>
+              <p data-i18n="topic_irrigation_desc">Water management and irrigation technologies</p>
+            </div>
+            <div class="topic-card">
+              <div class="topic-icon">🌾</div>
+              <h4 data-i18n="topic_crops">Crop Production</h4>
+              <p data-i18n="topic_crops_desc">Major crops, yields, and cultivation practices</p>
+            </div>
+            <div class="topic-card">
+              <div class="topic-icon">🌿</div>
+              <h4 data-i18n="topic_plants">Native Plants</h4>
+              <p data-i18n="topic_plants_desc">Indigenous flora and conservation efforts</p>
+            </div>
+            <div class="topic-card">
+              <div class="topic-icon">🏢</div>
+              <h4 data-i18n="topic_vertical">Vertical Farming</h4>
+              <p data-i18n="topic_vertical_desc">Modern agricultural technologies and innovations</p>
+            </div>
+            <div class="topic-card">
+              <div class="topic-icon">🦠</div>
+              <h4 data-i18n="topic_diseases">Plant Diseases</h4>
+              <p data-i18n="topic_diseases_desc">Common diseases and management strategies</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Learning Resources -->
+        <div class="learning-resources glass fade-up">
+          <h3 data-i18n="learning_resources_title">Additional Learning Resources</h3>
+          <div class="resources-grid">
+            <div class="resource-item">
+              <div class="resource-icon">📚</div>
+              <h4 data-i18n="resource_guides">Study Guides</h4>
+              <p data-i18n="resource_guides_desc">Comprehensive guides covering all quiz topics</p>
+              <a href="statistics.html" class="resource-link" data-i18n="view_statistics">View Statistics →</a>
+            </div>
+            <div class="resource-item">
+              <div class="resource-icon">💡</div>
+              <h4 data-i18n="resource_tips">Study Tips</h4>
+              <p data-i18n="resource_tips_desc">Effective strategies for learning agricultural concepts</p>
+              <a href="irrigation.html" class="resource-link" data-i18n="learn_irrigation">Learn Irrigation →</a>
+            </div>
+            <div class="resource-item">
+              <div class="resource-icon">🔬</div>
+              <h4 data-i18n="resource_research">Research Papers</h4>
+              <p data-i18n="resource_research_desc">Latest research on Jordan's agricultural development</p>
+              <a href="diseases.html" class="resource-link" data-i18n="explore_diseases">Explore Diseases →</a>
+            </div>
+            <div class="resource-item">
+              <div class="resource-icon">📞</div>
+              <h4 data-i18n="resource_contact">Expert Contact</h4>
+              <p data-i18n="resource_contact_desc">Connect with agricultural experts and researchers</p>
+              <a href="contact.html" class="resource-link" data-i18n="get_help">Get Help →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Performance Analytics - Simplified without charts -->
+        <div class="performance-analytics glass fade-up">
+          <h3 data-i18n="performance_title">Your Performance</h3>
+          <div class="analytics-content">
+            <div class="performance-stats">
+              <div class="perf-stat">
+                <span class="perf-number" id="totalAttempts">0</span>
+                <span class="perf-label" data-i18n="total_attempts">Total Attempts</span>
+              </div>
+              <div class="perf-stat">
+                <span class="perf-number" id="averageScore">0%</span>
+                <span class="perf-label" data-i18n="average_score">Average Score</span>
+              </div>
+              <div class="perf-stat">
+                <span class="perf-number" id="bestScore">0%</span>
+                <span class="perf-label" data-i18n="best_score">Best Score</span>
+              </div>
+              <div class="perf-stat">
+                <span class="perf-number" id="improvementRate">0%</span>
+                <span class="perf-label" data-i18n="improvement_rate">Improvement</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer glass">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4 data-i18n="about_site">About This Site</h4>
+        <p data-i18n="footer_description">Comprehensive resource for Jordan's food security, agriculture, and sustainable farming practices.</p>
+      </div>
+      <div class="footer-section">
+        <h4 data-i18n="quick_links">Quick Links</h4>
+        <div class="footer-links">
+          <a href="statistics.html" data-i18n="nav_stats">Statistics</a>
+          <a href="irrigation.html" data-i18n="nav_irrigation">Irrigation</a>
+          <a href="index.html#crops" data-i18n="nav_crops">Crops</a>
+          <a href="diseases.html" data-i18n="nav_diseases">Diseases</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4 data-i18n="resources">Resources</h4>
+        <div class="footer-links">
+          <a href="quiz.html" data-i18n="nav_quiz">Knowledge Quiz</a>
+          <a href="contact.html" data-i18n="nav_contact">Contact</a>
+          <a href="#" data-i18n="print_version">Print Version</a>
+          <a href="#" data-i18n="download_pdf">Download PDF</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        <span data-i18n="footer_txt">Namaa Jordan</span>
+        · <a href="#quiz" class="top" data-i18n="back_top">Back to top</a>
+      </p>
+      <p class="footer-credits">
+        <span data-i18n="footer_year">2025</span>
+        · <span data-i18n="footer_version">Version 1.0</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="../js/data-manager.js"></script>
+  <script src="../js/chart-manager.js"></script>
+  <script src="../js/language-manager.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

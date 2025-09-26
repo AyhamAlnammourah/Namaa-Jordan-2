@@ -1,0 +1,47 @@
+{
+  "projectData": {
+    "title": "Vertical Farming Projects in Jordan",
+    "data": [
+      { "project": "Amman Urban Farms", "area_sqm": 500, "investment_usd": 250000, "plants_monthly": 2000, "status": "operational" },
+      { "project": "JUST Research Facility", "area_sqm": 200, "investment_usd": 150000, "plants_monthly": 800, "status": "research" },
+      { "project": "Jordan Valley Greenhouse", "area_sqm": 1200, "investment_usd": 600000, "plants_monthly": 5000, "status": "operational" },
+      { "project": "Zarqa Innovation Hub", "area_sqm": 300, "investment_usd": 180000, "plants_monthly": 1200, "status": "planning" },
+      { "project": "Irbid Tech Farm", "area_sqm": 400, "investment_usd": 220000, "plants_monthly": 1600, "status": "construction" }
+    ],
+    "lastUpdated": "2024-12-01"
+  },
+  "efficiency": {
+    "title": "Vertical vs Traditional Farming Efficiency",
+    "data": [
+      { "metric": "Water Usage", "traditional": 100, "vertical": 5, "unit": "percentage" },
+      { "metric": "Land Usage", "traditional": 100, "vertical": 8, "unit": "percentage" },
+      { "metric": "Yield per m²", "traditional": 1, "vertical": 15, "unit": "multiplier" },
+      { "metric": "Energy Usage", "traditional": 20, "vertical": 100, "unit": "kwh_per_kg" },
+      { "metric": "Labor Hours", "traditional": 100, "vertical": 60, "unit": "percentage" }
+    ],
+    "lastUpdated": "2024-12-01"
+  },
+  "cropYields": {
+    "title": "Vertical Farming Crop Yields (kg/m²/year)",
+    "data": [
+      { "crop": "Lettuce", "yield": 45, "cycles_per_year": 12, "price_per_kg": 3.5 },
+      { "crop": "Spinach", "yield": 40, "cycles_per_year": 10, "price_per_kg": 4.0 },
+      { "crop": "Herbs (Basil)", "yield": 35, "cycles_per_year": 8, "price_per_kg": 12.0 },
+      { "crop": "Microgreens", "yield": 25, "cycles_per_year": 24, "price_per_kg": 25.0 },
+      { "crop": "Kale", "yield": 38, "cycles_per_year": 8, "price_per_kg": 5.0 },
+      { "crop": "Arugula", "yield": 30, "cycles_per_year": 10, "price_per_kg": 6.0 }
+    ],
+    "lastUpdated": "2024-12-01"
+  },
+  "investment": {
+    "title": "Investment and Growth Trends",
+    "data": [
+      { "year": 2020, "total_investment": 800000, "active_projects": 3, "jobs_created": 25 },
+      { "year": 2021, "total_investment": 1500000, "active_projects": 8, "jobs_created": 65 },
+      { "year": 2022, "total_investment": 3200000, "active_projects": 15, "jobs_created": 140 },
+      { "year": 2023, "total_investment": 6800000, "active_projects": 25, "jobs_created": 300 },
+      { "year": 2024, "total_investment": 12000000, "active_projects": 35, "jobs_created": 450 }
+    ],
+    "lastUpdated": "2024-12-01"
+  }
+}
