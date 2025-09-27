@@ -10,23 +10,23 @@
   --warning: #f39c12; /* Orange */
   --danger: #e74c3c; /* Red */
   --info: #3498db; /* Blue */
-  
+
   /* Glass morphism */
-  --glass-bg: rgba(255,255,255,0.08);
-  --glass-brd: rgba(255,255,255,0.25);
-  --glass-hover: rgba(255,255,255,0.12);
-  
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-brd: rgba(255, 255, 255, 0.25);
+  --glass-hover: rgba(255, 255, 255, 0.12);
+
   /* Typography */
   --text: #f2fff6;
   --text-muted: #cfe9d8;
   --text-dark: #2c3e50;
   --text-light: #ecf0f1;
-  
+
   /* Shadows */
-  --shadow-sm: 0 2px 10px rgba(0,0,0,0.1);
-  --shadow: 0 10px 30px rgba(0,0,0,0.25);
-  --shadow-lg: 0 20px 60px rgba(0,0,0,0.35);
-  
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.35);
+
   /* Spacing */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -34,13 +34,13 @@
   --space-lg: 1.5rem;
   --space-xl: 2rem;
   --space-2xl: 3rem;
-  
+
   /* Breakpoints */
   --mobile: 480px;
   --tablet: 768px;
   --desktop: 1024px;
   --wide: 1440px;
-  
+
   /* Animations */
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-fast: all 0.15s ease;
@@ -48,7 +48,9 @@
 }
 
 /* Reset and Base Styles */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -62,7 +64,8 @@ html {
 body {
   height: 100%;
   color: var(--text);
-  font-family: 'Poppins', 'Cairo', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-family: "Poppins", "Cairo", system-ui, -apple-system, "Segoe UI", Roboto,
+    Arial, sans-serif;
   font-weight: 400;
   line-height: 1.6;
   background: linear-gradient(-45deg, var(--bg1), var(--bg2), var(--bg3));
@@ -74,9 +77,15 @@ body {
 }
 
 @keyframes bgShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Particles Canvas */
@@ -133,8 +142,12 @@ body {
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.05); }
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
 }
 
 .nav-menu {
@@ -163,7 +176,7 @@ body {
 }
 
 .nav-menu a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 50%;
@@ -293,7 +306,11 @@ main {
 }
 
 .section.alt {
-  background: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(255,255,255,0));
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0)
+  );
 }
 
 .container {
@@ -356,8 +373,13 @@ main {
 }
 
 @keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .subtitle {
@@ -395,13 +417,18 @@ main {
 }
 
 .btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
   transition: var(--transition-slow);
 }
 
@@ -454,15 +481,30 @@ main {
   box-shadow: var(--shadow);
 }
 
-.bubble:nth-child(2) { animation-delay: 1s; }
-.bubble:nth-child(3) { animation-delay: 2s; }
-.bubble:nth-child(4) { animation-delay: 3s; }
+.bubble:nth-child(2) {
+  animation-delay: 1s;
+}
+.bubble:nth-child(3) {
+  animation-delay: 2s;
+}
+.bubble:nth-child(4) {
+  animation-delay: 3s;
+}
 
 @keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  25% { transform: translateY(-8px) rotate(1deg); }
-  50% { transform: translateY(-15px) rotate(0deg); }
-  75% { transform: translateY(-8px) rotate(-1deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
 }
 
 /* Enhanced Grid Layouts */
@@ -547,7 +589,7 @@ main {
 }
 
 .stat-number {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 800;
   color: var(--acc1);
   display: block;
@@ -566,8 +608,14 @@ main {
 }
 
 @keyframes countUp {
-  from { transform: scale(0.5); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* Water Stress Info */
@@ -613,14 +661,16 @@ main {
 }
 
 .water-challenges li::before {
-  content: '⚠️';
+  content: "⚠️";
   position: absolute;
   left: 0;
   top: var(--space-xs);
 }
 
 /* Tab System */
-.category-tabs, .plant-categories .category-tabs, .disease-categories .category-tabs {
+.category-tabs,
+.plant-categories .category-tabs,
+.disease-categories .category-tabs {
   display: flex;
   gap: var(--space-sm);
   margin-bottom: var(--space-2xl);
@@ -647,11 +697,15 @@ main {
   transform: translateY(-2px);
 }
 
-.crop-content, .plant-content, .disease-content {
+.crop-content,
+.plant-content,
+.disease-content {
   display: none;
 }
 
-.crop-content.active, .plant-content.active, .disease-content.active {
+.crop-content.active,
+.plant-content.active,
+.disease-content.active {
   display: block;
   animation: fadeInUp 0.5s ease;
 }
@@ -715,7 +769,7 @@ main {
 }
 
 .method-benefits li::before {
-  content: '✓';
+  content: "✓";
   position: absolute;
   left: 0;
   color: var(--acc1);
@@ -760,9 +814,18 @@ main {
   transform: scale(1.05);
 }
 
-.region.north { top: 20px; left: 50px; }
-.region.middle { top: 80px; left: 80px; }
-.region.south { bottom: 20px; right: 50px; }
+.region.north {
+  top: 20px;
+  left: 50px;
+}
+.region.middle {
+  top: 80px;
+  left: 80px;
+}
+.region.south {
+  bottom: 20px;
+  right: 50px;
+}
 
 .valley-stats {
   display: flex;
@@ -959,7 +1022,8 @@ main {
   border-radius: 16px;
 }
 
-.plant-front, .plant-back {
+.plant-front,
+.plant-back {
   position: absolute;
   inset: 0;
   display: flex;
@@ -974,12 +1038,20 @@ main {
 }
 
 .plant-front {
-  background: linear-gradient(135deg, rgba(46, 204, 113, 0.25), rgba(39, 174, 96, 0.18));
+  background: linear-gradient(
+    135deg,
+    rgba(46, 204, 113, 0.25),
+    rgba(39, 174, 96, 0.18)
+  );
 }
 
 .plant-back {
   transform: rotateY(180deg);
-  background: linear-gradient(135deg, rgba(39, 174, 96, 0.25), rgba(46, 204, 113, 0.18));
+  background: linear-gradient(
+    135deg,
+    rgba(39, 174, 96, 0.25),
+    rgba(46, 204, 113, 0.18)
+  );
 }
 
 .plant-card.flip:hover .plant-front {
@@ -991,8 +1063,10 @@ main {
 }
 
 .plant-image {
-  width: 80px;
-  height: 80px;
+  min-width: 80px;
+  max-width: 80px;
+  min-height: 80px;
+  max-height: 80px;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: var(--space-sm);
@@ -1004,7 +1078,8 @@ main {
   object-fit: cover;
 }
 
-.scientific-tag, .scientific-name {
+.scientific-tag,
+.scientific-name {
   font-size: 0.85rem;
   color: var(--text-muted);
   font-style: italic;
@@ -1141,17 +1216,35 @@ main {
   animation: levelPulse 3s ease-in-out infinite;
 }
 
-.level-1 { top: 0; animation-delay: 0s; }
-.level-2 { top: 50px; animation-delay: 0.5s; }
-.level-3 { top: 100px; animation-delay: 1s; }
-.level-4 { top: 150px; animation-delay: 1.5s; }
-
-@keyframes levelPulse {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 1; }
+.level-1 {
+  top: 0;
+  animation-delay: 0s;
+}
+.level-2 {
+  top: 50px;
+  animation-delay: 0.5s;
+}
+.level-3 {
+  top: 100px;
+  animation-delay: 1s;
+}
+.level-4 {
+  top: 150px;
+  animation-delay: 1.5s;
 }
 
-.plants, .led-lights {
+@keyframes levelPulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.plants,
+.led-lights {
   font-size: 1.2rem;
 }
 
@@ -1166,8 +1259,13 @@ main {
 }
 
 @keyframes waterFlow {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .tech-specs {
@@ -1457,7 +1555,7 @@ main {
 }
 
 .detail-section li::before {
-  content: '•';
+  content: "•";
   position: absolute;
   left: 0;
   color: var(--acc1);
@@ -1541,7 +1639,7 @@ main {
 }
 
 .strategy-methods li::before {
-  content: '→';
+  content: "→";
   position: absolute;
   left: 0;
   color: var(--acc1);
@@ -2056,8 +2154,12 @@ main {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Footer */
@@ -2142,13 +2244,13 @@ main {
 
 .hover-raise:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
 }
 
 /* RTL Support */
 [dir="rtl"] body,
 [dir="rtl"] .subtitle {
-  font-family: 'Cairo', 'Poppins', system-ui;
+  font-family: "Cairo", "Poppins", system-ui;
 }
 
 [dir="rtl"] .nav-menu {
@@ -2169,19 +2271,19 @@ main {
 }
 
 /* Responsive Design - Mobile First */
-@media (max-width: 480px) {
+@media (max-width: 780px) {
   .nav {
     padding: var(--space-sm) var(--space-md);
     flex-wrap: wrap;
   }
-  
+
   .nav-menu {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--glass-bg);
+    background: var(--bg1);
     backdrop-filter: blur(12px);
     border: 1px solid var(--glass-brd);
     border-radius: 12px;
@@ -2190,99 +2292,100 @@ main {
     flex-direction: column;
     gap: var(--space-sm);
   }
-  
+
   .nav-menu.active {
     display: flex;
   }
-  
+
   .nav-toggle {
     display: flex;
   }
-  
+}
+@media (max-width: 480px) {
   .search-container {
     order: -1;
     width: 100%;
     margin-bottom: var(--space-sm);
   }
-  
+
   #searchInput {
     width: 100%;
   }
-  
+
   .section {
     padding: var(--space-2xl) var(--space-md);
   }
-  
+
   .hero-content {
     padding: var(--space-lg);
   }
-  
+
   .floating-stats {
     position: relative;
     bottom: auto;
     margin-top: var(--space-2xl);
   }
-  
+
   .stats-overview {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .charts-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .irrigation-methods {
     grid-template-columns: 1fr;
   }
-  
+
   .valley-content {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .map-placeholder {
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
   }
-  
+
   .featured-plant {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .plant-image-large {
     max-width: 250px;
     margin: 0 auto;
   }
-  
+
   .tech-demo {
     grid-template-columns: 1fr;
   }
-  
+
   .vertical-farm-animation {
     width: 250px;
   }
-  
+
   .contact-content {
     grid-template-columns: 1fr;
   }
-  
+
   .climate-content {
     grid-template-columns: 1fr;
   }
-  
+
   .water-stress-content {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .comparison-header,
   .comparison-row {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .comparison-metric {
     font-weight: 600;
     background: var(--glass-hover);
@@ -2293,33 +2396,33 @@ main {
   .section-title {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
   }
-  
+
   .title {
     font-size: clamp(2rem, 5vw, 3rem);
   }
-  
+
   .stats-overview {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .charts-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .benefit-card {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .case-study-stats {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .investment-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
     text-align: center;
@@ -2330,11 +2433,11 @@ main {
   .container {
     max-width: 900px;
   }
-  
+
   .stats-overview {
     grid-template-columns: repeat(4, 1fr);
   }
-  
+
   .charts-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2344,7 +2447,7 @@ main {
   .container {
     max-width: 1200px;
   }
-  
+
   .section {
     padding: clamp(80px, 10vw, 140px) var(--space-xl);
   }
@@ -2356,17 +2459,19 @@ main {
     background: white;
     color: black;
   }
-  
-  .nav, .floating-stats, .social-sharing {
+
+  .nav,
+  .floating-stats,
+  .social-sharing {
     display: none;
   }
-  
+
   .glass {
     background: white;
     border: 1px solid #ccc;
     box-shadow: none;
   }
-  
+
   .section {
     break-inside: avoid;
     page-break-inside: avoid;
@@ -2376,8 +2481,8 @@ main {
 /* High Contrast Mode */
 @media (prefers-contrast: high) {
   :root {
-    --glass-bg: rgba(255,255,255,0.2);
-    --glass-brd: rgba(255,255,255,0.5);
+    --glass-bg: rgba(255, 255, 255, 0.2);
+    --glass-brd: rgba(255, 255, 255, 0.5);
     --text: #ffffff;
     --text-muted: #e0e0e0;
   }
@@ -2392,29 +2497,51 @@ main {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   .bubble {
     animation: none;
   }
-  
+
   .cube {
     animation: none;
   }
 }
 
 /* Animations on scroll */
-.fade-up{opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease}
-.fade-up.in-view{opacity:1; transform: translateY(0)}
+.fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* Footer */
-.footer{margin:30px; padding:14px 18px; text-align:center}
-.footer .top{color:#b7ffd5}
+.footer {
+  margin: 30px;
+  padding: 14px 18px;
+  text-align: center;
+}
+.footer .top {
+  color: #b7ffd5;
+}
 
 /* RTL support */
-[dir="rtl"] body, [dir="rtl"] .subtitle{font-family:'Cairo','Poppins',system-ui}
-[dir="rtl"] .nav nav{flex-direction:row-reverse}
-[dir="rtl"] .nav a{margin-inline:0}
-[dir="rtl"] .cta{flex-direction:row-reverse}
+[dir="rtl"] body,
+[dir="rtl"] .subtitle {
+  font-family: "Cairo", "Poppins", system-ui;
+}
+[dir="rtl"] .nav nav {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .nav a {
+  margin-inline: 0;
+}
+[dir="rtl"] .cta {
+  flex-direction: row-reverse;
+}
 
 /* Additional Styles for New Pages */
 
@@ -2898,16 +3025,16 @@ main {
   .contact-content {
     grid-template-columns: 1fr;
   }
-  
+
   .newsletter-input-group {
     flex-direction: column;
   }
-  
+
   .newsletter-options {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .quiz-stats {
     flex-direction: column;
     gap: var(--space-md);
@@ -2987,6 +3114,9 @@ main {
   transform: scale(1.05);
 }
 
+.crop-info{
+  padding: var(--space-lg);
+}
 .greenhouse-crop-info {
   padding: var(--space-lg);
 }
@@ -3002,16 +3132,23 @@ main {
   line-height: 1.6;
 }
 
-@media (max-width:600px){
-  .nav{padding:10px 12px}
-  .section{padding:60px 16px}
-  .scene{width:140px; height:140px}
-  
+@media (max-width: 600px) {
+  .nav {
+    padding: 10px 12px;
+  }
+  .section {
+    padding: 60px 16px;
+  }
+  .scene {
+    width: 140px;
+    height: 140px;
+  }
+
   .greenhouse-stats {
     grid-template-columns: 1fr;
     gap: var(--space-md);
   }
-  
+
   .greenhouse-crops-grid {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
@@ -3100,7 +3237,7 @@ main {
 }
 
 .medicinal-properties li::before {
-  content: '🌿';
+  content: "🌿";
   position: absolute;
   left: 0;
   top: var(--space-xs);
@@ -3181,22 +3318,22 @@ main {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
   }
-  
+
   .featured-plant {
     grid-template-columns: 1fr;
     text-align: center;
     gap: var(--space-lg);
   }
-  
+
   .plant-image-large {
     max-width: 250px;
     margin: 0 auto;
   }
-  
+
   .native-plants-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
-  
+
   .plant-card {
     height: auto;
     min-height: 180px;
@@ -3313,7 +3450,7 @@ main {
 }
 
 .conservation-actions li::before {
-  content: '🛡️';
+  content: "🛡️";
   position: absolute;
   left: 0;
   top: var(--space-xs);
@@ -3353,20 +3490,20 @@ main {
     grid-template-columns: 1fr;
     gap: var(--space-md);
   }
-  
+
   .conservation-item {
     padding: var(--space-md);
   }
-  
+
   .conservation-icon {
     font-size: 2.5rem;
   }
-  
+
   .endangered-plant-content {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .endangered-plant-content img {
     max-width: 200px;
     margin: 0 auto;
