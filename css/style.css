@@ -8,7 +8,7 @@
   --acc2: #27ae60; /* Secondary green */
   --acc3: #1abc9c; /* Teal accent */
   --warning: #f39c12; /* Orange */
-  --danger: #e74c3c; /* Red */
+  --danger: #fc8275; /* Red */
   --info: #3498db; /* Blue */
 
   /* Glass morphism */
@@ -550,7 +550,7 @@ main {
 
 .diseases-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
   gap: var(--space-xl);
 }
 /* Card Components */
@@ -780,6 +780,10 @@ main {
 .jordan-valley-section {
   padding: var(--space-2xl);
   margin: var(--space-2xl) 0;
+  text-align: center;
+}
+.jordan-valley-section h3 {
+  margin-bottom: var(--space-md);
 }
 
 .valley-content {
@@ -792,8 +796,9 @@ main {
 .map-placeholder {
   width: 300px;
   height: 200px;
-  background: linear-gradient(135deg, var(--acc1), var(--acc2));
-  border-radius: 12px;
+  background: linear-gradient(135deg, var(--bg2), var(--bg3));
+  box-shadow: var(--shadow);
+  border-radius: 20px 60px;
   position: relative;
   overflow: hidden;
 }
@@ -1294,7 +1299,7 @@ main {
 /* Case Studies */
 .case-study-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
   gap: var(--space-xl);
   margin: var(--space-2xl) 0;
 }
@@ -1376,6 +1381,15 @@ main {
 .investment-future {
   margin: var(--space-2xl) 0;
 }
+.investment-stats,
+.future-potential {
+  margin-bottom: var(--space-2xl);
+}
+.investment-stats h3,
+.future-potential h3,.comparison-chart h3 {
+  text-align: center;
+  margin: var(--space-md) 0;
+}
 
 .investment-grid {
   display: grid;
@@ -1429,7 +1443,7 @@ main {
 .comparison-table {
   display: grid;
   gap: 1px;
-  background: var(--glass-brd);
+  background: var(--bg1);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -2390,6 +2404,9 @@ main {
     font-weight: 600;
     background: var(--glass-hover);
   }
+  .case-study-card {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2712,8 +2729,15 @@ main {
   box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
 }
 
-.expert-network {
+.expert-network,
+.educational-programs {
   margin: var(--space-2xl) 0;
+  padding: var(--space-lg);
+}
+.expert-network h3,
+.expert-network p,
+.educational-programs h3 {
+  margin-bottom: var(--space-lg);
 }
 
 .experts-grid {
@@ -2813,6 +2837,9 @@ main {
   padding: var(--space-xs) 0;
   border-bottom: 1px solid var(--glass-brd);
 }
+#subject {
+  background-color: var(--text-dark);
+}
 
 .detail-label {
   font-weight: 600;
@@ -2825,6 +2852,7 @@ main {
 
 .newsletter-signup {
   margin: var(--space-2xl) 0;
+  padding: var(--space-2xl);
   text-align: center;
 }
 
@@ -2933,8 +2961,23 @@ main {
 }
 
 /* Irrigation Page Specific Styles */
-.advanced-technologies {
+.advanced-technologies,
+.water-sources,
+.regional-stats,
+.quiz-intro,
+.quiz-topics,
+.learning-resources,
+.performance-analytics {
   margin: var(--space-2xl) 0;
+  padding: 10px;
+  text-align: center;
+}
+.advanced-technologies h3,
+.water-sources h3,
+.regional-stats h3,
+.quiz-topics h3 .learning-resources h3,
+.performance-analytics h3 {
+  margin-bottom: var(--space-md);
 }
 
 .tech-grid {
@@ -3114,7 +3157,7 @@ main {
   transform: scale(1.05);
 }
 
-.crop-info{
+.crop-info {
   padding: var(--space-lg);
 }
 .greenhouse-crop-info {
